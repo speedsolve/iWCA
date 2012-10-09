@@ -16,6 +16,9 @@ all:
   record:
     id: ['AfR', 'AsR', 'OcR', 'ER', 'NAR', 'SAR']
 
+  region:
+    default: World
+
   round:
     id:
      0:      { name: Qualification Round }
