@@ -10,12 +10,30 @@
  */
 class rankingActions extends sfActions
 {
+  /**
+   * preExecute
+   * jQuery MobileのAjaxトランジッションで
+   * Symfony側がLayoutを外してしまう問題の対応
+   */
+  public function preExecute()
+  {
+    $this->setLayout('layout');
+  }
+
  /**
   * Executes index action
   *
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
+  {
+  }
+
+  public function executeSingle(sfWebRequest $request)
+  {
+  }
+
+  public function executeAverage(sfWebRequest $request)
   {
   }
 }
