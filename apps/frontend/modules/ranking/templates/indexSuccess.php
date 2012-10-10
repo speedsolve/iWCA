@@ -5,7 +5,7 @@
         </h3>
     </div>
     <div data-role="content">
-        <form action="" method="POST">
+        <form action="" method="GET">
             <label for="selectmenu1">
             </label>
             <select name="eventId" data-theme="a" data-overlay-theme="b" data-native-menu="false">
@@ -42,12 +42,12 @@
                 <option value="">&nbsp;</option>
                 <option value="0">All</option>
                 <option value="">&nbsp;</option>
-                <option value="Only <?php echo sfConfig::get('app_most_old_year') ?>">Only <?php echo sfConfig::get('app_most_old_year') ?></option>
+                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Only <?php echo sfConfig::get('app_most_old_year') ?></option>
                 <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
                     <option value="<?php echo $year ?>">Only <?php echo $year ?></option>
                 <?php endfor ?>
                 <option value="">&nbsp;</option>
-                <option value="Until <?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
+                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
                 <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
                     <option value="<?php echo sfConfig::get('app_most_old_year') . '-' . $year ?>">Until <?php echo $year ?></option>
                 <?php endfor ?>

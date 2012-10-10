@@ -31,12 +31,20 @@ class rankingActions extends sfActions
 
   public function executeSingle(sfWebRequest $request)
   {
-    $eventId       = $request->getParameter('eventId');
-    $region        = $request->getParameter('region');
-    $years         = $request->getParameter('years');
-    $gender        = $request->getParameter('gender');
-    $type          = $request->getParameter('type');
-    $this->results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
+    $eventId = $request->getParameter('eventId');
+    $region  = $request->getParameter('region');
+    $years   = $request->getParameter('years');
+    $gender  = $request->getParameter('gender');
+    $type    = $request->getParameter('type');
+    $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
+
+    foreach ($results as $i => &$result) {
+        $result['rank']   = Util::adjustRank($results, $i, 'single');
+        $result['record'] = Util::getChangeRecord($result['single'], $result['eventid']);
+        unset($result['single']);
+    }
+
+    $this->results = $results;
   }
 
   public function executeAverage(sfWebRequest $request)

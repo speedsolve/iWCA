@@ -8,6 +8,7 @@ class Util
 {
   public function getChangeRecord ($time, $event)
   {
+    error_log($time);
     // Format調整並びにDNF、DNSの判定
     if ($time == 0) return NULL;
     elseif ($time == -1) return 'DNF';
