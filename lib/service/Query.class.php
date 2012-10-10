@@ -16,7 +16,7 @@ class Query
     }
   }
 
-  public static function year(&$query, $year)
+  public static function years(&$query, $years)
   {
     if (substr($years, 4, 1) == '-') {
       $from = substr($years, 0, 4);
@@ -33,13 +33,18 @@ class Query
     $query->andWhere('gender = ?', $gender);
   }
 
+  public static function groupBy(&$query, $groupBy)
+  {
+    $query->groupBy($groupBy);
+  }
+
+  public static function limit(&$query, $limit)
+  {
+    $query->limit($limit);
+  }
+
   public static function offset(&$query, $offset)
   {
     $query->offset($offset);
-  }
-
-  public static function limit(&$query, $offset)
-  {
-    $query->limit($limit);
   }
 }

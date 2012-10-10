@@ -1,3 +1,3 @@
 <div data-role="page" id="page2">
-  single
+    <?php var_dump($results) ?>
 </div>

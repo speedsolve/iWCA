@@ -18,18 +18,17 @@ class SinglesTable extends Doctrine_Table
     }
 
     /**
-     * 純粋なシングルランキングを取得。
-     * 同一人物が重複する。
+     * シングルランキングを取得。
+     * @param type    0:Ranking 1:Result
      * @param eventId イベント
      * @param region  地域
      * @param years   年
      * @param gender  性別
      * @return array  結果
      */
-    public function getRankingOfResult($eventId, $region, $years, $gender, $limit, $offset)
+    public function getRanking($type, $eventId, $region, $years, $gender, $limit, $offset)
     {
       $query = $this->createQuery();
-      // 必要な項目だけ。
       $query->select('single, eventid, personid, personname, personcountryid, competitionid');
       $query->andWhere('eventid = ?', $eventId);
 
@@ -38,15 +37,19 @@ class SinglesTable extends Doctrine_Table
       }
 
       if ($years) {
-        Query::year(&$query, $gender);
+        Query::years(&$query, $years);
       }
 
       if ($gender) {
         Query::gender(&$query, $gender);
       }
 
+      if ($type) {
+        Query::groupBy(&$query, 'personId');
+      }
+
       if ($limit) {
-        Query::offset(&$query, $limit);
+        Query::limit(&$query, $limit);
       }
 
       if ($offset) {
