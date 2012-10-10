@@ -8,7 +8,7 @@
         <form action="" method="POST">
             <label for="selectmenu1">
             </label>
-            <select name="event" data-theme="a" data-overlay-theme="a" data-native-menu="false">
+            <select name="event" data-theme="a" data-overlay-theme="b" data-native-menu="false">
                 <option value="333">
                     Event
                 </option>
@@ -18,7 +18,7 @@
             </select>
             <label for="selectmenu2">
             </label>
-            <select name="region" data-theme="a" data-overlay-theme="a" data-native-menu="false">
+            <select name="region" data-theme="a" data-overlay-theme="b" data-native-menu="false">
                 <option value="World">
                     Region
                 </option>
@@ -35,7 +35,7 @@
             </select>
             <label for="selectmenu3">
             </label>
-            <select name="years" data-theme="a" data-overlay-theme="a" data-native-menu="false">
+            <select name="years" data-theme="a" data-overlay-theme="b" data-native-menu="false">
                 <option value="All">
                     Years
                 </option>
@@ -54,7 +54,7 @@
             </select>
             <label for="selectmenu4">
             </label>
-            <select name="gender" data-theme="a" data-overlay-theme="a" data-native-menu="false">
+            <select name="gender" data-theme="a" data-overlay-theme="b" data-native-menu="false">
                 <option value="All">
                     Gender
                 </option>
