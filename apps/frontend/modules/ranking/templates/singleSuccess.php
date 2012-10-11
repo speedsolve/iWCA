@@ -10,7 +10,7 @@
                 <li>
                     <?php echo $result['rank'] ?>.&nbsp;<?php echo image_tag('flag/' . $result['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $result['personname'] ?><br />
                     <?php echo $result['record'] ?><br />
-                    <?php echo $result['competitonname'] ?><br />
+                    <span style="font-size:x-small;color:#aaaaaa;"><?php echo $result['competitionname'] ?></span><br />
                 </li>
             <?php endforeach; ?>
         </ul>

@@ -6,6 +6,12 @@
  */
 class Util
 {
+  public static function removeParenthesis($string)
+  {
+    $string = preg_replace('/(\(|（).*(\)|）)/', '', $string);
+    return $string;
+  }
+
   public static function getChangeRecord($time, $event)
   {
     // Format調整並びにDNF、DNSの判定

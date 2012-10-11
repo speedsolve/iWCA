@@ -29,7 +29,7 @@ class SinglesTable extends Doctrine_Table
     public function getRanking($type, $eventId, $region, $years, $gender, $limit, $offset)
     {
       $query = $this->createQuery();
-      $query->select('single, eventid, personid, personname, personcountryid, competitionid');
+      $query->select('single, eventid, personid, personname, personcountryid, competitionname');
       $query->andWhere('eventid = ?', $eventId);
 
       if ($region && $region != sfConfig::get('app_region_default')) {

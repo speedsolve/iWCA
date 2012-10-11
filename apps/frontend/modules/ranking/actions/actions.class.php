@@ -41,6 +41,7 @@ class rankingActions extends sfActions
     // ランク追加
     $results = Util::adjustRank($results, 'single');
     foreach ($results as $i => &$result) {
+      $result['personname'] = Util::removeParenthesis($result['personname']);
       $result['record'] = Util::getChangeRecord($result['single'], $result['eventid']);
       unset($result['single']);
     }
