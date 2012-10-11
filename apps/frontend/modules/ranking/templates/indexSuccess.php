@@ -1,5 +1,5 @@
-<div data-role="page" id="page1">
-    <div data-theme="a" data-role="header">
+<div data-role="page">
+    <div data-role="header" data-position="fixed" data-theme="a">
         <h3>
             Ranking
         </h3>
@@ -8,7 +8,7 @@
         <form action="" method="GET">
             <label for="selectmenu1">
             </label>
-            <select name="eventId" data-theme="a" data-overlay-theme="b" data-native-menu="false">
+            <select name="eventId" data-theme="a">
                 <option value="333">
                     Event
                 </option>
@@ -18,35 +18,29 @@
             </select>
             <label for="selectmenu2">
             </label>
-            <select name="region" data-theme="a" data-overlay-theme="b" data-native-menu="false">
+            <select name="region" data-theme="a">
                 <option value="World">
                     Region
                 </option>
-                <option value="">&nbsp;</option>
                 <option value="World">World</option>
-                <option value="">&nbsp;</option>
                 <?php foreach(sfConfig::get('app_name_continents') as $key => $continent): ?>
                     <option value="<?php echo $continent ?>"><?php echo $continent ?></option>
                 <?php endforeach ?>
-                <option value="">&nbsp;</option>
                 <?php foreach(sfConfig::get('app_country_id') as $key => $country): ?>
                     <option value="<?php echo $key ?>"><?php echo $key?></option>
                 <?php endforeach ?>
             </select>
             <label for="selectmenu3">
             </label>
-            <select name="years" data-theme="a" data-overlay-theme="b" data-native-menu="false">
+            <select name="years" data-theme="a">
                 <option value="0">
                     Years
                 </option>
-                <option value="">&nbsp;</option>
                 <option value="0">All</option>
-                <option value="">&nbsp;</option>
                 <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Only <?php echo sfConfig::get('app_most_old_year') ?></option>
                 <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
                     <option value="<?php echo $year ?>">Only <?php echo $year ?></option>
                 <?php endfor ?>
-                <option value="">&nbsp;</option>
                 <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
                 <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
                     <option value="<?php echo sfConfig::get('app_most_old_year') . '-' . $year ?>">Until <?php echo $year ?></option>
@@ -54,7 +48,7 @@
             </select>
             <label for="selectmenu4">
             </label>
-            <select name="gender" data-theme="a" data-overlay-theme="b" data-native-menu="false">
+            <select name="gender" data-theme="a">
                 <option value="0">
                     Gender
                 </option>
@@ -62,11 +56,11 @@
                 <option value="Female">Female</option>
             </select>
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
-                <input id="radio1" name="type" value="0" type="radio" data-theme="a" checked>
+                <input id="radio1" name="type" value="1" type="radio" data-theme="a" checked>
                 <label for="radio1">
                     Person
                 </label>
-                <input id="radio2" name="type" value="1" type="radio" data-theme="a">
+                <input id="radio2" name="type" value="0" type="radio" data-theme="a">
                 <label for="radio2">
                     Result
                 </label>

@@ -21,6 +21,7 @@ Doctrine_Manager::getInstance()->bindComponent('Averages', 'doctrine');
  * @property string $continentid
  * @property string $eventid
  * @property string $competitionid
+ * @property string $competitionname
  * @property integer $year
  * 
  * @method integer  getId()              Returns the current record's "id" value
@@ -37,6 +38,7 @@ Doctrine_Manager::getInstance()->bindComponent('Averages', 'doctrine');
  * @method string   getContinentid()     Returns the current record's "continentid" value
  * @method string   getEventid()         Returns the current record's "eventid" value
  * @method string   getCompetitionid()   Returns the current record's "competitionid" value
+ * @method string   getCompetitionname() Returns the current record's "competitionname" value
  * @method integer  getYear()            Returns the current record's "year" value
  * @method Averages setId()              Sets the current record's "id" value
  * @method Averages setAverage()         Sets the current record's "average" value
@@ -52,6 +54,7 @@ Doctrine_Manager::getInstance()->bindComponent('Averages', 'doctrine');
  * @method Averages setContinentid()     Sets the current record's "continentid" value
  * @method Averages setEventid()         Sets the current record's "eventid" value
  * @method Averages setCompetitionid()   Sets the current record's "competitionid" value
+ * @method Averages setCompetitionname() Sets the current record's "competitionname" value
  * @method Averages setYear()            Sets the current record's "year" value
  * 
  * @package    iwca
@@ -200,6 +203,16 @@ abstract class BaseAverages extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 32,
+             ));
+        $this->hasColumn('competitionname', 'string', 50, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '',
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 50,
              ));
         $this->hasColumn('year', 'integer', 4, array(
              'type' => 'integer',

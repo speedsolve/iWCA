@@ -38,10 +38,11 @@ class rankingActions extends sfActions
     $type    = $request->getParameter('type');
     $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
 
+    // ランク追加
+    $results = Util::adjustRank($results, 'single');
     foreach ($results as $i => &$result) {
-        $result['rank']   = Util::adjustRank($results, $i, 'single');
-        $result['record'] = Util::getChangeRecord($result['single'], $result['eventid']);
-        unset($result['single']);
+      $result['record'] = Util::getChangeRecord($result['single'], $result['eventid']);
+      unset($result['single']);
     }
 
     $this->results = $results;

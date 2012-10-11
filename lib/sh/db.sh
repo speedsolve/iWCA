@@ -147,11 +147,24 @@ mysql -u root -D wcaTmp -e 'drop table Average'
 
 echo 'AveragesテーブルにGenderを追加しました。'
 
+mysql -u root -D wcaTmp -e "create table Single as select Singles.id,single,personId,personName,gender,personCountryId,Singles.continentId,eventId,competitionId,name as competitionName,Singles.year from Singles left join Competitions on Singles.competitionId = Competitions.id"
+mysql -u root -D wcaTmp -e 'drop table Singles'
+mysql -u root -D wcaTmp -e 'create table Singles as select * from Single group by id'
+mysql -u root -D wcaTmp -e 'drop table Single'
+
+echo 'SinglesテーブルにCompetitionNameを追加しました。'
+
+mysql -u root -D wcaTmp -e "create table Average as select Averages.id,average,personId,personName,gender,value1,value2,value3,value4,value5,personCountryId,Averages.continentId,eventId,competitionId,name as competitionName,Averages.year from Averages left join Competitions on Averages.competitionId = Competitions.id"
+
+mysql -u root -D wcaTmp -e 'drop table Averages'
+mysql -u root -D wcaTmp -e 'create table Averages as select * from Average group by id'
+mysql -u root -D wcaTmp -e 'drop table Average'
+
+echo 'AveragesテーブルにCompetitionNameを追加しました。'
+
 mysql -u root -D wcaTmp -e "alter table Averages add index Averages_index (id,average,gender,personCountryId,continentId,eventId,year)"
 mysql -u root -D wcaTmp -e "alter table Singles add index Singles_index (id,single,gender,personCountryId,continentId,eventId,competitionId,year)"
 
-mysql -u root -D wcaTmp -e 'drop table if exists Average'
-mysql -u root -D wcaTmp -e 'drop table if exists Single'
 mysql -u root -D wcaTmp -e 'drop table if exists Result'
 
 mysqldump -u root wcaTmp > wca.dump

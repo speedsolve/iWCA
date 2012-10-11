@@ -111,6 +111,14 @@ Averages:
       default: ''
       notnull: true
       autoincrement: false
+    competitionname:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: false
+      autoincrement: false
     year:
       type: integer(4)
       fixed: false
@@ -889,6 +897,14 @@ Singles:
       primary: false
       default: ''
       notnull: true
+      autoincrement: false
+    competitionname:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: false
       autoincrement: false
     year:
       type: integer(4)

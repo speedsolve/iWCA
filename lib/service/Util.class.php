@@ -6,9 +6,8 @@
  */
 class Util
 {
-  public function getChangeRecord ($time, $event)
+  public static function getChangeRecord($time, $event)
   {
-    error_log($time);
     // Format調整並びにDNF、DNSの判定
     if ($time == 0) return NULL;
     elseif ($time == -1) return 'DNF';
@@ -82,25 +81,26 @@ class Util
     return $record;
   }
 
-  public function adjustRank($record, $order, $type)
+  public static function adjustRank($results, $type)
   {
-    static $i = 0;    // 純粋な順番
-    static $k = 1;    // 同順位中の長さを保持
+    $i = 1;
+    $j = NULL;
+    $k = NULL;
 
-    $order += 1;
-    $j = $i - 1;
+    foreach($results as &$result) {
+      $result['rank'] = 0;
 
-    if ($i == 0) {
-      $i++;
-    } elseif ($record[$i][$type] != $record[$j][$type]) {
-      $k = 1;
-      $i++;
-    } else {
-      $order -= $k;
-      $i++;
-      $k++;
+      if ($result[$type] == $j) {
+        $result['rank'] = $k;
+        $i++;
+      } else {
+        $result['rank'] = $k + $i;
+        $i = 1;
+        $j = $result[$type];
+      }
+      $k = $result['rank'];
     }
 
-    return (string)$order;
+    return $results;
   }
 }
