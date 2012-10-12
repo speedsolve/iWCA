@@ -109,4 +109,56 @@ class Util
 
     return $results;
   }
+
+  public static function parentheses(&$result)
+  {
+    //比較する対象じゃなければなにもしない。
+    if (!isset($result['value1'])) return $result;
+
+    //比較用のvalueをまとめる。
+    $value = array();
+    for ($j = 1; $j <= 5; $j++) {
+      if ($result['value'.$j] != 0) {
+        $value[$j] = $result['value'.$j];
+      }
+    }
+
+    //試技が4回以下ならなにもしない。
+    if (count($value) < 4) return $result;
+
+    //DNF,DNSの判定
+    $DNF = array_search('-1', $value);
+    $DNS = array_search('-2', $value);
+
+    if ($DNF && $DNS) {
+      $result['subrecord'][$DNF] = '(DNF)';
+      $result['subrecord'][$DNS] = '(DNS)';
+      return $result;
+    }
+
+    if ($DNF) {
+      unset($value[$DNF]);
+      $min = min($value);
+      $key = array_search($min, $value);
+      $result['subrecord'][$key] = '('.$result['subrecord'][$key].')';
+      $result['subrecord'][$DNF] = '(DNF)';
+      return $result;
+    } else if ($DNS) {
+      unset($value[$DNF]);
+      $min = min($value);
+      $key = array_search($min, $value);
+      $result['subrecord'][$key] = '('.$result['subrecord'][$key].')';
+      $result['subrecord'][$DNF] = '(DNS)';
+      return $result;
+    } else {
+      $min = min($value);
+      $max = max($value);
+      $minkey = array_search($min, $value);
+      $maxkey = array_search($max, $value);
+      $result['subrecord'][$minkey] = '('.$result['subrecord'][$minkey].')';
+      $result['subrecord'][$maxkey] = '('.$result['subrecord'][$maxkey].')';
+      return $result;
+    }
+
+  }
 }
