@@ -1,4 +1,4 @@
-<div data-role="footer" data-id="footer" data-position="fixed">
+<div data-role="footer" data-id="footer" data-position="fixed" data-tap-toggle="false">
     <div data-role="navbar">
         <ul>
           <li><?php echo link_to('Ranking', 'ranking/index',     array('class' => $ranking_class)) ?></li>

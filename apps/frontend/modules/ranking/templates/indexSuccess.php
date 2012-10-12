@@ -8,7 +8,7 @@
         <form action="" method="GET">
             <label for="selectmenu1">
             </label>
-            <select name="eventId" data-theme="a">
+            <select name="eventId" id="event" data-theme="a">
                 <option value="333">
                     Event
                 </option>
@@ -37,14 +37,14 @@
                     Years
                 </option>
                 <option value="0">All</option>
-                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Only <?php echo sfConfig::get('app_most_old_year') ?></option>
-                <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
+                <?php for($year = sfConfig::get('app_now_year'); $year >= sfConfig::get('app_recently_old_year'); $year--): ?>
                     <option value="<?php echo $year ?>">Only <?php echo $year ?></option>
                 <?php endfor ?>
-                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
-                <?php for($year = sfConfig::get('app_recently_old_year'); $year <= sfConfig::get('app_now_year'); $year++): ?>
+                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Only <?php echo sfConfig::get('app_most_old_year') ?></option>
+                <?php for($year = sfConfig::get('app_now_year'); $year >= sfConfig::get('app_recently_old_year'); $year--): ?>
                     <option value="<?php echo sfConfig::get('app_most_old_year') . '-' . $year ?>">Until <?php echo $year ?></option>
                 <?php endfor ?>
+                <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
             </select>
             <label for="selectmenu4">
             </label>
@@ -71,8 +71,8 @@
                 </label>
             </fieldset>
             <fieldset class="ui-grid-a">
-                <div class="ui-block-a"><button name="single"  action="<?php echo url_for('ranking/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
-                <div class="ui-block-b"><button name="average" action="<?php echo url_for('ranking/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
+                <div class="ui-block-a"><button class="single" name="single" action="<?php echo url_for('ranking/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
+                <div class="ui-block-b"><button class="average" name="average" action="<?php echo url_for('ranking/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
             </fieldset>
             <?php include_partial('global/footer', array('ranking_class' => 'ui-btn-active ui-state-persist')) ?>
         </form>
