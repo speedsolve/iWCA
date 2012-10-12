@@ -110,7 +110,7 @@ class Util
     return $results;
   }
 
-  public static function parentheses(&$result)
+  public static function parenthesis(&$result)
   {
     //比較する対象じゃなければなにもしない。
     if (!isset($result['value1'])) return $result;

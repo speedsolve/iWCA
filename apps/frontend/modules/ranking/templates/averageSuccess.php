@@ -1,1 +1,1 @@
-average
+<?php var_dump($results) ?>

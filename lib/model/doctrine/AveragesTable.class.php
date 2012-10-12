@@ -14,7 +14,7 @@ class AveragesTable extends Doctrine_Table
      */
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('Averages');
+      return Doctrine_Core::getTable('Averages');
     }
 
     /**
@@ -29,7 +29,7 @@ class AveragesTable extends Doctrine_Table
     public function getRanking($type, $eventId, $region, $years, $gender, $limit, $offset)
     {
       $query = $this->createQuery();
-      $q->select('average, personid, eventid, personname, value1, value2, value3, value4, value5, personcountryid, competitionname');
+      $query->select('average, personid, eventid, personname, value1, value2, value3, value4, value5, personcountryid, competitionname');
       $query->andWhere('eventid = ?', $eventId);
 
       if ($region && $region != sfConfig::get('app_region_default')) {

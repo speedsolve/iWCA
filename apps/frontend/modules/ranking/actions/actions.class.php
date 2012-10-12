@@ -71,5 +71,7 @@ class rankingActions extends sfActions
         unset($result['value'.$j]);
       }
     }
+
+    $this->results = $results;
   }
 }
