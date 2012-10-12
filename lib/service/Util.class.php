@@ -87,7 +87,7 @@ class Util
     return $record;
   }
 
-  public static function adjustRank($results, $type)
+  public static function adjustRank(&$results, $type)
   {
     $i = 1;
     $j = NULL;
@@ -95,7 +95,6 @@ class Util
 
     foreach($results as &$result) {
       $result['rank'] = 0;
-
       if ($result[$type] == $j) {
         $result['rank'] = $k;
         $i++;
@@ -106,50 +105,42 @@ class Util
       }
       $k = $result['rank'];
     }
-
-    return $results;
   }
 
   public static function parenthesis(&$result)
   {
-    //比較する対象じゃなければなにもしない。
-    if (!isset($result['value1'])) return $result;
-
-    //比較用のvalueをまとめる。
+    // 比較用のvalueをまとめる。
     $value = array();
-    for ($j = 1; $j <= 5; $j++) {
-      if ($result['value'.$j] != 0) {
-        $value[$j] = $result['value'.$j];
+    for ($i = 1; $i <= 5; $i++) {
+      if ($result['value'.$i] != 0) {
+        $value[$i] = $result['value'.$i];
       }
     }
 
-    //試技が4回以下ならなにもしない。
-    if (count($value) < 4) return $result;
+    // 試技が4回以下ならなにもしない。
+    if (count($value) < 4) {
+      return NULL;
+    }
 
-    //DNF,DNSの判定
+    // DNF,DNSの判定
     $DNF = array_search('-1', $value);
     $DNS = array_search('-2', $value);
 
     if ($DNF && $DNS) {
       $result['subrecord'][$DNF] = '(DNF)';
       $result['subrecord'][$DNS] = '(DNS)';
-      return $result;
-    }
-
-    if ($DNF) {
+    } elseif ($DNF) {
       unset($value[$DNF]);
       $min = min($value);
       $key = array_search($min, $value);
       $result['subrecord'][$key] = '('.$result['subrecord'][$key].')';
       $result['subrecord'][$DNF] = '(DNF)';
-      return $result;
-    } else if ($DNS) {
-      unset($value[$DNF]);
+    } elseif ($DNS) {
+      unset($value[$DNS]);
       $min = min($value);
       $key = array_search($min, $value);
       $result['subrecord'][$key] = '('.$result['subrecord'][$key].')';
-      $result['subrecord'][$DNF] = '(DNS)';
-      return $result;
+      $result['subrecord'][$DNS] = '(DNS)';
     } else {
       $min = min($value);
       $max = max($value);
@@ -157,8 +148,6 @@ class Util
       $maxkey = array_search($max, $value);
       $result['subrecord'][$minkey] = '('.$result['subrecord'][$minkey].')';
       $result['subrecord'][$maxkey] = '('.$result['subrecord'][$maxkey].')';
-      return $result;
     }
-
   }
 }

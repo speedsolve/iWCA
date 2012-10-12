@@ -39,7 +39,7 @@ class rankingActions extends sfActions
     $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
 
     // ランク追加
-    $results = Util::adjustRank($results, 'single');
+    Util::adjustRank(&$results, 'single');
     foreach ($results as $i => &$result) {
       $result['personname'] = Util::removeParenthesis($result['personname']);
       $result['record']     = Util::getChangeRecord($result['single'], $result['eventid']);
@@ -59,7 +59,7 @@ class rankingActions extends sfActions
     $results = AveragesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
 
     // ランク追加
-    $results = Util::adjustRank($results, 'average');
+    Util::adjustRank(&$results, 'average');
     foreach ($results as $i => &$result) {
       $result['personname'] = Util::removeParenthesis($result['personname']);
       $result['record']     = Util::getChangeRecord($result['average'], $result['eventid']);
@@ -67,9 +67,9 @@ class rankingActions extends sfActions
       // 各々の記録もフォーマット変更
       for ($j = 1; $j <= 5; $j++) {
         $result['subrecord'][$j] = Util::getChangeRecord($result['value'.$j], $result['eventid']);
-        Util::parenthesis(&$result);
-        unset($result['value'.$j]);
       }
+      // 最後に表示用に整形
+      Util::parenthesis(&$result);
     }
 
     $this->results = $results;
