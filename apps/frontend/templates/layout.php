@@ -9,8 +9,8 @@
         <?php include_title() ?>
         <?php include_metas() ?>
         <?php include_javascripts() ?>
-        <?php use_stylesheet('http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css') ?>
         <?php include_stylesheets() ?>
+        <script type="text/javascript" src="/js/googleAnalytics.js"></script>
     </head>
     <body>
         <?php echo $sf_content ?>
