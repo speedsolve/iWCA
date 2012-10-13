@@ -37,4 +37,10 @@ class competitionActions extends sfActions
     $keyword = $request->getParameter('keyword');
     $this->results = CompetitionsTable::getInstance()->getCompetitionList($eventId, $region, $years, $keyword);
   }
+
+  public function executeDetail(sfWebRequest $request)
+  {
+    $competitionId = $request->getParameter('competitionId');
+    $this->results = CompetitionsTable::getInstance()->getCompetition($competitionId);
+  }
 }

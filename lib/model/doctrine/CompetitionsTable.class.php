@@ -14,7 +14,26 @@ class CompetitionsTable extends Doctrine_Table
      */
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('Competitions');
+      return Doctrine_Core::getTable('Competitions');
+    }
+
+    /**
+     * 大会を取得する
+     * @params CompetitionId
+     * @return 大会データ
+     */
+    public function getCompetition($id)
+    {
+      $query = $this->createQuery();
+      $query->where('id = ?', $id);
+      $query->useResultCache(true);
+
+      $results = $query->fetchOne();
+
+      $query->free();
+      unset($query);
+
+      return $results;
     }
 
     /**
