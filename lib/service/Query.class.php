@@ -18,7 +18,11 @@ class Query
 
   public static function years(&$query, $years)
   {
-    if (substr($years, 4, 1) == '-') {
+    if ($years == 'Current') {
+      $from = date('Y') - 1;
+      $to   = date('Y') + 1;
+      $query->andWhere('year between ? and ?', array($from, $to));
+    } elseif (substr($years, 4, 1) == '-') {
       $from = substr($years, 0, 4);
       $to   = substr($years, 5, 4);
       $query->andWhere('year >= ?', $from);
@@ -46,5 +50,16 @@ class Query
   public static function offset(&$query, $offset)
   {
     $query->offset($offset);
+  }
+
+  public static function competitionEvent(&$query, $eventId)
+  {
+    $query->andWhere('eventspecs like ?', '%'.$eventId.'%');
+  }
+
+  public static function keyword(&$query, $keyword)
+  {
+    $keyword = '%'.$keyword.'%';
+    $query->andWhere('name like ? or cityname like ? or venue like ?', array($keyword, $keyword, $keyword));
   }
 }
