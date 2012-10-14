@@ -1,4 +1,4 @@
-<div data-role="page">
+<div id="index" data-role="page">
     <?php include_partial('global/header', array('title' => 'Competition')) ?>
     <div data-role="content">
         <form action="<?php echo url_for('competition/list') ?>" method="GET">

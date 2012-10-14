@@ -25,7 +25,7 @@ class ResultsTable extends Doctrine_Table
      * @param history 歴代かどうか
      * @return 記録
      */
-    public function getRecordOfSingle($region, $eventId, $years, $history = false)
+    public function getSingleRecord($region, $eventId, $years)
     {
        $query = $this->createQuery();
        $query->select('personid, personname, personcountryid, best, eventid, competitionid');

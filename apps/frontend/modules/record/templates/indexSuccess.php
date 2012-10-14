@@ -1,8 +1,8 @@
-<div data-role="page">
+<div id="record_index" data-role="page">
     <?php include_partial('global/header', array('title' => 'Record')) ?>
     <div data-role="content">
         <form action="" method="GET">
-            <select name="eventId" id="event" data-theme="a">
+            <select name="eventId" id="event_record" data-theme="a">
                 <option value="333">
                     Event
                 </option>
@@ -36,8 +36,8 @@
                 <?php endfor ?>
                 <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
             </select>
-            <select name="gender" data-theme="a">
-                <option value="0">
+            <select name="gender" data-theme="a" id="gender">
+                <option value="All">
                     Gender
                 </option>
                 <option value="">All</option>
@@ -45,18 +45,18 @@
                 <option value="Female">Female</option>
             </select>
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
-                <input id="radio1" name="type" value="1" type="radio" data-theme="a" checked>
-                <label for="radio1">
+                <input id="current" name="history" value="1" type="radio" data-theme="a" checked>
+                <label for="current">
                     Current
                 </label>
-                <input id="radio2" name="type" value="0" type="radio" data-theme="a">
-                <label for="radio2">
+                <input id="history" name="history" value="0" type="radio" data-theme="a">
+                <label for="history">
                     History
                 </label>
             </fieldset>
             <fieldset class="ui-grid-a">
-                <div class="ui-block-a"><button class="single" name="single" action="<?php echo url_for('ranking/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
-                <div class="ui-block-b"><button class="average" name="average" action="<?php echo url_for('ranking/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
+                <div class="ui-block-a"><button class="single" name="single" action="<?php echo url_for('record/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
+                <div class="ui-block-b"><button class="average" name="average" action="<?php echo url_for('record/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
             </fieldset>
             <?php include_partial('global/footer', array('record_class' => 'ui-btn-active ui-state-persist')) ?>
         </form>

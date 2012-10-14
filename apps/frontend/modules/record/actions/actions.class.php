@@ -28,4 +28,21 @@ class recordActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
   }
+
+  public function executeSingle(sfWebRequest $request)
+  {
+    $eventId = $request->getParameter('eventId');
+    $region  = $request->getParameter('region');
+    $years   = $request->getParameter('years');
+    $gender  = $request->getParameter('gender');
+    $history = $request->getParameter('history');
+    $results = ResultsTable::getInstance()->getSingleRecord($region, $eventId, $years);
+
+    if (!$history) {
+    }
+
+    ResultsService::setData(&$results);
+
+    $this->results = $results;
+  }
 }

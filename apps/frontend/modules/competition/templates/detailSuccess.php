@@ -1,4 +1,4 @@
-<div data-role="page">
+<div id="page" data-role="page">
     <?php include_partial('global/header', array('title' => 'Competition')) ?>
     <div data-role="content">
     </div>
