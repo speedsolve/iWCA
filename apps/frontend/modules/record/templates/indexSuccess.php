@@ -45,9 +45,9 @@
                 <option value="Female">Female</option>
             </select>
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
-                <input id="current" name="history" value="1" type="radio" data-theme="a" checked>
-                <label for="current">
-                    Current
+                <input id="result" name="history" value="1" type="radio" data-theme="a" checked>
+                <label for="result">
+                    Result
                 </label>
                 <input id="history" name="history" value="0" type="radio" data-theme="a">
                 <label for="history">

@@ -69,6 +69,15 @@ class Query
     $query->andWhere('eventId = ?', $eventId);
   }
 
+  public static function recordEventId(&$query, $eventId)
+  {
+    if ($eventId) {
+      $query->andWhere('eventId = ?', $eventId);
+    } else {
+      $query->andWhere('eventId != ?', '333mbo');
+    }
+  }
+
   public static function gender(&$query, $gender)
   {
     $query->andWhere('gender = ?', $gender);

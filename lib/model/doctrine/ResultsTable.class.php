@@ -34,9 +34,7 @@ class ResultsTable extends Doctrine_Table
          Query::singleRecord(&$query, $region);
        }
 
-       if ($eventId) {
-         Query::eventId(&$query, $eventId);
-       }
+       Query::recordEventId(&$query, $eventId);
 
        if ($years) {
          Query::years(&$query, $years);
@@ -74,9 +72,7 @@ class ResultsTable extends Doctrine_Table
          Query::averageRecord(&$query, $region);
        }
 
-       if ($eventId) {
-         Query::eventId(&$query, $eventId);
-       }
+       Query::recordEventId(&$query, $eventId);
 
        if ($years) {
          Query::years(&$query, $years);
