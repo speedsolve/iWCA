@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css]
 
-  javascripts:    [jquery-1.8.2.min.js, googleAnalytics.js, jquery.mobile-1.2.0.min.js, changeFormAction.js, disableAverageButton.js]
+  javascripts:    [jquery-1.8.2.min.js, googleAnalytics.js, main.js, jquery.mobile-1.2.0.min.js]
 
   has_layout:     true
   layout:         layout

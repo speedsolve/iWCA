@@ -1,4 +1,4 @@
-<div data-role="page">
+<div data-role="page" data-add-back-btn=”true”>
     <?php include_partial('global/header', array('title' => 'Ranking')) ?>
     <div data-role="content">
         <ul data-role="listview" data-theme="a" data-dividertheme="b">

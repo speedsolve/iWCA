@@ -1,5 +1,5 @@
 <div data-role="page">
-    <?php include_partial('global/header', array('title' => 'Ranking')) ?>
+    <?php include_partial('global/header', array('title' => 'Record')) ?>
     <div data-role="content">
         <form action="" method="GET">
             <select name="eventId" id="event" data-theme="a">
@@ -47,22 +47,18 @@
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
                 <input id="radio1" name="type" value="1" type="radio" data-theme="a" checked>
                 <label for="radio1">
-                    Person
+                    Current
                 </label>
                 <input id="radio2" name="type" value="0" type="radio" data-theme="a">
                 <label for="radio2">
-                    Result
-                </label>
-                <input id="radio3" name="type" value="region" type="radio" data-theme="a" disabled>
-                <label for="radio3">
-                    Region
+                    History
                 </label>
             </fieldset>
             <fieldset class="ui-grid-a">
                 <div class="ui-block-a"><button class="single" name="single" action="<?php echo url_for('ranking/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
                 <div class="ui-block-b"><button class="average" name="average" action="<?php echo url_for('ranking/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
             </fieldset>
-            <?php include_partial('global/footer', array('ranking_class' => 'ui-btn-active ui-state-persist')) ?>
+            <?php include_partial('global/footer', array('record_class' => 'ui-btn-active ui-state-persist')) ?>
         </form>
     </div>
 </div>
