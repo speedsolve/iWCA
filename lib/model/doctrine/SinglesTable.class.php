@@ -30,7 +30,7 @@ class SinglesTable extends Doctrine_Table
     {
       $query = $this->createQuery();
       $query->select('single, eventid, personid, personname, personcountryid, competitionname');
-      $query->andWhere('eventid = ?', $eventId);
+      Query::eventId(&$query, $eventId);
 
       if ($region && $region != sfConfig::get('app_region_default')) {
         Query::region(&$query, $region);

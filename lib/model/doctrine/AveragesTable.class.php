@@ -30,7 +30,7 @@ class AveragesTable extends Doctrine_Table
     {
       $query = $this->createQuery();
       $query->select('average, personid, eventid, personname, value1, value2, value3, value4, value5, personcountryid, competitionname');
-      $query->andWhere('eventid = ?', $eventId);
+      Query::eventId(&$query, $eventId);
 
       if ($region && $region != sfConfig::get('app_region_default')) {
         Query::region(&$query, $region);

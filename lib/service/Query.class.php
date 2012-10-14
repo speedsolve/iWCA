@@ -32,6 +32,27 @@ class Query
     }
   }
 
+  public static function singleRecord(&$query, $region)
+  {
+    if ($region == 'World') {
+      $query->orWhere('regionalsinglerecord = ?', 'WR');
+    } elseif (in_array($region, sfConfig::get('app_name_continents'))) {
+      $record = sfConfig::get('app_name_record');
+      $query->orWhere('(regionalsinglerecord = ?', 'WR');
+      $query->orWhere('regionalsinglerecord = ?)', $record[$region]);
+      $query->andWhere('continentid = ?', $region);
+    } else {
+      $country = sfConfig::get('app_country_id');
+      $query->andWhere('(regionalsinglerecord = ? or regionalsinglerecord = ? or regionalsinglerecord = ?) and personcountryid = ?',
+        array('WR', $country[$region]['record'], 'NR', $region));
+    }
+  }
+
+  public static function eventId(&$query, $eventId)
+  {
+    $query->andWhere('eventId = ?', $eventId);
+  }
+
   public static function gender(&$query, $gender)
   {
     $query->andWhere('gender = ?', $gender);
