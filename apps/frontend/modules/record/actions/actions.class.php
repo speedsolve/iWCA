@@ -36,12 +36,43 @@ class recordActions extends sfActions
     $years   = $request->getParameter('years');
     $gender  = $request->getParameter('gender');
     $history = $request->getParameter('history');
-    $results = ResultsTable::getInstance()->getSingleRecord($region, $eventId, $years);
 
-    if (!$history) {
+    if ($gender == 'Female' && !$history) {
+      $results = NULL;
+    } else {
+      $results = ResultsTable::getInstance()->getSingleRecord($region, $eventId, $years, $gender);
+
+      // Currentの場合修正
+      if ($history) {
+        $results = ResultsService::getCurrentRecord($results, 'best');
+      }
+
+      ResultsService::setData(&$results);
     }
 
-    ResultsService::setData(&$results);
+    $this->results = $results;
+  }
+
+  public function executeAverage(sfWebRequest $request)
+  {
+    $eventId = $request->getParameter('eventId');
+    $region  = $request->getParameter('region');
+    $years   = $request->getParameter('years');
+    $gender  = $request->getParameter('gender');
+    $history = $request->getParameter('history');
+
+    if ($gender == 'Female' && !$history) {
+      $results = NULL;
+    } else {
+      $results = ResultsTable::getInstance()->getAverageRecord($region, $eventId, $years, $gender);
+
+      // Currentの場合修正
+      if ($history) {
+        $results = ResultsService::getCurrentRecord($results, 'average');
+      }
+
+      ResultsService::setData(&$results);
+    }
 
     $this->results = $results;
   }

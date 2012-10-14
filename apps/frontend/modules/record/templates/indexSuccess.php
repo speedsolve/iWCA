@@ -3,7 +3,7 @@
     <div data-role="content">
         <form action="" method="GET">
             <select name="eventId" id="event_record" data-theme="a">
-                <option value="333">
+                <option value="0">
                     Event
                 </option>
                 <?php foreach(sfConfig::get('app_event_id') as $key => $event): ?>
@@ -37,10 +37,10 @@
                 <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
             </select>
             <select name="gender" data-theme="a" id="gender">
-                <option value="All">
+                <option value="0">
                     Gender
                 </option>
-                <option value="">All</option>
+                <option value="0">All</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>

@@ -48,6 +48,22 @@ class Query
     }
   }
 
+  public static function averageRecord(&$query, $region)
+  {
+    if ($region == 'World') {
+      $query->orWhere('regionalaveragerecord = ?', 'WR');
+    } else if (in_array($region, sfConfig::get('app_name_continents'))) {
+      $record = sfConfig::get('app_name_record');
+      $query->orWhere('(regionalaveragerecord = ?', 'WR');
+      $query->orWhere('regionalaveragerecord = ?)',  $record[$region]);
+      $query->andWhere('continentid = ?', $region);
+    } else {
+      $country = sfConfig::get('app_country_id');
+      $query->andWhere('(regionalaveragerecord = ? or regionalaveragerecord = ? or regionalaveragerecord = ?) and personcountryid = ?',
+        array('WR', $country[$region]['record'], 'NR', $region));
+    }
+  }
+
   public static function eventId(&$query, $eventId)
   {
     $query->andWhere('eventId = ?', $eventId);
