@@ -35,7 +35,10 @@ class competitionActions extends sfActions
     $region  = $request->getParameter('region');
     $years   = $request->getParameter('years');
     $keyword = $request->getParameter('keyword');
-    $this->results = CompetitionsTable::getInstance()->getCompetitionList($eventId, $region, $years, $keyword);
+    if ($years == 'Current') {
+        $limit = 100;
+    }
+    $this->results = CompetitionsTable::getInstance()->getCompetitionList($eventId, $region, $years, $keyword, $limit);
   }
 
   public function executeDetail(sfWebRequest $request)

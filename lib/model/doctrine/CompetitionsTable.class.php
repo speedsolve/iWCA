@@ -44,7 +44,7 @@ class CompetitionsTable extends Doctrine_Table
      * @parasm 検索文字列
      * @return 大会リスト
      */
-    public function getCompetitionList($eventId, $region, $years, $keyword)
+    public function getCompetitionList($eventId, $region, $years, $keyword, $limit = NULL)
     {
       $query = $this->createQuery();
       $query->select('cellname, cityname, countryid, year, month, day, endmonth, endday');
@@ -63,6 +63,10 @@ class CompetitionsTable extends Doctrine_Table
 
       if ($keyword) {
         Query::keyword(&$query, $keyword);
+      }
+
+      if ($limit) {
+        Query::limit(&$query, $limit);
       }
 
       $query->useResultCache(true);
