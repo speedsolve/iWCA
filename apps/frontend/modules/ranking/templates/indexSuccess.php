@@ -23,7 +23,7 @@
                     <option value="<?php echo $continent ?>"><?php echo $continent ?></option>
                 <?php endforeach ?>
                 <?php foreach(sfConfig::get('app_country_id') as $key => $country): ?>
-                    <option value="<?php echo $key ?>"><?php echo $key?></option>
+                    <option value="<?php echo $country['id'] ?>"><?php echo $key ?></option>
                 <?php endforeach ?>
             </select>
             <select name="years" data-theme="a">

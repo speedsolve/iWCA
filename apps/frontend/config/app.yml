@@ -71,102 +71,103 @@ all:
 
   country:
     id:
-      'Afghanistan':            { continent: 'Asia',          record: 'AsR'}
-      'Algeria':                { continent: 'Africa',        record: 'AfR'}
-      'Argentina':              { continent: 'South America', record: 'SAR'}
-      'Armenia':                { continent: 'Asia',          record: 'AsR'}
-      'Australia':              { continent: 'Oceania',       record: 'OcR'}
-      'Austria':                { continent: 'Europe',        record: 'ER' }
-      'Aruba':                  { continent: 'South America', record: 'SAR'}
-      'Azerbaijan':             { continent: 'Europe',        record: 'ER' }
-      'Bangladesh':             { continent: 'Asia',          record: 'AsR'}
-      'Belarus':                { continent: 'Europe',        record: 'ER' }
-      'Belgium':                { continent: 'Europe',        record: 'ER' }
-      'Belize':                 { continent: 'North America', record: 'NAR'}
-      'Bolivia':                { continent: 'South America', record: 'SAR'}
-      'Bosnia and Herzegovina': { continent: 'Europe',        record: 'ER' }
-      'Brazil':                 { continent: 'South America', record: 'SAR'}
-      'Bulgaria':               { continent: 'Europe',        record: 'ER' }
-      'Canada':                 { continent: 'North America', record: 'NAR'}
-      'Chile':                  { continent: 'South America', record: 'SAR'}
-      'China':                  { continent: 'Asia',          record: 'AsR'}
-      'Colombia':               { continent: 'South America', record: 'SAR'}
-      'Costa Rica':             { continent: 'North America', record: 'NAR'}
-      "Cote d'Ivoire":          { continent: 'Africa',        record: 'AfR'}
-      'Croatia':                { continent: 'Europe',        record: 'ER' }
-      'Cuba':                   { continent: 'North America', record: 'NAR'}
-      'Czech Republic':         { continent: 'Europe',        record: 'ER' }
-      'Denmark':                { continent: 'Europe',        record: 'ER' }
-      'Dominican Republic':     { continent: 'North America', record: 'NAR'}
-      'Egypt':                  { continent: 'Africa',        record: 'AfR'}
-      'El Salvador':            { continent: 'North America', record: 'NAR'}
-      'Estonia':                { continent: 'Europe',        record: 'ER' }
-      'Finland':                { continent: 'Europe',        record: 'ER' }
-      'France':                 { continent: 'Europe',        record: 'ER' }
-      'Germany':                { continent: 'Europe',        record: 'ER' }
-      'Greece':                 { continent: 'Europe',        record: 'ER' }
-      'Hong Kong':              { continent: 'Asia',          record: 'AsR'}
-      'Hungary':                { continent: 'Europe',        record: 'ER' }
-      'Iceland':                { continent: 'Europe',        record: 'ER' }
-      'India':                  { continent: 'Asia',          record: 'AsR'}
-      'Indonesia':              { continent: 'Asia',          record: 'AsR'}
-      'Iran':                   { continent: 'Asia',          record: 'AsR'}
-      'Ireland':                { continent: 'Europe',        record: 'ER' }
-      'Israel':                 { continent: 'Europe',        record: 'ER' }
-      'Italy':                  { continent: 'Europe',        record: 'ER' }
-      'Japan':                  { continent: 'Asia',          record: 'AsR'}
-      'Jordan':                 { continent: 'Asia',          record: 'AsR'}
-      'Kazakhstan':             { continent: 'Asia',          record: 'AsR'}
-      'Korea':                  { continent: 'Asia',          record: 'AsR'}
-      'Latvia':                 { continent: 'Europe',        record: 'ER' }
-      'Lebanon':                { continent: 'Asia',          record: 'AsR'}
-      'Lithuania':              { continent: 'Europe',        record: 'ER' }
-      'Luxembourg':             { continent: 'Europe',        record: 'ER' }
-      'Macau':                  { continent: 'Asia',          record: 'AsR'}
-      'Macedonia':              { continent: 'Europe',        record: 'ER' }
-      'Malaysia':               { continent: 'Asia',          record: 'AsR'}
-      'Mauritius':              { continent: 'Africa',        record: 'AfR'}
-      'Mexico':                 { continent: 'North America', record: 'NAR'}
-      'Moldova':                { continent: 'Europe',        record: 'ER' }
-      'Mongolia':               { continent: 'Asia',          record: 'AsR'}
-      'Morocco':                { continent: 'Africa',        record: 'AfR'}
-      'Netherlands':            { continent: 'Europe',        record: 'ER' }
-      'New Zealand':            { continent: 'Oceania',       record: 'OcR'}
-      'Nigeria':                { continent: 'Africa',        record: 'AfR'}
-      'Norway':                 { continent: 'Europe',        record: 'ER' }
-      'Pakistan':               { continent: 'Asia',          record: 'AsR'}
-      'Peru':                   { continent: 'South America', record: 'SAR'}
-      'Philippines':            { continent: 'Asia',          record: 'AsR'}
-      'Poland':                 { continent: 'Europe',        record: 'ER' }
-      'Portugal':               { continent: 'Europe',        record: 'ER' }
-      'Puerto Rico':            { continent: 'North America', record: 'NAR'}
-      'Romania':                { continent: 'Europe',        record: 'ER' }
-      'Russia':                 { continent: 'Europe',        record: 'ER' }
-      'Saudi Arabia':           { continent: 'Asia',          record: 'AsR'}
-      'Serbia':                 { continent: 'Europe',        record: 'ER' }
-      'Singapore':              { continent: 'Asia',          record: 'AsR'}
-      'Slovakia':               { continent: 'Europe',        record: 'ER' }
-      'Slovenia':               { continent: 'Europe',        record: 'ER' }
-      'South Africa':           { continent: 'Africa',        record: 'AfR'}
-      'Spain':                  { continent: 'Europe',        record: 'ER' }
-      'Sri Lanka':              { continent: 'Asia',          record: 'AsR'}
-      'Sweden':                 { continent: 'Europe',        record: 'ER' }
-      'Switzerland':            { continent: 'Europe',        record: 'ER' }
-      'Taiwan':                 { continent: 'Asia',          record: 'AsR'}
-      'Thailand':               { continent: 'Asia',          record: 'AsR'}
-      'Trinidad and Tobago':    { continent: 'South America', record: 'SAR'}
-      'Tunisia':                { continent: 'Africa',        record: 'AfR'}
-      'Turkey':                 { continent: 'Europe',        record: 'ER' }
-      'Ukraine':                { continent: 'Europe',        record: 'ER' }
-      'United Arab Emirates':   { continent: 'Asia',          record: 'AsR'}
-      'United Kingdom':         { continent: 'Europe',        record: 'ER' }
-      'USA':                    { continent: 'North America', record: 'NAR'}
-      'Vietnam':                { continent: 'Asia',          record: 'AsR'}
-      'Yugoslavia':             { continent: 'Europe',        record: 'ER' }
+      'Afghanistan':            { id: 'Afghanistan',            continent: 'Asia',          record: 'AsR'}
+      'Algeria':                { id: 'Algeria',                continent: 'Africa',        record: 'AfR'}
+      'Argentina':              { id: 'Argentina',              continent: 'South America', record: 'SAR'}
+      'Armenia':                { id: 'Armenia',                continent: 'Asia',          record: 'AsR'}
+      'Australia':              { id: 'Australia',              continent: 'Oceania',       record: 'OcR'}
+      'Austria':                { id: 'Austria',                continent: 'Europe',        record: 'ER' }
+      'Aruba':                  { id: 'Aruba',                  continent: 'South America', record: 'SAR'}
+      'Azerbaijan':             { id: 'Azerbaijan',             continent: 'Europe',        record: 'ER' }
+      'Bangladesh':             { id: 'Bangladesh',             continent: 'Asia',          record: 'AsR'}
+      'Belarus':                { id: 'Belarus',                continent: 'Europe',        record: 'ER' }
+      'Belgium':                { id: 'Belgium',                continent: 'Europe',        record: 'ER' }
+      'Belize':                 { id: 'Belize',                 continent: 'North America', record: 'NAR'}
+      'Bolivia':                { id: 'Bolivia',                continent: 'South America', record: 'SAR'}
+      'Bosnia and Herzegovina': { id: 'Bosnia and Herzegovina', continent: 'Europe',        record: 'ER' }
+      'Brazil':                 { id: 'Brazil',                 continent: 'South America', record: 'SAR'}
+      'Bulgaria':               { id: 'Bulgaria',               continent: 'Europe',        record: 'ER' }
+      'Canada':                 { id: 'Canada',                 continent: 'North America', record: 'NAR'}
+      'Chile':                  { id: 'Chile',                  continent: 'South America', record: 'SAR'}
+      'China':                  { id: 'China',                  continent: 'Asia',          record: 'AsR'}
+      'Colombia':               { id: 'Colombia',               continent: 'South America', record: 'SAR'}
+      'Costa Rica':             { id: 'Costa Rica',             continent: 'North America', record: 'NAR'}
+      "Cote d'Ivoire":          { id: 'Cote d_Ivoire',          continent: 'Africa',        record: 'AfR'}
+      'Croatia':                { id: 'Croatia',                continent: 'Europe',        record: 'ER' }
+      'Cuba':                   { id: 'Cuba',                   continent: 'North America', record: 'NAR'}
+      'Czech Republic':         { id: 'Czech Republic',         continent: 'Europe',        record: 'ER' }
+      'Denmark':                { id: 'Denmark',                continent: 'Europe',        record: 'ER' }
+      'Dominican Republic':     { id: 'Dominican Republic',     continent: 'North America', record: 'NAR'}
+      'Egypt':                  { id: 'Egypt',                  continent: 'Africa',        record: 'AfR'}
+      'El Salvador':            { id: 'El Salvador',            continent: 'North America', record: 'NAR'}
+      'Estonia':                { id: 'Estonia',                continent: 'Europe',        record: 'ER' }
+      'Finland':                { id: 'Finland',                continent: 'Europe',        record: 'ER' }
+      'France':                 { id: 'France',                 continent: 'Europe',        record: 'ER' }
+      'Germany':                { id: 'Germany',                continent: 'Europe',        record: 'ER' }
+      'Greece':                 { id: 'Greece',                 continent: 'Europe',        record: 'ER' }
+      'Hong Kong':              { id: 'Hong Kong',              continent: 'Asia',          record: 'AsR'}
+      'Hungary':                { id: 'Hungary',                continent: 'Europe',        record: 'ER' }
+      'Iceland':                { id: 'Iceland',                continent: 'Europe',        record: 'ER' }
+      'India':                  { id: 'India',                  continent: 'Asia',          record: 'AsR'}
+      'Indonesia':              { id: 'Indonesia',              continent: 'Asia',          record: 'AsR'}
+      'Iran':                   { id: 'Iran',                   continent: 'Asia',          record: 'AsR'}
+      'Ireland':                { id: 'Ireland',                continent: 'Europe',        record: 'ER' }
+      'Israel':                 { id: 'Israel',                 continent: 'Europe',        record: 'ER' }
+      'Italy':                  { id: 'Italy',                  continent: 'Europe',        record: 'ER' }
+      'Japan':                  { id: 'Japan',                  continent: 'Asia',          record: 'AsR'}
+      'Jordan':                 { id: 'Jordan',                 continent: 'Asia',          record: 'AsR'}
+      'Kazakhstan':             { id: 'Kazakhstan',             continent: 'Asia',          record: 'AsR'}
+      'Korea':                  { id: 'Korea',                  continent: 'Asia',          record: 'AsR'}
+      'Latvia':                 { id: 'Latvia',                 continent: 'Europe',        record: 'ER' }
+      'Lebanon':                { id: 'Lebanon',                continent: 'Asia',          record: 'AsR'}
+      'Lithuania':              { id: 'Lithuania',              continent: 'Europe',        record: 'ER' }
+      'Luxembourg':             { id: 'Luxembourg',             continent: 'Europe',        record: 'ER' }
+      'Macau':                  { id: 'Macau',                  continent: 'Asia',          record: 'AsR'}
+      'Macedonia':              { id: 'Macedonia',              continent: 'Europe',        record: 'ER' }
+      'Malaysia':               { id: 'Malaysia',               continent: 'Asia',          record: 'AsR'}
+      'Mauritius':              { id: 'Mauritius',              continent: 'Africa',        record: 'AfR'}
+      'Mexico':                 { id: 'Mexico',                 continent: 'North America', record: 'NAR'}
+      'Moldova':                { id: 'Moldova',                continent: 'Europe',        record: 'ER' }
+      'Mongolia':               { id: 'Mongolia',               continent: 'Asia',          record: 'AsR'}
+      'Morocco':                { id: 'Morocco',                continent: 'Africa',        record: 'AfR'}
+      'Netherlands':            { id: 'Netherlands',            continent: 'Europe',        record: 'ER' }
+      'New Zealand':            { id: 'New Zealand',            continent: 'Oceania',       record: 'OcR'}
+      'Nigeria':                { id: 'Nigeria',                continent: 'Africa',        record: 'AfR'}
+      'Norway':                 { id: 'Norway',                 continent: 'Europe',        record: 'ER' }
+      'Pakistan':               { id: 'Pakistan',               continent: 'Asia',          record: 'AsR'}
+      'Peru':                   { id: 'Peru',                   continent: 'South America', record: 'SAR'}
+      'Philippines':            { id: 'Philippines',            continent: 'Asia',          record: 'AsR'}
+      'Poland':                 { id: 'Poland',                 continent: 'Europe',        record: 'ER' }
+      'Portugal':               { id: 'Portugal',               continent: 'Europe',        record: 'ER' }
+      'Puerto Rico':            { id: 'Puerto Rico',            continent: 'North America', record: 'NAR'}
+      'Romania':                { id: 'Romania',                continent: 'Europe',        record: 'ER' }
+      'Russia':                 { id: 'Russia',                 continent: 'Europe',        record: 'ER' }
+      'Saudi Arabia':           { id: 'Saudi Arabia',           continent: 'Asia',          record: 'AsR'}
+      'Serbia':                 { id: 'Serbia',                 continent: 'Europe',        record: 'ER' }
+      'Singapore':              { id: 'Singapore',              continent: 'Asia',          record: 'AsR'}
+      'Slovakia':               { id: 'Slovakia',               continent: 'Europe',        record: 'ER' }
+      'Slovenia':               { id: 'Slovenia',               continent: 'Europe',        record: 'ER' }
+      'South Africa':           { id: 'South Africa',           continent: 'Africa',        record: 'AfR'}
+      'Spain':                  { id: 'Spain',                  continent: 'Europe',        record: 'ER' }
+      'Sri Lanka':              { id: 'Sri Lanka',              continent: 'Asia',          record: 'AsR'}
+      'Sweden':                 { id: 'Sweden',                 continent: 'Europe',        record: 'ER' }
+      'Switzerland':            { id: 'Switzerland',            continent: 'Europe',        record: 'ER' }
+      'Taiwan':                 { id: 'Taiwan',                 continent: 'Asia',          record: 'AsR'}
+      'Thailand':               { id: 'Thailand',               continent: 'Asia',          record: 'AsR'}
+      'Trinidad and Tobago':    { id: 'Trinidad and Tobago',    continent: 'South America', record: 'SAR'}
+      'Tunisia':                { id: 'Tunisia',                continent: 'Africa',        record: 'AfR'}
+      'Turkey':                 { id: 'Turkey',                 continent: 'Europe',        record: 'ER' }
+      'Ukraine':                { id: 'Ukraine',                continent: 'Europe',        record: 'ER' }
+      'United Arab Emirates':   { id: 'United Arab Emirates',   continent: 'Asia',          record: 'AsR'}
+      'United Kingdom':         { id: 'United Kingdom',         continent: 'Europe',        record: 'ER' }
+      'USA':                    { id: 'USA',                    continent: 'North America', record: 'NAR'}
+      'Vietnam':                { id: 'Vietnam',                continent: 'Asia',          record: 'AsR'}
+      'Yugoslavia':             { id: 'Yugoslavia',             continent: 'Europe',        record: 'ER' }
 
   continent:
     id:
       'Africa':
+        - 'Algeria'
         - "Cote d'Ivoire"
         - 'Egypt'
         - 'Mauritius'
@@ -175,6 +176,9 @@ all:
         - 'South Africa'
         - 'Tunisia'
       'Asia':
+        - 'Afghanistan'
+        - 'Armenia'
+        - 'Bangladesh'
         - 'China'
         - 'Hong Kong'
         - 'India'
@@ -188,6 +192,7 @@ all:
         - 'Macau'
         - 'Malaysia'
         - 'Mongolia'
+        - 'Pakistan'
         - 'Philippines'
         - 'Saudi Arabia'
         - 'Singapore'
@@ -205,6 +210,7 @@ all:
         - 'Belarus'
         - 'Belgium'
         - 'Bulgaria'
+        - 'Bosnia and Herzegovina'
         - 'Croatia'
         - 'Czech Republic'
         - 'Denmark'
@@ -218,6 +224,7 @@ all:
         - 'Ireland'
         - 'Israel'
         - 'Italy'
+        - 'Latvia'
         - 'Lithuania'
         - 'Luxembourg'
         - 'Macedonia'
@@ -241,6 +248,7 @@ all:
       'North America':
         - 'Belize'
         - 'Canada'
+        - 'Costa Rica'
         - 'Cuba'
         - 'Dominican Republic'
         - 'El Salvador'
@@ -249,8 +257,10 @@ all:
         - 'USA'
       'South America':
         - 'Argentina'
+        - 'Azerbaijan'
         - 'Bolivia'
         - 'Brazil'
         - 'Chile'
         - 'Colombia'
         - 'Peru'
+        - 'Trinidad and Tobago'
