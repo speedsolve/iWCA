@@ -38,7 +38,7 @@
                 <?php endfor ?>
                 <option value="<?php echo sfConfig::get('app_most_old_year') ?>">Until <?php echo sfConfig::get('app_most_old_year') ?></option>
             </select>
-            <input type="search" name="keyword" value="" data-prevent-focus-zoom="true" data-theme="a" />
+            <input type="search" name="keyword" value="" data-prevent-focus-zoom="true" data-theme="a" placeholder="Search Word" />
             <button class="search" name="search" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Search</button>
         </form>
     </div>

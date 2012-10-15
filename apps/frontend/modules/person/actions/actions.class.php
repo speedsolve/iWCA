@@ -31,11 +31,12 @@ class personActions extends sfActions
 
   public function executeSearch(sfWebRequest $request)
   {
+    $region  = $request->getParameter('region');
     $keyword = $request->getParameter('keyword');
     $type    = $request->getParameter('type');
 
-    if ($keyword) {
-      $results = PersonsTable::getInstance()->getPersons($keyword, $type);
+    if ($keyword || $region) {
+      $results = PersonsTable::getInstance()->getPersons($region, $keyword, $type);
     }
 
     foreach ($results as &$result) {

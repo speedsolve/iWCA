@@ -16,6 +16,11 @@ class Query
     }
   }
 
+  public static function personRegion(&$query, $region)
+  {
+    $query->andWhere('countryid = ?', $region);
+  }
+
   public static function years(&$query, $years)
   {
     if ($years == 'Current') {
