@@ -44,7 +44,7 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
                 <input id="result" name="history" value="1" type="radio" data-theme="a" checked>
                 <label for="result">
                     Result

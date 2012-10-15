@@ -49,3 +49,6 @@ $(document).delegate('#record_index', 'pageinit', function(){
         }
     });
 });
+
+// $(document).delegate('#person_index', 'pageinit', function(){
+// });

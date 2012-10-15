@@ -78,6 +78,17 @@ class Query
     }
   }
 
+  public static function searchName(&$query, $keyword, $type)
+  {
+    if ($type) {
+      $query->andWhere('id like ?', '%'.$keyword.'%');
+      $query->orderBy('id');
+    } else {
+      $query->andWhere('name like ?', '%'.$keyword.'%');
+      $query->orderBy('name');
+    }
+  }
+
   public static function gender(&$query, $gender)
   {
     $query->andWhere('gender = ?', $gender);
