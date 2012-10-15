@@ -1,4 +1,4 @@
-<div id="ranking_index" data-role="page">
+<div id="ranking_index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Ranking')) ?>
     <div data-role="content">
         <form action="" method="GET">

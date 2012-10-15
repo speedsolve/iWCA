@@ -1,4 +1,4 @@
-<div id="record_index" data-role="page">
+<div id="record_index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Record')) ?>
     <div data-role="content">
         <form action="" method="GET">

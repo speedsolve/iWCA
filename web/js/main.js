@@ -8,7 +8,6 @@ $(document).bind('mobileinit', function(){
 
 $(document).delegate('#ranking_index', 'pageinit', function(){
     /**
-     * Ranking
      * average記録のない時ボタンを無効にする
      */
     $('#event_ranking').change(function() {
@@ -20,7 +19,6 @@ $(document).delegate('#ranking_index', 'pageinit', function(){
     });
 
     /**
-     * Ranking
      * フォームのactionをsubmitボタンで分ける
      **/
     $('[action]').click(function(){
@@ -32,7 +30,6 @@ $(document).delegate('#ranking_index', 'pageinit', function(){
 
 $(document).delegate('#record_index', 'pageinit', function(){
     /**
-     * Ranking
      * average記録のない時ボタンを無効にする
      */
     $('#event_record').change(function() {
@@ -44,7 +41,6 @@ $(document).delegate('#record_index', 'pageinit', function(){
     });
 
     /**
-     * Ranking
      * フォームのactionをsubmitボタンで分ける
      **/
     $('[action]').click(function(){
