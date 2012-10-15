@@ -1,5 +1,9 @@
-.event-name, .competition-name{
+.competition-name{
     font-size: x-small;
+    color:     #aaaaaa;
+}
+.event-name{
+    font-size: small;
     color:     #aaaaaa;
 }
 .subrecord{

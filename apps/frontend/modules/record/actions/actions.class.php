@@ -48,6 +48,10 @@ class recordActions extends sfActions
       }
 
       ResultsService::setData(&$results);
+
+      if (!$results) {
+        $results = NULL;
+      }
     }
 
     $this->results = $results;
@@ -72,6 +76,10 @@ class recordActions extends sfActions
       }
 
       ResultsService::setData(&$results);
+
+      if (!$results) {
+        $results = NULL;
+      }
     }
 
     $this->results = $results;

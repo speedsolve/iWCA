@@ -58,7 +58,7 @@
                 <div class="ui-block-a"><button class="single" name="single" action="<?php echo url_for('record/single') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Single</button></div>
                 <div class="ui-block-b"><button class="average" name="average" action="<?php echo url_for('record/average') ?>" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Average</button></div>
             </fieldset>
-            <?php include_partial('global/footer', array('record_class' => 'ui-btn-active ui-state-persist')) ?>
         </form>
     </div>
+    <?php include_partial('global/footer', array('record_class' => 'ui-btn-active ui-state-persist')) ?>
 </div>

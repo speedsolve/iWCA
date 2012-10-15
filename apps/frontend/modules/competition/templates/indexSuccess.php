@@ -40,7 +40,7 @@
             </select>
             <input type="search" name="keyword" value="" data-prevent-focus-zoom="true" data-theme="a" />
             <button class="search" name="search" type="submit" data-theme="a" data-icon="check" data-iconpos="left">Search</button>
-            <?php include_partial('global/footer', array('competition_class' => 'ui-btn-active ui-state-persist')) ?>
         </form>
     </div>
+    <?php include_partial('global/footer', array('competition_class' => 'ui-btn-active ui-state-persist')) ?>
 </div>
