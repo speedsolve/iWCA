@@ -45,7 +45,7 @@ class SinglesTable extends Doctrine_Table
       }
 
       if ($type) {
-        Query::groupBy(&$query, 'personId');
+        Query::groupBy(&$query, 'personid');
       }
 
       if ($limit) {
@@ -55,7 +55,6 @@ class SinglesTable extends Doctrine_Table
       if ($offset) {
         Query::offset(&$query, $offset);
       }
-
       $query->orderBy('single, personname ASC');
       $query->useResultCache(true);
 
