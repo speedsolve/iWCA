@@ -1,7 +1,7 @@
 <div id="record_index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Record')) ?>
     <div data-role="content">
-        <form action="" method="GET">
+        <form action="" method="POST">
             <select name="eventId" id="event_record" data-theme="a">
                 <option value="0">
                     Event

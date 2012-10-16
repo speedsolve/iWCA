@@ -1,7 +1,7 @@
 <div id="ranking_index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Ranking')) ?>
     <div data-role="content">
-        <form action="" method="GET">
+        <form action="" method="POST">
             <select name="eventId" id="event_ranking" data-theme="a">
                 <option value="333">
                     Event

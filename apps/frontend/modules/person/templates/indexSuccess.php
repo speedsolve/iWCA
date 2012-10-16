@@ -1,7 +1,7 @@
 <div id="person_index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Person')) ?>
     <div data-role="content">
-        <form action="<?php echo url_for('person/search') ?>" method="GET">
+        <form action="<?php echo url_for('person/search') ?>" method="POST">
             <select name="region" data-theme="a">
                 <option value="0">
                     Region
