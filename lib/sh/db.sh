@@ -44,7 +44,7 @@ mysql -u root -D wcaTmp -e "update Singles set year = 2008 where competitionId l
 mysql -u root -D wcaTmp -e "update Singles set year = 2009 where competitionId like '%2009%'"
 mysql -u root -D wcaTmp -e "update Singles set year = 2010 where competitionId like '%2010%'"
 mysql -u root -D wcaTmp -e "update Singles set year = 2011 where competitionId like '%2011%'"
-mysql -u root -D wcaTmp -e "update Singles set year = 2012 where competitionId like '%2012%'"
+mysql -u root -D wcaTmp -e "update Singles set year = 2013 where competitionId like '%2013%'"
 
 echo 'Singlesテーブル作成しました。'
 
@@ -66,7 +66,9 @@ mysql -u root -D wcaTmp -e "update Averages set year = 2007 where competitionId 
 mysql -u root -D wcaTmp -e "update Averages set year = 2008 where competitionId like '%2008%'"
 mysql -u root -D wcaTmp -e "update Averages set year = 2009 where competitionId like '%2009%'"
 mysql -u root -D wcaTmp -e "update Averages set year = 2010 where competitionId like '%2010%'"
+mysql -u root -D wcaTmp -e "update Averages set year = 2011 where competitionId like '%2011%'"
 mysql -u root -D wcaTmp -e "update Averages set year = 2012 where competitionId like '%2012%'"
+mysql -u root -D wcaTmp -e "update Averages set year = 2013 where competitionId like '%2013%'"
 
 echo 'Averagesテーブル作成しました。'
 
@@ -105,6 +107,8 @@ mysql -u root -D wcaTmp -e "update Results set year = 2008 where competitionId l
 mysql -u root -D wcaTmp -e "update Results set year = 2009 where competitionId like '%2009%'"
 mysql -u root -D wcaTmp -e "update Results set year = 2010 where competitionId like '%2010%'"
 mysql -u root -D wcaTmp -e "update Results set year = 2011 where competitionId like '%2011%'"
+mysql -u root -D wcaTmp -e "update Results set year = 2012 where competitionId like '%2012%'"
+mysql -u root -D wcaTmp -e "update Results set year = 2013 where competitionId like '%2013%'"
 
 echo 'Resultsテーブルにyearを追加しました。'
 
