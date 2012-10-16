@@ -17,6 +17,20 @@ class PersonsTable extends Doctrine_Table
       return Doctrine_Core::getTable('Persons');
     }
 
+    public function getPerson($id)
+    {
+      $query = $this->createQuery();
+      $query->where('id =?', $id);
+
+      $query->useResultCache(true);
+      $results = $query->fetchArray();
+
+      $query->free();
+      unset($query);
+
+      return $results;
+    }
+
     public function getPersons($region, $keyword, $type)
     {
       $query = $this->createQuery();
