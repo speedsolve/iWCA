@@ -54,7 +54,7 @@ class CompetitionsTable extends Doctrine_Table
       }
 
       if ($region && $region != 'World') {
-        Query::region(&$query, $region);
+        Query::competitionRegion(&$query, $region);
       }
 
       if ($years && $years != 'All') {

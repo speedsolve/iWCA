@@ -21,6 +21,11 @@ class Query
     $query->andWhere('countryid = ?', $region);
   }
 
+  public static function competitionRegion(&$query, $region)
+  {
+    $query->andWhere('countryid = ?', $region);
+  }
+
   public static function years(&$query, $years)
   {
     if ($years == 'Current') {

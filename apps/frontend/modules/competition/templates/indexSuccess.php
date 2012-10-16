@@ -1,7 +1,7 @@
 <div id="index" data-role="page" data-theme="a">
     <?php include_partial('global/header', array('title' => 'Competition')) ?>
     <div data-role="content">
-        <form action="<?php echo url_for('competition/list') ?>" method="POST">
+        <form action="<?php echo url_for('competition/list') ?>" method="GET">
             <select name="eventId" id="event" data-theme="a">
                 <option value="All">
                     Event
