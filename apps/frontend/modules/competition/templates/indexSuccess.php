@@ -3,19 +3,19 @@
     <div data-role="content">
         <form action="<?php echo url_for('competition/list') ?>" method="GET">
             <select name="eventId" id="event" data-theme="a">
-                <option value="All">
+                <option value="0">
                     Event
                 </option>
-                <option value="All">All</option>
+                <option value="0">All</option>
                 <?php foreach(sfConfig::get('app_event_id') as $key => $event): ?>
                     <option value="<?php echo $key ?>"><?php echo $event['cellname'] ?></option>
                 <?php endforeach ?>
             </select>
             <select name="region" data-theme="a">
-                <option value="World">
+                <option value="0">
                     Region
                 </option>
-                <option value="World">World</option>
+                <option value="0">World</option>
                 <?php foreach(sfConfig::get('app_name_continents') as $key => $continent): ?>
                     <option value="<?php echo $continent ?>"><?php echo $continent ?></option>
                 <?php endforeach ?>
@@ -27,7 +27,7 @@
                 <option value="Current">
                     Years
                 </option>
-                <option value="All">All</option>
+                <option value="0">All</option>
                 <option value="Current">Current</option>
                 <?php for($year = sfConfig::get('app_now_year'); $year >= sfConfig::get('app_recently_old_year'); $year--): ?>
                     <option value="<?php echo $year ?>">Only <?php echo $year ?></option>

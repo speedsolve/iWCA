@@ -49,15 +49,15 @@ class CompetitionsTable extends Doctrine_Table
       $query = $this->createQuery();
       $query->select('cellname, cityname, countryid, year, month, day, endmonth, endday');
 
-      if ($eventId != 'All') {
+      if ($eventId) {
         Query::competitionEvent(&$query, $eventId);
       }
 
-      if ($region && $region != 'World') {
+      if ($region) {
         Query::competitionRegion(&$query, $region);
       }
 
-      if ($years && $years != 'All') {
+      if ($years) {
         Query::years(&$query, $years);
       }
 

@@ -23,7 +23,11 @@ class Query
 
   public static function competitionRegion(&$query, $region)
   {
-    $query->andWhere('countryid = ?', $region);
+    if (in_array($region, sfConfig::get('app_name_continents'))) {
+      $query->andWhere('continentid = ?', $region);
+    } else {
+      $query->andWhere('countryid = ?', $region);
+    }
   }
 
   public static function years(&$query, $years)
