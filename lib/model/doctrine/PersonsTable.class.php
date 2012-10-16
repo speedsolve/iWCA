@@ -38,6 +38,8 @@ class PersonsTable extends Doctrine_Table
 
       if ($keyword) {
         Query::searchName(&$query, $keyword, $type);
+      } else {
+        $query->orderBy('name');
       }
 
       if ($region) {
