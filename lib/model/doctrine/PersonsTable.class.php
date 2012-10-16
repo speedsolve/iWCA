@@ -20,10 +20,10 @@ class PersonsTable extends Doctrine_Table
     public function getPerson($id)
     {
       $query = $this->createQuery();
-      $query->where('id =?', $id);
+      $query->where('id = ?', $id);
 
       $query->useResultCache(true);
-      $results = $query->fetchArray();
+      $results = $query->fetchOne();
 
       $query->free();
       unset($query);
@@ -34,7 +34,6 @@ class PersonsTable extends Doctrine_Table
     public function getPersons($region, $keyword, $type)
     {
       $query = $this->createQuery();
-      $query->select('id, name, countryid');
 
       if ($keyword) {
         Query::searchName(&$query, $keyword, $type);

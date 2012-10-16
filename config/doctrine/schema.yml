@@ -515,10 +515,6 @@ RanksAverage:
   connection: doctrine
   tableName: RanksAverage
   columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
     personid:
       type: string(10)
       fixed: false
@@ -567,14 +563,16 @@ RanksAverage:
       default: '0'
       notnull: true
       autoincrement: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
 RanksSingle:
   connection: doctrine
   tableName: RanksSingle
   columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
     personid:
       type: string(10)
       fixed: false
@@ -623,6 +621,12 @@ RanksSingle:
       default: '0'
       notnull: true
       autoincrement: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
 Results:
   connection: doctrine
   tableName: Results

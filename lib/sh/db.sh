@@ -169,6 +169,10 @@ echo 'AveragesテーブルにCompetitionNameを追加しました。'
 mysql -u root -D wcaTmp -e "alter table Averages add index Averages_index (id,average,gender,personCountryId,continentId,eventId,year)"
 mysql -u root -D wcaTmp -e "alter table Singles add index Singles_index (id,single,gender,personCountryId,continentId,eventId,competitionId,year)"
 
+# id追加
+mysql -u root -D wcaTmp -e 'alter table RanksSingle add column id int auto_increment primary key'
+mysql -u root -D wcaTmp -e 'alter table RanksAverage add column id int auto_increment primary key'
+
 mysql -u root -D wcaTmp -e 'drop table if exists Result'
 
 mysqldump -u root wcaTmp > wca.dump

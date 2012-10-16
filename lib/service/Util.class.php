@@ -12,6 +12,20 @@ class Util
     return $string;
   }
 
+  public static function setEventKey($datas)
+  {
+    $results = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach($datas as $data) {
+         if ($data['eventid'] === (string)$event) {
+           $results[$event] = $data;
+         }
+      }
+    }
+
+    return $results;
+  }
+
   public static function getChangeRecord($time, $event)
   {
     // Format調整並びにDNF、DNSの判定

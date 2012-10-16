@@ -29,7 +29,7 @@ class personActions extends sfActions
   {
   }
 
-  public function executeSearch(sfWebRequest $request)
+  public function executeList(sfWebRequest $request)
   {
     $region  = $request->getParameter('region');
     $keyword = $request->getParameter('keyword');
@@ -45,5 +45,28 @@ class personActions extends sfActions
 
     $this->type    = $type;
     $this->results = $results;
+  }
+
+  public function executeDetail(sfWebRequest $request)
+  {
+    $id             = $request->getParameter('id');
+    $single_ranks   = RanksSingleTable::getInstance()->getRanks($id);
+    $average_ranks  = RanksAverageTable::getInstance()->getRanks($id);
+    $results        = ResultsTable::getInstance()->getPersonalResults($id);
+
+    // 全記録にデータを付与する
+    $singles        = ResultsService::getCurrentRecord($results, 'best');
+    $averages       = ResultsService::getCurrentRecord($results, 'average');
+    ResultsService::setData(&$singles);
+    ResultsService::setData(&$averages);
+
+    $this->person         = PersonsTable::getInstance()->getPerson($id);
+    $this->person['name'] = Util::removeParenthesis($this->person['name']);
+    $this->single_ranks   = Util::setEventKey($single_ranks);
+    $this->singles        = Util::setEventKey($singles);
+    $this->averages       = Util::setEventKey($averages);
+    $this->average_ranks  = Util::setEventKey($average_ranks);
+    ResultsService::setData(&$results);
+    $this->histories      = ResultsService::getHistoryRecord($results);
   }
 }

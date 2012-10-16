@@ -6,7 +6,10 @@
     font-size: small;
     color:     #aaaaaa;
 }
-.subrecord{
+.personal-event-name{
+    color:     #aaaaaa;
+}
+.subrecord, .personal-rank-title{
     font-size: x-small;
 }
 .venue{

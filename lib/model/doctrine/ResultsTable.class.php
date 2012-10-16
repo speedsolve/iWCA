@@ -17,6 +17,22 @@ class ResultsTable extends Doctrine_Table
       return Doctrine_Core::getTable('Results');
     }
 
+    public function getPersonalResults($personId)
+    {
+       $query = $this->createQuery();
+       $query->where('personid = ?', $personId);
+
+       $query->orderBy('id DESC');
+       $query->useResultCache(true);
+
+       $results = $query->fetchArray();
+
+       $query->free();
+       unset($query);
+
+       return $results;
+    }
+
     /**
      * 単発記録のレコードを取得します
      * @param region  国

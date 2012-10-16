@@ -5,8 +5,10 @@
             <ul data-role="listview">
                 <?php foreach($results as $result): ?>
                     <li>
-                        <?php echo $result['name'] ?><?php echo image_tag('flag/' . $result['countryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><br />
-                        <span class="id-name"><?php echo $result['id'] ?></span><br />
+                        <a href="<?php echo url_for('person/detail?id='.$result['id']) ?>" class="ui-link-inherit">
+                            <?php echo $result['name'] ?><?php echo image_tag('flag/' . $result['countryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><br />
+                            <span class="id-name"><?php echo $result['id'] ?>,&nbsp;<?php echo $result['gender'] ?></span><br />
+                        </a>
                     </li>
                 <?php endforeach; ?>
             </ul>
