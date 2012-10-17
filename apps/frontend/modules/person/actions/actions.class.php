@@ -68,5 +68,6 @@ class personActions extends sfActions
     $this->average_ranks  = Util::setEventKey($average_ranks);
     ResultsService::setData(&$results);
     $this->histories      = ResultsService::getHistoryRecord($results);
+    $this->competitions   = ResultsService::getCompetitionRecord($results);
   }
 }

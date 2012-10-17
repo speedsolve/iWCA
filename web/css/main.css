@@ -6,13 +6,29 @@
     font-size: small;
     color:     #aaaaaa;
 }
-.personal-event-name{
-    color:     #aaaaaa;
-}
-.subrecord, .personal-rank-title{
+.subrecord{
     font-size: x-small;
 }
 .venue{
+    font-size: x-small;
+    color:     #aaaaaa;
+}
+
+/*Person*/
+.person-event-name{
+    color:     #aaaaaa;
+}
+
+.person-rank-title, .person-round-title{
+    font-size: x-small;
+}
+
+.person-competition-date{
+    font-size: small;
+    color:     #aaaaaa;
+}
+
+.person-subrecord {
     font-size: x-small;
     color:     #aaaaaa;
 }

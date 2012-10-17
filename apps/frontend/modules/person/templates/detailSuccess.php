@@ -38,23 +38,51 @@
                 <?php if (isset($singles[$event])): ?>
                     <div data-role="collapsible">
                         <h2>
-                           <span class="personal-event-name"><?php echo $value['cellname'] ?></span><br />
+                           <span class="person-event-name"><?php echo $value['cellname'] ?></span><br />
                            <div style="margin-top:5px;">
-                               <span class="personal-rank-title">Single</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $singles[$event]['best'] ?>&nbsp;
-                               <span class="personal-rank-title">WR&nbsp;<?php echo $single_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                               <span class="personal-rank-title">CR&nbsp;<?php echo $single_ranks[$event]['continentrank'] ?>&nbsp;<span>
-                               <span class="personal-rank-title">NR&nbsp;<?php echo $single_ranks[$event]['countryrank'] ?>&nbsp;<span>
+                               <span class="person-rank-title">Single</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $singles[$event]['best'] ?>&nbsp;
+                               <span class="person-rank-title">WR&nbsp;<?php echo $single_ranks[$event]['worldrank'] ?>&nbsp;</span>
+                               <span class="person-rank-title">CR&nbsp;<?php echo $single_ranks[$event]['continentrank'] ?>&nbsp;<span>
+                               <span class="person-rank-title">NR&nbsp;<?php echo $single_ranks[$event]['countryrank'] ?>&nbsp;<span>
                            </div>
                            <?php if (isset($averages[$event])): ?>
                                <div style="margin-top:5px;">
-                                   <span class="personal-rank-title">Average</span>&nbsp;&nbsp;<?php echo $averages[$event]['average'] ?>&nbsp;
-                                   <span class="personal-rank-title">WR&nbsp;<?php echo $average_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                                   <span class="personal-rank-title">CR&nbsp;<?php echo $average_ranks[$event]['continentrank'] ?>&nbsp;<span>
-                                   <span class="personal-rank-title">NR&nbsp;<?php echo $average_ranks[$event]['countryrank'] ?>&nbsp;<span>
+                                   <span class="person-rank-title">Average</span>&nbsp;&nbsp;<?php echo $averages[$event]['average'] ?>&nbsp;
+                                   <span class="person-rank-title">WR&nbsp;<?php echo $average_ranks[$event]['worldrank'] ?>&nbsp;</span>
+                                   <span class="person-rank-title">CR&nbsp;<?php echo $average_ranks[$event]['continentrank'] ?>&nbsp;<span>
+                                   <span class="person-rank-title">NR&nbsp;<?php echo $average_ranks[$event]['countryrank'] ?>&nbsp;<span>
                                </div>
                            <?php endif ?>
                         </h2>
                         <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                            <?php foreach($competitions[$event] as $competition): ?>
+                                <li>
+                                    <a href="<?php echo url_for('competition/detail?competitionId='.$competition[0]['competitionid']) ?>" class="ui-link-inherit">
+                                        <?php foreach($competition as $key => $round): ?>
+                                            <?php if ($key == 0): ?>
+                                                <?php if ($round['day'] == $round['endday']): ?>
+                                                    <span class="person-competition-date"><?php echo $round['year'].'/'.$round['month'].'/'.$round['day'] ?></span><br />
+                                                <?php else: ?>
+                                                    <span class="person-competition-date"><?php echo $round['year'].'/'.$round['month'].'/'.$round['day'] ?>&nbsp;-&nbsp;<?php echo $round['endmonth'].'/'.$round['endday'] ?></span><br />
+                                                <?php endif ?>
+                                                <?php echo $round['competitionname'] ?><br />
+                                            <?php endif ?>
+                                            <span class="person-round-title"><?php echo $round['roundid'] ?></span><br />
+                                            <span class="person-rank-title">Best</span>&nbsp;&nbsp;<?php echo $round['best'] ?>&nbsp;
+                                            <?php if ($round['average']): ?>
+                                                <span class="person-rank-title">Average</span>&nbsp;&nbsp;<?php echo $round['average'] ?><br />
+                                                <span class="person-subrecord">
+                                                    <?php foreach($round['subrecord'] as $subrecord):?>
+                                                        <?php echo $subrecord ?>&nbsp;
+                                                    <?php endforeach; ?>
+                                                </span><br />
+                                            <?php else: ?>
+                                                <br />
+                                            <?php endif ?>
+                                         <?php endforeach ?>
+                                     </a>
+                                </li>
+                            <?php endforeach ?>
                         </ul>
                     </div>
                 <?php endif ?>

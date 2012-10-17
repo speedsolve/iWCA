@@ -21,8 +21,15 @@ class ResultsService
           }
         }
 
+        // 大会情報取得
         $competition = CompetitionsTable::getInstance()->getCompetition($result['competitionid']);
         $result['competitionname'] = $competition['cellname'];
+        $result['countryid']       = $competition['countryid'];
+        $result['year']            = $competition['year'];
+        $result['month']           = $competition['month'];
+        $result['day']             = $competition['day'];
+        $result['endmonth']        = $competition['endmonth'];
+        $result['endday']          = $competition['endday'];
         unset($competition);
 
         if (isset($result['best'])) {
@@ -121,5 +128,22 @@ class ResultsService
     }
 
     return $history;
+  }
+
+  /*
+   * 大会記録取得
+   */
+  public static function getCompetitionRecord($results)
+  {
+    $competitions = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach ($results as $result) {
+        if ($result['eventid'] === (string)$event) {
+          $competitions[$event][$result['competitionid']][] = $result;
+        }
+      }
+    }
+
+    return $competitions;
   }
 }
