@@ -39,4 +39,18 @@ class CompetitionsService
     }
     return $point;
   }
+
+  /**
+   * 開催競技を取得する
+   */
+  public static function setEvents($results)
+  {
+    $events = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      if (strpos($results['eventspecs'], (string)$event) !== false) {
+        $events[$event] = $value['cellname'];
+      }
+    }
+    return $events;
+  }
 }

@@ -43,9 +43,10 @@ class competitionActions extends sfActions
 
   public function executeDetail(sfWebRequest $request)
   {
-    $competitionId   = $request->getParameter('competitionId');
-    $this->results   = CompetitionsTable::getInstance()->getCompetition($competitionId);
-    $this->latitude  = CompetitionsService::getChangeCoordinates($this->results['latitude']);
-    $this->longitude = CompetitionsService::getChangeCoordinates($this->results['longitude']);
+    $competitionId = $request->getParameter('competitionId');
+    $this->results = CompetitionsTable::getInstance()->getCompetition($competitionId);
+    $this->results['latitude']  = CompetitionsService::getChangeCoordinates($this->results['latitude']);
+    $this->results['longitude'] = CompetitionsService::getChangeCoordinates($this->results['longitude']);
+    $this->events = CompetitionsService::setEvents($this->results);
   }
 }

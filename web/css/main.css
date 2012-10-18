@@ -32,3 +32,9 @@
     font-size: x-small;
     color:     #aaaaaa;
 }
+
+/*Competition*/
+.competition-detail-date{
+    font-size: small;
+    color:     #aaaaaa;
+}
