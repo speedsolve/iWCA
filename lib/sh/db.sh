@@ -44,6 +44,7 @@ mysql -u root -D wcaTmp -e "update Singles set year = 2008 where competitionId l
 mysql -u root -D wcaTmp -e "update Singles set year = 2009 where competitionId like '%2009%'"
 mysql -u root -D wcaTmp -e "update Singles set year = 2010 where competitionId like '%2010%'"
 mysql -u root -D wcaTmp -e "update Singles set year = 2011 where competitionId like '%2011%'"
+mysql -u root -D wcaTmp -e "update Singles set year = 2012 where competitionId like '%2012%'"
 mysql -u root -D wcaTmp -e "update Singles set year = 2013 where competitionId like '%2013%'"
 
 echo 'Singlesテーブル作成しました。'

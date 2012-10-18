@@ -35,9 +35,7 @@ class personActions extends sfActions
     $keyword = $request->getParameter('keyword');
     $type    = $request->getParameter('type');
 
-    if ($keyword || $region) {
-      $results = PersonsTable::getInstance()->getPersons($region, $keyword, $type);
-    }
+    $results = PersonsTable::getInstance()->getPersons($region, $keyword, $type);
 
     foreach ($results as &$result) {
       $result['name'] = Util::removeParenthesis($result['name']);

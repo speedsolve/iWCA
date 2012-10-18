@@ -37,15 +37,20 @@ class PersonsTable extends Doctrine_Table
 
       if ($keyword) {
         Query::searchName(&$query, $keyword, $type);
-      } else {
-        $query->orderBy('name');
       }
 
       if ($region) {
         Query::personRegion(&$query, $region);
       }
 
-      $query->useResultCache(true);
+      if (!$region && !$keyword) {
+        $query->orderBy('random()');
+        $query->limit(100);
+      } else {
+        $query->orderBy('name');
+        $query->useResultCache(true);
+      }
+
       $results = $query->fetchArray();
 
       $query->free();
