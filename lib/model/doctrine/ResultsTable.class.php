@@ -17,6 +17,22 @@ class ResultsTable extends Doctrine_Table
       return Doctrine_Core::getTable('Results');
     }
 
+    public function getCompetitionResults($competitionId)
+    {
+       $query = $this->createQuery();
+       $query->where('competitionid = ?', $competitionId);
+
+       $query->orderBy('id ASC');
+       $query->useResultCache(true);
+
+       $results = $query->fetchArray();
+
+       $query->free();
+       unset($query);
+
+       return $results;
+    }
+
     public function getPersonalResults($personId)
     {
        $query = $this->createQuery();

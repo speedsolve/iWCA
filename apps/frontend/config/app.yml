@@ -46,10 +46,10 @@ all:
      444:    { name: '4x4 Cube',                                cellname: '4x4 Cube' }
      555:    { name: '5x5 Cube',                                cellname: '5x5 Cube' }
      222:    { name: '2x2 Cube',                                cellname: '2x2 Cube' }
-     333bf:  { name: 'Rubik''s Cube: Blindfolded',              cellname: '3x3 blindfolded' }
-     333oh:  { name: 'Rubik''s Cube: One-handed',               cellname: '3x3 one-handed' }
-     333fm:  { name: 'Rubik''s Cube: Fewest moves',             cellname: '3x3 fewest moves' }
-     333ft:  { name: 'Rubik''s Cube: With feet',                cellname: '3x3 with feet' }
+     333bf:  { name: 'Rubik''s Cube: Blindfolded',              cellname: '3x3 Blindfolded' }
+     333oh:  { name: 'Rubik''s Cube: One-handed',               cellname: '3x3 One-handed' }
+     333fm:  { name: 'Rubik''s Cube: Fewest moves',             cellname: '3x3 Fewest moves' }
+     333ft:  { name: 'Rubik''s Cube: With feet',                cellname: '3x3 With feet' }
      minx:   { name: 'Megaminx',                                cellname: 'Megaminx' }
      pyram:  { name: 'Pyraminx',                                cellname: 'Pyraminx' }
      sq1:    { name: 'Square-1',                                cellname: 'Square-1' }
@@ -58,9 +58,9 @@ all:
      777:    { name: '7x7 Cube',                                cellname: '7x7 Cube' }
      magic:  { name: 'Rubik''s Magic',                          cellname: 'Rubik''s Magic' }
      mmagic: { name: 'Master Magic',                            cellname: 'Master Magic' }
-     444bf:  { name: '4x4 Cube: Blindfolded',                   cellname: '4x4 blindfolded' }
-     555bf:  { name: '5x5 Cube: Blindfolded',                   cellname: '5x5 blindfolded' }
-     333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded',     cellname: '3x3 multi blind' }
+     444bf:  { name: '4x4 Cube: Blindfolded',                   cellname: '4x4 Blindfolded' }
+     555bf:  { name: '5x5 Cube: Blindfolded',                   cellname: '5x5 Blindfolded' }
+     333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded',     cellname: '3x3 Multi Blind' }
 
     single:
       - 333bf

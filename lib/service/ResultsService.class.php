@@ -146,4 +146,42 @@ class ResultsService
 
     return $competitions;
   }
+
+  /*
+   * 大会勝者取得
+   * @params データフォーマット後の結果
+   */
+  public static function getCompetitionWinner($results)
+  {
+    $winners = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach ($results as $result) {
+        if ($result['eventid'] === (string)$event && $result['roundid'] === 'Final' && $result['pos'] <= 3) {
+          if ($result['best'] != 'DNF' && $result['best'] != 'DNS' && $result['average'] != 'DNF' && $result['average'] != 'DNS') {
+            $winners[$event][] = $result;
+          }
+        }
+      }
+    }
+
+    return $winners;
+  }
+
+  /*
+   * 大会結果取得
+   * @params データフォーマット後の結果
+   */
+  public static function getCompetitionResults($results)
+  {
+    $competition_results = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach ($results as $result) {
+        if ($result['eventid'] === (string)$event) {
+          $competition_results[$event][$result['roundid']][] = $result;
+        }
+      }
+    }
+
+    return $competition_results;
+  }
 }

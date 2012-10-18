@@ -38,3 +38,13 @@
     font-size: small;
     color:     #aaaaaa;
 }
+.winner-title{
+    color:     #aaaaaa;
+}
+.winner-rank-title{
+    font-size: x-small;
+}
+.winner-subrecord {
+    font-size: x-small;
+    color:     #aaaaaa;
+}
