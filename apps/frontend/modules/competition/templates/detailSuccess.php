@@ -16,7 +16,7 @@
                 <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
             </li>
         </ul>
-        <?php if (!empty($results)): ?>
+        <?php if ($end): ?>
             <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
                 <div data-role="collapsible">
                     <h2>Winners</h2>

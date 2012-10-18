@@ -54,6 +54,7 @@ class competitionActions extends sfActions
       ResultsService::setData($this->results);
       $this->winners = ResultsService::getCompetitionWinner($this->results);
       $this->competition_results = ResultsService::getCompetitionResults($this->results);
+      $this->end = true;
     }
   }
 }
