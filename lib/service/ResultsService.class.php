@@ -11,7 +11,7 @@ class ResultsService
    * データ追加
    * @param データ
    */
-  public static function setData (&$results)
+  public static function setData (&$results, $is_competition = true)
   {
      foreach ($results as &$result) {
 
@@ -22,15 +22,16 @@ class ResultsService
         }
 
         // 大会情報取得
-        $competition = CompetitionsTable::getInstance()->getCompetition($result['competitionid']);
-        $result['competitionname'] = $competition['cellname'];
-        $result['countryid']       = $competition['countryid'];
-        $result['year']            = $competition['year'];
-        $result['month']           = $competition['month'];
-        $result['day']             = $competition['day'];
-        $result['endmonth']        = $competition['endmonth'];
-        $result['endday']          = $competition['endday'];
-        unset($competition);
+        if ($is_competition) {
+          $competition = CompetitionsTable::getInstance()->getCompetition($result['competitionid']);
+          $result['competitionname'] = $competition['cellname'];
+          $result['countryid']       = $competition['countryid'];
+          $result['year']            = $competition['year'];
+          $result['month']           = $competition['month'];
+          $result['day']             = $competition['day'];
+          $result['endmonth']        = $competition['endmonth'];
+          $result['endday']          = $competition['endday'];
+        }
 
         if (isset($result['best'])) {
           $result['best'] = Util::getChangeRecord($result['best'], $result['eventid']);
@@ -171,13 +172,21 @@ class ResultsService
    * 大会結果取得
    * @params データフォーマット後の結果
    */
-  public static function getCompetitionResults($results)
+  public static function getCompetitionResults($results, $eventId = NULL)
   {
     $competition_results = array();
-    foreach (sfConfig::get('app_event_id') as $event => $value) {
-      foreach ($results as $result) {
-        if ($result['eventid'] === (string)$event) {
-          $competition_results[$event][$result['roundid']][] = $result;
+    foreach ($results as $result) {
+      if ($eventId) {
+        // 特定のイベントの記録
+        if ($result['eventid'] === (string)$eventId) {
+          $competition_results[$eventId][$result['roundid']][] = $result;
+        }
+      } else {
+        // イベントごとの記録
+        foreach (sfConfig::get('app_event_id') as $event => $value) {
+          if ($result['eventid'] === (string)$event) {
+            $competition_results[$event][$result['roundid']][] = $result;
+          }
         }
       }
     }

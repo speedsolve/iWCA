@@ -57,7 +57,7 @@ class CompetitionsTable extends Doctrine_Table
         Query::competitionRegion(&$query, $region);
       }
 
-      if ($years) {
+      if ($years && !$keyword) {
         Query::years(&$query, $years);
       }
 

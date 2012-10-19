@@ -51,10 +51,19 @@ class competitionActions extends sfActions
 
     $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
     if (!empty($this->results)) {
-      ResultsService::setData($this->results);
+      ResultsService::setData($this->results, false);
       $this->winners = ResultsService::getCompetitionWinner($this->results);
-      $this->competition_results = ResultsService::getCompetitionResults($this->results);
+      // 判定が難しいのでフラグを渡す
       $this->end = true;
     }
+  }
+
+  public function executeResults(sfWebRequest $request)
+  {
+    $competitionId = $request->getParameter('competitionId');
+    $this->eventId = $request->getParameter('eventId');
+    $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
+    ResultsService::setData($this->results, false);
+    $this->competition_results = ResultsService::getCompetitionResults($this->results, $this->eventId);
   }
 }
