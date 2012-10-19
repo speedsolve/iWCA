@@ -7,7 +7,14 @@
                     <li>
                         <a href="<?php echo url_for('person/detail?id='.$result['id']) ?>" class="ui-link-inherit">
                             <?php echo $result['name'] ?><?php echo image_tag('flag/' . $result['countryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><br />
-                            <span class="id-name"><?php echo $result['id'] ?>,&nbsp;<?php echo $result['gender'] ?></span><br />
+                            <span class="id-name">
+                                <?php echo $result['id'] ?>, &nbsp;<?php echo $result['countryid'] ?>,&nbsp;
+                                <?php if ($result['gender']): ?>
+                                    <?php echo $result['gender'] ?>
+                                <?php else: ?>
+                                    Unknown
+                               <?php endif ?>
+                           </span><br />
                         </a>
                     </li>
                 <?php endforeach; ?>

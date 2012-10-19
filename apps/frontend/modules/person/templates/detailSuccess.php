@@ -4,7 +4,14 @@
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
                 <?php echo image_tag('flag/' . $person['countryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $person['name'] ?><br />
-                <span class="id-name"><?php echo $person['id'] ?>,&nbsp;<?php echo $person['countryid'] ?>,&nbsp;<?php echo $person['gender'] ?></span><br />
+                <span class="id-name">
+                    <?php echo $person['id'] ?>,&nbsp;<?php echo $person['countryid'] ?>,&nbsp;
+                    <?php if ($person['gender']): ?>
+                        <?php echo $person['gender'] ?>
+                    <?php else: ?>
+                        Unknown
+                    <?php endif ?>
+                </span><br />
             </li>
         </ul>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
