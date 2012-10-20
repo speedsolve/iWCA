@@ -20,6 +20,7 @@ class ResultsTable extends Doctrine_Table
     public function getCompetitionResults($competitionId)
     {
        $query = $this->createQuery();
+       $query->select('competitionid, eventId, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
        $query->where('competitionid = ?', $competitionId);
 
        $query->orderBy('id ASC');
@@ -36,6 +37,7 @@ class ResultsTable extends Doctrine_Table
     public function getPersonalResults($personId)
     {
        $query = $this->createQuery();
+       $query->select('competitionid, eventId, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
        $query->where('personid = ?', $personId);
 
        $query->orderBy('id DESC');
@@ -60,7 +62,7 @@ class ResultsTable extends Doctrine_Table
     public function getSingleRecord($region, $eventId, $years, $gender)
     {
        $query = $this->createQuery();
-       $query->select('personid, personname, personcountryid, best, eventid, competitionid');
+       $query->select('personid, personname, personcountryid, best, eventid, competitionid, competitionname, countryid, year, month, day, endmonth, endday');
 
        if ($gender != 'Female') {
          Query::singleRecord(&$query, $region);
@@ -98,7 +100,7 @@ class ResultsTable extends Doctrine_Table
     public function getAverageRecord($region, $eventId, $years, $gender)
     {
        $query = $this->createQuery();
-       $query->select('personid, personname, eventid, personcountryid, average, value1, value2, value3, value4, value5, competitionid');
+       $query->select('personid, personname, eventid, personcountryid, average, value1, value2, value3, value4, value5, competitionid, competitionname, countryid, year, month, day, endmonth, endday');
 
        if ($gender != 'Female') {
          Query::averageRecord(&$query, $region);

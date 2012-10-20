@@ -21,18 +21,6 @@ class ResultsService
           }
         }
 
-        // 大会情報取得
-        if ($is_competition) {
-          $competition = CompetitionsTable::getInstance()->getCompetition($result['competitionid']);
-          $result['competitionname'] = $competition['cellname'];
-          $result['countryid']       = $competition['countryid'];
-          $result['year']            = $competition['year'];
-          $result['month']           = $competition['month'];
-          $result['day']             = $competition['day'];
-          $result['endmonth']        = $competition['endmonth'];
-          $result['endday']          = $competition['endday'];
-        }
-
         if (isset($result['best'])) {
           $result['best'] = Util::getChangeRecord($result['best'], $result['eventid']);
         }
