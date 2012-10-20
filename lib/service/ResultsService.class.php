@@ -11,7 +11,7 @@ class ResultsService
    * データ追加
    * @param データ
    */
-  public static function setData (&$results, $is_competition = true)
+  public static function setData (&$results)
   {
      foreach ($results as &$result) {
 
