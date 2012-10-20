@@ -23,6 +23,11 @@ class ResultsService
 
         if (isset($result['best'])) {
           $result['best'] = Util::getChangeRecord($result['best'], $result['eventid']);
+          for ($i = 1; $i <= 5; $i++) {
+            if (isset($result['value'.$i]) && $result['value'.$i] != 0) {
+              $result['subrecord'][$i] = Util::getChangeRecord($result['value'.$i], $result['eventid']);
+            }
+          }
         }
 
         if (isset($result['average'])) {

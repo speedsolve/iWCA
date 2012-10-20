@@ -16,13 +16,11 @@
                                 <span class="results-rank-title">Average</span>&nbsp;&nbsp;<?php echo $result['average'] ?>&nbsp;
                             <?php endif ?>
                             <span class="results-rank-title">Best</span>&nbsp;&nbsp;<?php echo $result['best'] ?><br />
-                            <?php if ($result['average']): ?>
-                                <span class="results-subrecord">
-                                    <?php foreach($result['subrecord'] as $subrecord):?>
-                                        <?php echo $subrecord ?>&nbsp;
-                                    <?php endforeach; ?>
-                                </span><br />
-                            <?php endif ?>
+                            <span class="results-subrecord">
+                                <?php foreach($result['subrecord'] as $subrecord):?>
+                                    <?php echo $subrecord ?>&nbsp;
+                                <?php endforeach; ?>
+                            </span><br />
                         </a>
                     </li>
                 <?php endforeach ?>

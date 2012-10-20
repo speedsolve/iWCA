@@ -35,13 +35,11 @@
                                             <span class="winner-rank-title">Average</span>&nbsp;&nbsp;<?php echo $winner['average'] ?>&nbsp;
                                         <?php endif ?>
                                         <span class="winner-rank-title">Best</span>&nbsp;&nbsp;<?php echo $winner['best'] ?><br />
-                                        <?php if ($winner['average']): ?>
-                                            <span class="winner-subrecord">
-                                                <?php foreach($winner['subrecord'] as $subrecord):?>
-                                                    <?php echo $subrecord ?>&nbsp;
-                                                <?php endforeach; ?>
-                                            </span><br />
-                                        <?php endif ?>
+                                        <span class="winner-subrecord">
+                                            <?php foreach($winner['subrecord'] as $subrecord):?>
+                                                <?php echo $subrecord ?>&nbsp;
+                                            <?php endforeach; ?>
+                                        </span><br />
                                     </a>
                                 </li>
                             <?php endforeach ?>
