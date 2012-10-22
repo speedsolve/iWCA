@@ -32,6 +32,18 @@ all:
      c:      { name: Combined Final }
      f:      { name: Final }
 
+  # 逆順用
+  round_reverse:
+    id:
+     f:      { name: Final }
+     c:      { name: Combined Final }
+     b:      { name: B Final }
+     3:      { name: Semi Final }
+     2:      { name: Second Round }
+     1:      { name: First Round }
+     d:      { name: Combined First Round }
+     0:      { name: Qualification Round }
+
   format:
     id:
      1:      { name: Best of 1 }

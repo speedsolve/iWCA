@@ -68,4 +68,10 @@ class personActions extends sfActions
     $this->histories      = ResultsService::getHistoryRecord($results);
     $this->competitions   = ResultsService::getCompetitionRecord($results);
   }
+
+  public function executeResult(sfWebRequest $request)
+  {
+    $id = $request->getParameter('id');
+    $this->eventId = $request->getParameter('eventId');
+  }
 }

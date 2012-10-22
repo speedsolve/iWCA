@@ -2,7 +2,7 @@
     <?php include_partial('global/header', array('title' => 'Competition')) ?>
     <div data-role="content">
         <ul data-role="listview" data-theme="a" data-divider-theme="a">
-            <?php foreach (sfConfig::get('app_round_id') as $roundid => $value): ?>
+            <?php foreach (sfConfig::get('app_round_reverse_id') as $roundid => $value): ?>
                 <?php if (isset($competition_results[$eventId][$value['name']])): ?>
                    <li data-role="list-divider">
                         <?php echo $value['name'] ?>
