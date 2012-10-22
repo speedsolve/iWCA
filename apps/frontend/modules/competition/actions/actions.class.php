@@ -50,7 +50,13 @@ class competitionActions extends sfActions
     // $this->results['longitude'] = CompetitionsService::getChangeCoordinates($this->results['longitude']);
 
     $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
+
     if (!empty($this->results)) {
+      // キャッシュ
+      $memchache = new sfMemcacheCache();
+      $memchache->set($competitionId, $this->results, 86400);
+      unset($memchache);
+
       ResultsService::setData($this->results);
       $this->winners = ResultsService::getCompetitionWinner($this->results);
       // 判定が難しいのでフラグを渡す
@@ -62,8 +68,15 @@ class competitionActions extends sfActions
   {
     $competitionId = $request->getParameter('competitionId');
     $this->eventId = $request->getParameter('eventId');
-    $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
-    ResultsService::setData($this->results);
-    $this->competition_results = ResultsService::getCompetitionResults($this->results, $this->eventId);
+
+    $memchache = new sfMemcacheCache();
+    $results = $memchache->get($competitionId);
+    error_log(print_r($results,  true));
+    if (!$results) {
+      $results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
+    }
+
+    ResultsService::setData($results);
+    $this->competition_results = ResultsService::getCompetitionResults($results, $this->eventId);
   }
 }

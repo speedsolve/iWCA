@@ -52,6 +52,11 @@ class personActions extends sfActions
     $average_ranks  = RanksAverageTable::getInstance()->getRanks($id);
     $results        = ResultsTable::getInstance()->getPersonalResults($id);
 
+    // 大会結果側のためにResultsをキャッシュする
+    $memchache = new sfMemcacheCache();
+    $memchache->set($id, $results, 86400);
+    unset($memchache);
+
     // 全記録にデータを付与する
     $singles        = ResultsService::getCurrentRecord($results, 'best');
     $averages       = ResultsService::getCurrentRecord($results, 'average');
@@ -66,12 +71,21 @@ class personActions extends sfActions
     $this->average_ranks  = Util::setEventKey($average_ranks);
     ResultsService::setData(&$results);
     $this->histories      = ResultsService::getHistoryRecord($results);
-    $this->competitions   = ResultsService::getCompetitionRecord($results);
+
   }
 
-  public function executeResult(sfWebRequest $request)
+  public function executeResults(sfWebRequest $request)
   {
     $id = $request->getParameter('id');
     $this->eventId = $request->getParameter('eventId');
+
+    $memchache = new sfMemcacheCache();
+    $results = $memchache->get($id);
+    if (!$results) {
+      $results = ResultsTable::getInstance()->getPersonalResults($id);
+    }
+
+    ResultsService::setData(&$results);
+    $this->competitions = ResultsService::getCompetitionRecord($results);
   }
 }
