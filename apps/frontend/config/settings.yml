@@ -24,6 +24,7 @@ test:
 
 all:
   .settings:
+    cache:                  true
     # Form security secret (CSRF protection)
     csrf_secret:            7b995248b968228c8e8a644ba8b97087bf0b3bba
 
