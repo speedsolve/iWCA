@@ -10,6 +10,14 @@
                     <option value="<?php echo $country['id'] ?>"><?php echo $key ?></option>
                 <?php endforeach ?>
             </select>
+            <select name="gender" data-theme="a">
+                <option value="">
+                    Gender
+                </option>
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <input type="search" name="keyword" value="" data-prevent-focus-zoom="true" data-theme="a" minlength="3" placeholder="Search Word" />
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
                 <input id="name" name="type" value="0" type="radio" data-theme="a" checked>

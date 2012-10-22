@@ -31,7 +31,7 @@ class PersonsTable extends Doctrine_Table
       return $results;
     }
 
-    public function getPersons($region, $keyword, $type)
+    public function getPersons($region, $gender, $keyword, $type)
     {
       $query = $this->createQuery();
 
@@ -41,6 +41,10 @@ class PersonsTable extends Doctrine_Table
 
       if ($region) {
         Query::personRegion(&$query, $region);
+      }
+
+      if ($gender) {
+        Query::gender(&$query, $gender);
       }
 
       if (!$region && !$keyword) {

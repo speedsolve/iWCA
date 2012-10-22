@@ -32,10 +32,11 @@ class personActions extends sfActions
   public function executeList(sfWebRequest $request)
   {
     $region  = $request->getParameter('region');
+    $gender  = $request->getParameter('gender');
     $keyword = $request->getParameter('keyword');
     $type    = $request->getParameter('type');
 
-    $results = PersonsTable::getInstance()->getPersons($region, $keyword, $type);
+    $results = PersonsTable::getInstance()->getPersons($region, $gender, $keyword, $type);
 
     foreach ($results as &$result) {
       $result['name'] = Util::removeParenthesis($result['name']);
