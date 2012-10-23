@@ -20,9 +20,9 @@
                             <?php endif ?>
                             <span class="person-round-title"><?php echo $round['roundid'] ?></span><br />
                             <?php if ($round['average']): ?>
-                                <span class="person-rank-title">Average</span>&nbsp;&nbsp;<?php echo $round['average'] ?>&nbsp;
+                                <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<?php echo $round['average'] ?>&nbsp;
                             <?php endif ?>
-                            <span class="person-rank-title">Best</span>&nbsp;&nbsp;<?php echo $round['best'] ?><br />
+                            <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<?php echo $round['best'] ?><br />
                             <span class="person-subrecord">
                                 <?php foreach($round['subrecord'] as $subrecord):?>
                                     <?php echo $subrecord ?>&nbsp;

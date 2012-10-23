@@ -32,9 +32,9 @@
                                     <a href="<?php echo url_for('person/detail?id='.$winner['personid']) ?>" class="ui-link-inherit">
                                         <?php echo $key + 1 ?>.&nbsp;<?php echo image_tag('flag/' . $winner['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $winner['personname'] ?><br />
                                         <?php if ($winner['average']): ?>
-                                            <span class="winner-rank-title">Average</span>&nbsp;&nbsp;<?php echo $winner['average'] ?>&nbsp;
+                                            <span class="winner-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'average')) ?>&nbsp;<?php echo $winner['average'] ?>&nbsp;
                                         <?php endif ?>
-                                        <span class="winner-rank-title">Best</span>&nbsp;&nbsp;<?php echo $winner['best'] ?><br />
+                                        <span class="winner-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'single')) ?>&nbsp;<?php echo $winner['best'] ?><br />
                                         <span class="winner-subrecord">
                                             <?php foreach($winner['subrecord'] as $subrecord):?>
                                                 <?php echo $subrecord ?>&nbsp;

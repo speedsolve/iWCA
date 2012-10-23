@@ -1,4 +1,5 @@
-.competition-name, .id-name {
+/*Ranking*/
+.competition-name, .id-name{
     font-size: x-small;
     color:     #aaaaaa;
 }
@@ -8,10 +9,6 @@
 }
 .subrecord{
     font-size: x-small;
-}
-.venue{
-    font-size: x-small;
-    color:     #aaaaaa;
 }
 
 /*Person*/
@@ -28,12 +25,16 @@
     color:     #aaaaaa;
 }
 
-.person-subrecord {
+.person-subrecord{
     font-size: x-small;
     color:     #aaaaaa;
 }
 
 /*Competition*/
+.venue{
+    font-size: x-small;
+    color:     #aaaaaa;
+}
 .competition-detail-date{
     font-size: small;
     color:     #aaaaaa;
@@ -44,7 +45,7 @@
 .winner-rank-title{
     font-size: x-small;
 }
-.winner-subrecord {
+.winner-subrecord{
     font-size: x-small;
     color:     #aaaaaa;
 }
@@ -54,7 +55,18 @@
 .results-rank-title{
     font-size: x-small;
 }
-.results-subrecord {
+.results-subrecord{
     font-size: x-small;
     color:     #aaaaaa;
+}
+
+/*Global*/
+.world_record{
+    color:     #ff0033;
+}
+.continent_record{
+    color:     #ff6633;
+}
+.national_record{
+    color:     #33cc33;
 }
