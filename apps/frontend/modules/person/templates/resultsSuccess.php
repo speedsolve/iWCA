@@ -1,13 +1,11 @@
 <div id="page" data-role="page"  data-add-back-btn=”true” data-theme="a">
     <?php include_partial('global/header', array('title' => 'Person')) ?>
     <div data-role="content">
-        <ul data-role="listview" data-inset="true" class="ui-listview">
-            <li>
+        <ul data-role="listview" data-theme="a" data-divider-theme="a" data-inset="false">
+            <li data-role="list-divider">
                 <?php $event = sfConfig::get('app_event_id') ?>
                 <?php echo $event[$eventId]['cellname'] ?>
             </li>
-        </ul>
-        <ul data-role="listview" data-theme="a" data-divider-theme="a" data-inset="true">
             <?php foreach($competitions[$eventId] as $competition): ?>
                 <li>
                     <a href="<?php echo url_for('competition/detail?competitionId='.$competition[0]['competitionid']) ?>" class="ui-link-inherit">

@@ -49,14 +49,16 @@ class competitionActions extends sfActions
     // $this->results['latitude']  = CompetitionsService::getChangeCoordinates($this->results['latitude']);
     // $this->results['longitude'] = CompetitionsService::getChangeCoordinates($this->results['longitude']);
 
-    $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
+    $memchache = new sfMemcacheCache();
+    $this->results = $memchache->get($competitionId);
 
-    if (!empty($this->results)) {
-      // キャッシュ
-      $memchache = new sfMemcacheCache();
+    if (!$this->results) {
+      $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
       $memchache->set($competitionId, $this->results, 86400);
       unset($memchache);
+    }
 
+    if (!empty($this->results)) {
       ResultsService::setData($this->results);
       $this->winners = ResultsService::getCompetitionWinner($this->results);
       // 判定が難しいのでフラグを渡す
