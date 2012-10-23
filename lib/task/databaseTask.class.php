@@ -71,6 +71,9 @@ EOF;
         shell_exec('rm '.$url[0]);
         $log = shell_exec('sh db.sh '.$url[0]);
         $this->log($log);
+        // 最後にキャッシュクリア
+        chdir(sfConfig::get('sf_root_dir'));
+        shell_exec('symfony cc');
       }
     }
   }
