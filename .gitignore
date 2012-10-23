@@ -2,3 +2,4 @@ log/
 cache/
 symfony
 data/sql/wca/
+lib/sh/Shellscriptter/
