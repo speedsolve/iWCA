@@ -1,4 +1,4 @@
-<div id="page" data-role="page"  data-add-back-btn=”true” data-theme="a">
+<div id="page" data-role="page" data-add-back-btn=”true” data-theme="a">
     <?php include_partial('global/header', array('title' => 'Competition')) ?>
     <div data-role="content">
         <ul data-role="listview" data-inset="true" class="ui-listview">
@@ -13,7 +13,9 @@
         </ul>
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
-                <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
+                <a href="<?php echo url_for('competition/map?competitionId='.$competition['id']) ?>">
+                    <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
+                </a>
             </li>
         </ul>
         <?php if ($end): ?>
@@ -32,9 +34,9 @@
                                     <a href="<?php echo url_for('person/detail?id='.$winner['personid']) ?>" class="ui-link-inherit">
                                         <?php echo $key + 1 ?>.&nbsp;<?php echo image_tag('flag/' . $winner['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $winner['personname'] ?><br />
                                         <?php if ($winner['average']): ?>
-                                            <span class="winner-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'average')) ?>&nbsp;<?php echo $winner['average'] ?>&nbsp;
+                                            <span class="winner-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'average')) ?>&nbsp;<span class="winner-time"><?php echo $winner['average'] ?></span>&nbsp;
                                         <?php endif ?>
-                                        <span class="winner-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'single')) ?>&nbsp;<?php echo $winner['best'] ?><br />
+                                        <span class="winner-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'single')) ?>&nbsp;<span class="winner-time"><?php echo $winner['best'] ?></span><br />
                                         <span class="winner-subrecord">
                                             <?php foreach($winner['subrecord'] as $subrecord):?>
                                                 <?php echo $subrecord ?>&nbsp;

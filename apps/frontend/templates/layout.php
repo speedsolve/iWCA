@@ -8,6 +8,7 @@
         <link rel="apple-touch-startup-image" href="images/ios_startup.png" />
         <?php include_title() ?>
         <?php include_metas() ?>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <?php include_javascripts() ?>
         <?php use_stylesheet('http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css') ?>
         <?php include_stylesheets() ?>

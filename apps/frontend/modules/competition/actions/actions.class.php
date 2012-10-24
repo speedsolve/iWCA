@@ -46,8 +46,6 @@ class competitionActions extends sfActions
     $competitionId = $request->getParameter('competitionId');
     $this->competition = CompetitionsTable::getInstance()->getCompetition($competitionId);
     $this->events = CompetitionsService::setEvents($this->competition);
-    // $this->results['latitude']  = CompetitionsService::getChangeCoordinates($this->results['latitude']);
-    // $this->results['longitude'] = CompetitionsService::getChangeCoordinates($this->results['longitude']);
 
     $memchache = new sfMemcacheCache();
     $this->results = $memchache->get($competitionId);
@@ -73,12 +71,19 @@ class competitionActions extends sfActions
 
     $memchache = new sfMemcacheCache();
     $results = $memchache->get($competitionId);
-    error_log(print_r($results,  true));
     if (!$results) {
       $results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
     }
 
     ResultsService::setData($results);
     $this->competition_results = ResultsService::getCompetitionResults($results, $this->eventId);
+  }
+
+  public function executeMap(sfWebRequest $request)
+  {
+    $competitionId = $request->getParameter('competitionId');
+    $competition = CompetitionsTable::getInstance()->getCompetition($competitionId);
+    $this->latitude  = CompetitionsService::getChangeCoordinates($competition['latitude']);
+    $this->longitude = CompetitionsService::getChangeCoordinates($competition['longitude']);
   }
 }

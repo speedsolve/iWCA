@@ -49,6 +49,9 @@
     font-size: x-small;
     color:     #aaaaaa;
 }
+.winner-time{
+    font-size: small;
+}
 .results-title{
     color:     #aaaaaa;
 }
@@ -59,14 +62,25 @@
     font-size: x-small;
     color:     #aaaaaa;
 }
+.results-time{
+    font-size: small;
+}
 
 /*Global*/
 .world_record{
+    font-size: 9px;
     color:     #ff0033;
 }
 .continent_record{
+    font-size: 9px;
     color:     #ff6633;
 }
 .national_record{
+    font-size: 9px;
     color:     #33cc33;
 }
+/*省略するか改行するか
+.ui-li .ui-btn-text a.ui-link-inherit {
+    white-space: normal !important;
+}
+*/
