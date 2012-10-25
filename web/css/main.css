@@ -79,8 +79,7 @@
     font-size: 9px;
     color:     #33cc33;
 }
-/*省略するか改行するか
 .ui-li .ui-btn-text a.ui-link-inherit {
+    overflow: visible;
     white-space: normal !important;
 }
-*/

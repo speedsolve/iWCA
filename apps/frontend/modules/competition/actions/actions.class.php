@@ -46,6 +46,7 @@ class competitionActions extends sfActions
     $competitionId = $request->getParameter('competitionId');
     $this->competition = CompetitionsTable::getInstance()->getCompetition($competitionId);
     $this->events = CompetitionsService::setEvents($this->competition);
+    $this->venue  = CompetitionsService::separateData($this->competition['venue']);
 
     $memchache = new sfMemcacheCache();
     $this->results = $memchache->get($competitionId);

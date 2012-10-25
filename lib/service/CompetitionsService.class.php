@@ -13,6 +13,11 @@ class CompetitionsService
    */
   public function separateData ($data)
   {
+    if (preg_match_all('[{(.*?)}{(.*?)}]', $data, $string)) {
+      return $string;
+    }
+
+    return $data;
   }
 
   /**

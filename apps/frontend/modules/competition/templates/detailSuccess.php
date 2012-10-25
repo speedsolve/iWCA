@@ -17,6 +17,13 @@
                     <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
                 </a>
             </li>
+            <li>
+                <?php if (is_object($venue)): ?>
+                   <a href="<?php echo $venue[2][0] ?>"><?php echo $venue[1][0] ?></a>
+                <?php else: ?>
+                   <?php echo $venue ?>
+                <?php endif ?>
+            </li>
         </ul>
         <?php if ($end): ?>
             <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
