@@ -3,7 +3,7 @@
     <div data-role="content">
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
-                <?php echo image_tag('flag/' . $competition['countryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $competition['name'] ?><br />
+                <?php echo image_tag('flag/' . $competition['countryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $competition['name'] ?><br />
                 <?php if ($competition['day'] == $competition['endday']): ?>
                     <span class="competition-detail-date"><?php echo $competition['year'].'/'.$competition['month'].'/'.$competition['day'] ?></span><br />
                 <?php else: ?>
@@ -39,7 +39,7 @@
                             <?php foreach($winners[$event] as $key => $winner): ?>
                                 <li>
                                     <a href="<?php echo url_for('person/detail?id='.$winner['personid']) ?>" class="ui-link-inherit">
-                                        <?php echo $key + 1 ?>.&nbsp;<?php echo image_tag('flag/' . $winner['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $winner['personname'] ?><br />
+                                        <?php echo $key + 1 ?>.&nbsp;<?php echo image_tag('flag/' . $winner['personcountryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $winner['personname'] ?><br />
                                         <?php if ($winner['average']): ?>
                                             <span class="winner-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $winner, 'type' => 'average')) ?>&nbsp;<span class="winner-time"><?php echo $winner['average'] ?></span>&nbsp;
                                         <?php endif ?>

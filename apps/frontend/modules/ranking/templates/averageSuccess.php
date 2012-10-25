@@ -5,7 +5,7 @@
             <?php foreach($results as $result): ?>
                 <li>
                     <a href="<?php echo url_for('person/detail?id='.$result['personid']) ?>" class="ui-link-inherit">
-                        <?php echo $result['rank'] ?>.&nbsp;<?php echo image_tag('flag/' . $result['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $result['personname'] ?><br />
+                        <?php echo $result['rank'] ?>.&nbsp;<?php echo image_tag('flag/' . $result['personcountryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $result['personname'] ?><br />
                         <?php echo $result['record'] ?><br />
                         <span class="subrecord">
                             <?php foreach($result['subrecord'] as $subrecord):?>

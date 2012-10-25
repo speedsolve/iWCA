@@ -6,7 +6,7 @@
                 <li>
                     <a href="<?php echo url_for('person/detail?id='.$result['personid']) ?>" class="ui-link-inherit">
                         <span class="event-name"><?php echo $result['eventname'] ?></span><br />
-                        <?php echo image_tag('flag/' . $result['personcountryid'] . '@2x.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><?php echo $result['personname'] ?><br />
+                        <?php echo image_tag('flag/' . $result['personcountryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><?php echo $result['personname'] ?><br />
                         <?php echo $result['average'] ?><br />
                         <span class="subrecord">
                             <?php foreach($result['subrecord'] as $subrecord):?>
