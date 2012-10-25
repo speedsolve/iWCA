@@ -17,13 +17,37 @@
                     <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
                 </a>
             </li>
-            <li>
-                <?php if (is_object($venue)): ?>
-                   <a href="<?php echo $venue[2][0] ?>"><?php echo $venue[1][0] ?></a>
-                <?php else: ?>
-                   <?php echo $venue ?>
-                <?php endif ?>
-            </li>
+            <?php if ($website): ?>
+                <li>
+                    <?php if (is_object($website)): ?>
+                       <a href="<?php echo $website[2][0] ?>"><?php echo $website[1][0] ?></a>
+                    <?php else: ?>
+                       <?php echo $website ?>
+                    <?php endif ?>
+                </li>
+            <?php endif ?>
+            <?php if ($venue): ?>
+                <li>
+                    <?php if (is_object($venue)): ?>
+                       <a href="<?php echo $venue[2][0] ?>"><?php echo $venue[1][0] ?><br />
+                           <?php if ($competition['venuedetails']): ?>
+                               <span class="competition-detail-venue"><?php echo $competition['venuedetails'] ?></span><br />
+                           <?php endif ?>
+                           <?php if ($competition['venueaddress']): ?>
+                               <span class="competition-detail-venue"><?php echo $competition['venueaddress'] ?></span><br />
+                           <?php endif ?>
+                       </a>
+                    <?php else: ?>
+                       <?php echo $venue ?><br />
+                       <?php if ($competition['venuedetails']): ?>
+                           <span class="competition-detail-venue"><?php echo $competition['venuedetails'] ?></span><br />
+                       <?php endif ?>
+                       <?php if ($competition['venueaddress']): ?>
+                           <span class="competition-detail-venue"><?php echo $competition['venueaddress'] ?></span><br />
+                       <?php endif ?>
+                    <?php endif ?>
+                </li>
+            <?php endif ?>
         </ul>
         <?php if ($end): ?>
             <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">

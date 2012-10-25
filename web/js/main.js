@@ -1,9 +1,11 @@
 /**
  * All
- * ページアニメーションを無効化する
  */
 $(document).bind('mobileinit', function(){
+    /* ページアニメーションを無効化する */
     $.mobile.defaultPageTransition = 'none';
+    /* アドレスバーを隠す */
+    window.onload = function() { setTimeout(scrollTo, 100, 0, 1); }
 });
 
 $(document).delegate('#ranking_index', 'pageinit', function(){
