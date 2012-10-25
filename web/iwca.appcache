@@ -1,7 +1,248 @@
 CACHE MANIFEST
 
 CACHE:
-images/flag/Japan@2x.png
+images/flag/Abkhazia.png
+images/flag/Afghanistan.png
+images/flag/Aland.png
+images/flag/Albania.png
+images/flag/Algeria.png
+images/flag/American\ Samoa.png
+images/flag/Andorra.png
+images/flag/Angola.png
+images/flag/Anguilla.png
+images/flag/Antarctica.png
+images/flag/Antigua\ and\ Barbuda.png
+images/flag/Argentina.png
+images/flag/Armenia.png
+images/flag/Aruba.png
+images/flag/Australia.png
+images/flag/Austria.png
+images/flag/Azerbaijan.png
+images/flag/Bahamas.png
+images/flag/Bahrain.png
+images/flag/Bangladesh.png
+images/flag/Barbados.png
+images/flag/Belarus.png
+images/flag/Belgium.png
+images/flag/Belize.png
+images/flag/Benin.png
+images/flag/Bermuda.png
+images/flag/Bhutan.png
+images/flag/Bolivia.png
+images/flag/Bosnia\ and\ Herzegovina.png
+images/flag/Botswana.png
+images/flag/Brazil.png
+images/flag/British\ Virgin\ Islands.png
+images/flag/Brunei.png
+images/flag/Bulgaria.png
+images/flag/Burkina\ Faso.png
+images/flag/Burundi.png
+images/flag/Cambodia.png
+images/flag/Cameroon.png
+images/flag/Canada.png
+images/flag/Cape\ Verde.png
+images/flag/Cayman\ Islands.png
+images/flag/Central\ African\ Republic.png
+images/flag/Chad.png
+images/flag/Chile.png
+images/flag/China.png
+images/flag/Colombia.png
+images/flag/Commonwealth.png
+images/flag/Comoros.png
+images/flag/Costa\ Rica.png
+images/flag/Cote\ d_Ivoire.png
+images/flag/Croatia.png
+images/flag/Cuba.png
+images/flag/Cyprus.png
+images/flag/Czech\ Republic.png
+images/flag/Democratic\ Republic\ of\ the\ Congo.png
+images/flag/Denmark.png
+images/flag/Djibouti.png
+images/flag/Dominica.png
+images/flag/Dominican\ Republic.png
+images/flag/East\ Timor.png
+images/flag/Ecuador.png
+images/flag/Egypt.png
+images/flag/El\ Salvador.png
+images/flag/England.png
+images/flag/Equatorial\ Guinea.png
+images/flag/Eritrea.png
+images/flag/Estonia.png
+images/flag/Ethiopia.png
+images/flag/European\ Union.png
+images/flag/Falkland\ Islands.png
+images/flag/Faroes.png
+images/flag/Fiji.png
+images/flag/Finland.png
+images/flag/France.png
+images/flag/Gabon.png
+images/flag/Gambia.png
+images/flag/Georgia.png
+images/flag/Germany.png
+images/flag/Ghana.png
+images/flag/GoSquared.png
+images/flag/Greece.png
+images/flag/Greenland.png
+images/flag/Grenada.png
+images/flag/Guam.png
+images/flag/Guatemala.png
+images/flag/Guernsey.png
+images/flag/Guinea\ Bissau.png
+images/flag/Guinea.png
+images/flag/Guyana.png
+images/flag/Haiti.png
+images/flag/Honduras.png
+images/flag/Hong\ Kong.png
+images/flag/Hungary.png
+images/flag/Iceland.png
+images/flag/India.png
+images/flag/Indonesia.png
+images/flag/Iran.png
+images/flag/Iraq.png
+images/flag/Ireland.png
+images/flag/Isle\ of\ Man.png
+images/flag/Israel.png
+images/flag/Italy.png
+images/flag/Jamaica.png
+images/flag/Japan.png
+images/flag/Jersey.png
+images/flag/Jordan.png
+images/flag/Kazakhstan.png
+images/flag/Kenya.png
+images/flag/Kiribati.png
+images/flag/Kosovo.png
+images/flag/Kuwait.png
+images/flag/Kyrgyzstan.png
+images/flag/Laos.png
+images/flag/Latvia.png
+images/flag/Lebanon.png
+images/flag/Lesotho.png
+images/flag/Liberia.png
+images/flag/Libya.png
+images/flag/Liechtenstein.png
+images/flag/Lithuania.png
+images/flag/Luxembourg.png
+images/flag/Macau.png
+images/flag/Macedonia.png
+images/flag/Madagascar.png
+images/flag/Malawi.png
+images/flag/Malaysia.png
+images/flag/Maldives.png
+images/flag/Mali.png
+images/flag/Malta.png
+images/flag/Mars.png
+images/flag/Marshall\ Islands.png
+images/flag/Mauritania.png
+images/flag/Mauritius.png
+images/flag/Mexico.png
+images/flag/Micronesia.png
+images/flag/Moldova.png
+images/flag/Monaco.png
+images/flag/Mongolia.png
+images/flag/Montenegro.png
+images/flag/Montserrat.png
+images/flag/Morocco.png
+images/flag/Mozambique.png
+images/flag/Myanmar.png
+images/flag/NATO.png
+images/flag/Nagorno\ Karabakh.png
+images/flag/Namibia.png
+images/flag/Nauru.png
+images/flag/Nepal.png
+images/flag/Netherlands\ Antilles.png
+images/flag/Netherlands.png
+images/flag/New\ Zealand.png
+images/flag/Nicaragua.png
+images/flag/Niger.png
+images/flag/Nigeria.png
+images/flag/Norfolk\ Island.png
+images/flag/North\ Cyprus.png
+images/flag/North\ Korea.png
+images/flag/Northern\ Mariana\ Islands.png
+images/flag/Norway.png
+images/flag/Olympics.png
+images/flag/Oman.png
+images/flag/Pakistan.png
+images/flag/Palau.png
+images/flag/Palestine.png
+images/flag/Panama.png
+images/flag/Papua\ New\ Guinea.png
+images/flag/Paraguay.png
+images/flag/Peru.png
+images/flag/Philippines.png
+images/flag/Pitcairn\ Islands.png
+images/flag/Poland.png
+images/flag/Portugal.png
+images/flag/Puerto\ Rico.png
+images/flag/Qatar.png
+images/flag/Red\ Cross.png
+images/flag/Republic\ of\ the\ Congo.png
+images/flag/Romania.png
+images/flag/Russia.png
+images/flag/Rwanda.png
+images/flag/Saint\ Barthelemy.png
+images/flag/Saint\ Helena.png
+images/flag/Saint\ Kitts\ and\ Nevis.png
+images/flag/Saint\ Lucia.png
+images/flag/Saint\ Vincent\ and\ the\ Grenadines.png
+images/flag/Samoa.png
+images/flag/San\ Marino.png
+images/flag/Sao\ Tome\ and\ Principe.png
+images/flag/Saudi\ Arabia.png
+images/flag/Scotland.png
+images/flag/Senegal.png
+images/flag/Serbia.png
+images/flag/Seychelles.png
+images/flag/Sierra\ Leone.png
+images/flag/Singapore.png
+images/flag/Slovakia.png
+images/flag/Slovenia.png
+images/flag/Solomon\ Islands.png
+images/flag/Somalia.png
+images/flag/Somaliland.png
+images/flag/South\ Africa.png
+images/flag/South\ Georgia\ and\ the\ South\ Sandwich\ Islands.png
+images/flag/South\ Korea.png
+images/flag/South\ Ossetia.png
+images/flag/South\ Sudan.png
+images/flag/Spain.png
+images/flag/Sri\ Lanka.png
+images/flag/Sudan.png
+images/flag/Suriname.png
+images/flag/Swaziland.png
+images/flag/Sweden.png
+images/flag/Switzerland.png
+images/flag/Syria.png
+images/flag/Taiwan.png
+images/flag/Tajikistan.png
+images/flag/Tanzania.png
+images/flag/Thailand.png
+images/flag/Togo.png
+images/flag/Tonga.png
+images/flag/Trinidad\ and\ Tobago.png
+images/flag/Tunisia.png
+images/flag/Turkey.png
+images/flag/Turkmenistan.png
+images/flag/Turks\ and\ Caicos\ Islands.png
+images/flag/Tuvalu.png
+images/flag/US\ Virgin\ Islands.png
+images/flag/Uganda.png
+images/flag/Ukraine.png
+images/flag/United\ Arab\ Emirates.png
+images/flag/United\ Kingdom.png
+images/flag/United\ Nations.png
+images/flag/USA.png
+images/flag/Uruguay.png
+images/flag/Uzbekistan.png
+images/flag/Vanuatu.png
+images/flag/Vatican\ City.png
+images/flag/Venezuela.png
+images/flag/Vietnam.png
+images/flag/Wales.png
+images/flag/Western\ Sahara.png
+images/flag/Yemen.png
+images/flag/Zambia.png
+images/flag/Zimbabwe.png
 
 NETWORK:
 *
