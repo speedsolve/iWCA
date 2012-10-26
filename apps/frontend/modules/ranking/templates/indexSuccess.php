@@ -53,7 +53,7 @@
                 <label for="radio2">
                     Result
                 </label>
-                <input id="radio3" name="type" value="region" type="radio" data-theme="a" disabled>
+                <input id="radio3" name="type" value="region" type="radio" data-theme="a">
                 <label for="radio3">
                     Region
                 </label>

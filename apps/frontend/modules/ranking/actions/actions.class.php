@@ -36,7 +36,21 @@ class rankingActions extends sfActions
     $years   = $request->getParameter('years');
     $gender  = $request->getParameter('gender');
     $type    = $request->getParameter('type');
-    $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
+
+    // regionは総レコード検索
+    if ($type == 'region') {
+      $limit = NULL;
+    } else {
+      $limit = 100;
+    }
+
+    // データ取得
+    $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
+
+    // 地域別
+    if ($type == 'region') {
+      $results = Util::getRegionalRecord($results, 'single');
+    }
 
     // ランク追加
     Util::adjustRank(&$results, 'single');
@@ -56,7 +70,21 @@ class rankingActions extends sfActions
     $years   = $request->getParameter('years');
     $gender  = $request->getParameter('gender');
     $type    = $request->getParameter('type');
-    $results = AveragesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, 100, 0);
+
+    // regionは総レコード検索
+    if ($type == 'region') {
+      $limit = NULL;
+    } else {
+      $limit = 100;
+    }
+
+    // データ取得
+    $results = AveragesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
+
+    // 地域別
+    if ($type == 'region') {
+      $results = Util::getRegionalRecord($results, 'average');
+    }
 
     // ランク追加
     Util::adjustRank(&$results, 'average');

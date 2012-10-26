@@ -164,4 +164,49 @@ class Util
       $result['subrecord'][$maxkey] = '('.$result['subrecord'][$maxkey].')';
     }
   }
+
+  /**
+   * Region Recordを取得する
+   */
+  public static function getRegionalRecord($results, $type)
+  {
+    $record = array();
+    $person = array();
+    // 国ごとに現行記録を抽出する
+    foreach ($results as &$result) {
+      foreach (sfConfig::get('app_country_id') as $key => $value) {
+        if ((string)$value['id'] === (string)$result['personcountryid']) {
+
+          //まずは最初のレコードを代入する。基本的にはこれが現行の最高記録であるはず。
+          if (!isset($record[$value['id']]) && $result[$type] > 0) {
+            $record[$value['id']][] = $result;
+          }
+
+          //現在代入されているレコードより小さい値があればunsetし、代入。
+          if (isset($record[$value['id']]) && $record[$value['id']][0][$type] > $result[$type] && $result[$type] > 0) {
+            unset($record[$value['id']]);
+            $record[$value['id']][] = $result;
+
+            //同じ値であるならば、追加代入する。
+          } elseif (isset($record[$value['id']]) && $record[$value['id']][0][$type] === $result[$type] && $result[$type] > 0) {
+            //同一人物、同一レコードである場合は入れない。
+            if ($record[$value['id']][0]['personid'] != $result['personid'] && !in_array($result['personid'], $person)) {
+              $record[$value['id']][] = $result;
+              $person[] = $result['personid'];
+            }
+          }
+        }
+      }
+    }
+
+    // 整形
+    $results = array();
+    foreach ($record as $values) {
+      foreach ($values as $value) {
+        $results[] = $value;
+      }
+    }
+
+    return $results;
+  }
 }
