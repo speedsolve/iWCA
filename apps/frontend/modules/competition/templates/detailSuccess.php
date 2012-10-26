@@ -20,7 +20,7 @@
             <?php if ($website): ?>
                 <li>
                     <?php if (is_object($website)): ?>
-                       <a href="<?php echo $website[2][0] ?>"><?php echo $website[1][0] ?></a>
+                       <a href="<?php echo $website['path'][0] ?>"><?php echo $website['string'][0] ?></a>
                     <?php else: ?>
                        <?php echo $website ?>
                     <?php endif ?>
@@ -29,7 +29,7 @@
             <?php if ($venue): ?>
                 <li>
                     <?php if (is_object($venue)): ?>
-                       <a href="<?php echo $venue[2][0] ?>"><?php echo $venue[1][0] ?><br />
+                       <a href="<?php echo $venue['path'][0] ?>"><?php echo $venue['string'][0] ?><br />
                            <?php if ($competition['venuedetails']): ?>
                                <span class="competition-detail-venue"><?php echo $competition['venuedetails'] ?></span><br />
                            <?php endif ?>
@@ -97,6 +97,23 @@
                     </li>
                 <?php endforeach ?>
             </ul>
+        <?php endif ?>
+
+        <?php if ($wcadelegates): ?>
+            <ul data-role="listview" data-inset="true" class="ui-listview">
+                <?php foreach ($wcadelegates['string'] as $key => $string): ?>
+                <li>
+                    <?php if (isset($wcadelegates['path'][$key])): ?>
+                        <a href="<?php echo $wcadelegates['path'][$key] ?>">
+                            <?php echo $string ?>
+                        </a>
+                    <?php else: ?>
+                        <?php echo $string ?>
+                    <?php endif ?>
+                </li>
+                <?php endforeach ?>
+            </ul>
+
         <?php endif ?>
     </div>
     <?php include_partial('global/footer', array('competition_class' => 'ui-btn-active ui-state-persist')) ?>

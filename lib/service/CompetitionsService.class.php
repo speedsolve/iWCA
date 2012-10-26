@@ -14,10 +14,17 @@ class CompetitionsService
   public function separateData ($data)
   {
     if (preg_match_all('[{(.*?)}{(.*?)}]', $data, $string)) {
-      return $string;
+      $parse = array();
+      foreach ($string[1] as $str) {
+        $parse['string'][] = $str;
+      }
+      foreach ($string[2] as $path) {
+        $parse['path'][] = $path;
+      }
+      return $parse;
+    } else {
+      return $data;
     }
-
-    return $data;
   }
 
   /**
