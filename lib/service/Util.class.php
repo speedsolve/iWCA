@@ -107,7 +107,7 @@ class Util
     $j = NULL;
     $k = NULL;
 
-    foreach($results as &$result) {
+    foreach($results as $key => &$result) {
       $result['rank'] = 0;
       if ($result[$type] == $j) {
         $result['rank'] = $k;

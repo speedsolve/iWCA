@@ -74,7 +74,10 @@ EOF;
         shell_exec('sh Shellscriptter/Shellscriptter.sh -r iWCAのデータベースを'.$url[0].'に更新しました。');
         // 最後にキャッシュクリア
         chdir(sfConfig::get('sf_root_dir'));
+        $log = shell_exec('symfony iwca:calcRanksAll');
+        $this->log('総合ランクを計算しました。');
         shell_exec('symfony cc');
+        $this->log('キャッシュをクリアしました');
       }
     }
   }
