@@ -87,3 +87,6 @@
     overflow: visible;
     white-space: normal !important;
 }
+.header_title{
+    font-size: small;
+}

@@ -1,11 +1,12 @@
 <div id="page" data-role="page"  data-add-back-btn=”true” data-theme="a">
-    <?php include_partial('global/header', array('title' => 'Competition')) ?>
+    <?php $events = sfConfig::get('app_event_id'); ?>
+    <?php include_partial('global/header', array('title' => $events[$eventId]['cellname'])) ?>
     <div data-role="content">
         <ul data-role="listview" data-theme="a" data-divider-theme="a">
             <?php foreach (sfConfig::get('app_round_reverse_id') as $roundid => $value): ?>
                 <?php if (isset($competition_results[$eventId][$value['name']])): ?>
                     <li data-role="list-divider">
-                        <?php echo $value['name'] ?>
+                        <?php echo $value['name'].'&nbsp;-&nbsp;'.$competition_results[$eventId][$value['name']][0]['formatid'] ?>
                     </li>
                 <?php endif ?>
                 <?php foreach($competition_results[$eventId][$value['name']] as $id => $result): ?>
