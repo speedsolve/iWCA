@@ -70,6 +70,17 @@
     font-size: small;
 }
 
+/*Information*/
+.information_subtitle{
+    font-size:    x-small;
+    color:        #aaaaaa;
+    margin-right: 10px;
+}
+.information_copyright{
+    font-size:    x-small;
+    color:        #aaaaaa;
+}
+
 /*Global*/
 .world_record{
     font-size: 9px;
@@ -87,6 +98,4 @@
     overflow: visible;
     white-space: normal !important;
 }
-.header_title{
-    font-size: small;
-}
+

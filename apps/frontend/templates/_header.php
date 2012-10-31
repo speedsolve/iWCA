@@ -1,9 +1,8 @@
 <div data-role="header" data-position="fixed" data-theme="a" data-tap-toggle="false">
+    <?php if ($index): ?>
+        <?php echo link_to('information', 'information/index', array('data-iconpos' => 'notext', 'data-icon' => 'info', 'class' => 'ui-btn-left')) ?>
+    <?php endif; ?>
     <h3>
-        <?php if ($mini): ?>
-            <span class="header_title"><?php echo $title ?></span>
-        <?php else: ?>
-            <?php echo $title ?>
-        <?php endif ?>
+        <?php echo $title ?>
     </h3>
 </div>
