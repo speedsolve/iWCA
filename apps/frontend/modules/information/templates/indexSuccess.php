@@ -8,6 +8,13 @@
         </ul>
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
+                <a href="mailto:speedsolve@gmail.com">
+                    Bug Repport
+                </a>
+            </li>
+        </ul>
+        <ul data-role="listview" data-inset="true" class="ui-listview">
+            <li>
                 <a href="http://www.facebook.com/speedsolve">
                     <?php echo image_tag('facebook.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:8px;left:8px;')) ?>&nbsp;Sinpei Araki<br />
                 </a>
@@ -15,11 +22,6 @@
             <li>
                 <a href="http://www.twitter.com/speedsolve">
                     <?php echo image_tag('twitter.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:8px;left:8px;')) ?>&nbsp;@speedsolve<br />
-                </a>
-            </li>
-            <li>
-                <a href="http://www.youtube.com/user/Speedcuber">
-                    <?php echo image_tag('youtube.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:8px;left:8px;')) ?>&nbsp;Speedcuber<br />
                 </a>
             </li>
         </ul>
