@@ -9,7 +9,7 @@
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
                 <a href="mailto:speedsolve@gmail.com">
-                    Bug Repport
+                    Send&nbsp;Bug&nbsp;Repport
                 </a>
             </li>
         </ul>
