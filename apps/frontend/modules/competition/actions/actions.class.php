@@ -62,6 +62,7 @@ class competitionActions extends sfActions
     if (!empty($this->results)) {
       ResultsService::setData($this->results);
       $this->winners = ResultsService::getCompetitionWinner($this->results);
+      $this->events  = ResultsService::getCompetitionEvents($this->results);
       // 判定が難しいのでフラグを渡す
       $this->end = true;
     }

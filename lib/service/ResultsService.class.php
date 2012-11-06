@@ -186,4 +186,21 @@ class ResultsService
 
     return $competition_results;
   }
+
+  /*
+   * 大会種目取得
+   */
+  public static function getCompetitionEvents($results)
+  {
+    $events = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach ($results as $result) {
+        if ($result['eventid'] === (string)$event) {
+            $events[$event] = $value['cellname'];
+        }
+      }
+    }
+
+    return $events;
+  }
 }
