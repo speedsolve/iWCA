@@ -84,12 +84,13 @@ all:
   country:
     id:
       'Afghanistan':            { id: 'Afghanistan',            continent: 'Asia',          record: 'AsR'}
+      'Albania':                { id: 'Albania',                continent: 'Europe',        record: 'ER' }
       'Algeria':                { id: 'Algeria',                continent: 'Africa',        record: 'AfR'}
       'Argentina':              { id: 'Argentina',              continent: 'South America', record: 'SAR'}
       'Armenia':                { id: 'Armenia',                continent: 'Asia',          record: 'AsR'}
+      'Aruba':                  { id: 'Aruba',                  continent: 'South America', record: 'SAR'}
       'Australia':              { id: 'Australia',              continent: 'Oceania',       record: 'OcR'}
       'Austria':                { id: 'Austria',                continent: 'Europe',        record: 'ER' }
-      'Aruba':                  { id: 'Aruba',                  continent: 'South America', record: 'SAR'}
       'Azerbaijan':             { id: 'Azerbaijan',             continent: 'Europe',        record: 'ER' }
       'Bangladesh':             { id: 'Bangladesh',             continent: 'Asia',          record: 'AsR'}
       'Belarus':                { id: 'Belarus',                continent: 'Europe',        record: 'ER' }
@@ -107,6 +108,7 @@ all:
       "Cote d'Ivoire":          { id: 'Cote d_Ivoire',          continent: 'Africa',        record: 'AfR'}
       'Croatia':                { id: 'Croatia',                continent: 'Europe',        record: 'ER' }
       'Cuba':                   { id: 'Cuba',                   continent: 'North America', record: 'NAR'}
+      'Cyprus':                 { id: 'Cyprus',                 continent: 'Europe',        record: 'ER' }
       'Czech Republic':         { id: 'Czech Republic',         continent: 'Europe',        record: 'ER' }
       'Denmark':                { id: 'Denmark',                continent: 'Europe',        record: 'ER' }
       'Dominican Republic':     { id: 'Dominican Republic',     continent: 'North America', record: 'NAR'}
@@ -115,6 +117,7 @@ all:
       'Estonia':                { id: 'Estonia',                continent: 'Europe',        record: 'ER' }
       'Finland':                { id: 'Finland',                continent: 'Europe',        record: 'ER' }
       'France':                 { id: 'France',                 continent: 'Europe',        record: 'ER' }
+      'Georgia':                { id: 'Georgia',                continent: 'Europe',        record: 'ER' }
       'Germany':                { id: 'Germany',                continent: 'Europe',        record: 'ER' }
       'Greece':                 { id: 'Greece',                 continent: 'Europe',        record: 'ER' }
       'Hong Kong':              { id: 'Hong Kong',              continent: 'Asia',          record: 'AsR'}
@@ -172,7 +175,9 @@ all:
       'Ukraine':                { id: 'Ukraine',                continent: 'Europe',        record: 'ER' }
       'United Arab Emirates':   { id: 'United Arab Emirates',   continent: 'Asia',          record: 'AsR'}
       'United Kingdom':         { id: 'United Kingdom',         continent: 'Europe',        record: 'ER' }
+      'Uruguay':                { id: 'Uruguay',                continent: 'South America', record: 'SAR'}
       'USA':                    { id: 'USA',                    continent: 'North America', record: 'NAR'}
+      'Venezuela':              { id: 'Venezuela',              continent: 'South America', record: 'SAR'}
       'Vietnam':                { id: 'Vietnam',                continent: 'Asia',          record: 'AsR'}
       'Yugoslavia':             { id: 'Yugoslavia',             continent: 'Europe',        record: 'ER' }
 
