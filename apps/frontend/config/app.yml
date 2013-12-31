@@ -76,7 +76,6 @@ all:
 
     single:
       - 333bf
-      - 333fm
       - 444bf
       - 555bf
       - 333mbf
