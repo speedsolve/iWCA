@@ -22,20 +22,20 @@ class ResultsService
         }
 
         if (isset($result['best'])) {
-          $result['best'] = Util::getChangeRecord($result['best'], $result['eventid']);
+          $result['best'] = Util::getChangeRecord($result['best'], $result['eventid'], 'single');
           for ($i = 1; $i <= 5; $i++) {
             if (isset($result['value'.$i]) && $result['value'.$i] != 0) {
-              $result['subrecord'][$i] = Util::getChangeRecord($result['value'.$i], $result['eventid']);
+              $result['subrecord'][$i] = Util::getChangeRecord($result['value'.$i], $result['eventid'], 'single');
             }
           }
         }
 
         if (isset($result['average'])) {
-          $result['average'] = Util::getChangeRecord($result['average'], $result['eventid']);
+          $result['average'] = Util::getChangeRecord($result['average'], $result['eventid'], 'average');
 
           for ($i = 1; $i <= 5; $i++) {
             if ($result['value'.$i] != 0) {
-              $result['subrecord'][$i] = Util::getChangeRecord($result['value'.$i], $result['eventid']);
+              $result['subrecord'][$i] = Util::getChangeRecord($result['value'.$i], $result['eventid'], 'single');
             }
           }
 

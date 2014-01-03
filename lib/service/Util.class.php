@@ -26,7 +26,7 @@ class Util
     return $results;
   }
 
-  public static function getChangeRecord($time, $event)
+  public static function getChangeRecord($time, $event, $type)
   {
     // Format調整並びにDNF、DNSの判定
     if ($time == 0) return NULL;
@@ -34,7 +34,7 @@ class Util
     elseif ($time == -2) return 'DNS';
 
     // For Fewest Moves
-    if ($event == '333fm') {
+    if ($event == '333fm' && $type == 'single') {
       $record = $time;
     } elseif ($event == '333mbf') {
       // For Multi Blindfolded

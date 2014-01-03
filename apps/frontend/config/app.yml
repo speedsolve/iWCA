@@ -66,6 +66,7 @@ all:
       pyram:  { name: 'Pyraminx',                            format: 'Average', cellname: 'Pyraminx' }
       sq1:    { name: 'Square-1',                            format: 'Average', cellname: 'Square-1' }
       clock:  { name: 'Rubik''s Clock',                      format: 'Average', cellname: 'Rubik''s Clock' }
+      skewb:  { name: 'Skewb',                               format: 'Average', cellname: 'Skewb' }
       666:    { name: '6x6 Cube',                            format: 'Average', cellname: '6x6 Cube' }
       777:    { name: '7x7 Cube',                            format: 'Average', cellname: '7x7 Cube' }
       magic:  { name: 'Rubik''s Magic',                      format: 'Average', cellname: 'Rubik''s Magic' }

@@ -13,7 +13,7 @@ $(document).delegate('#ranking_index', 'pageinit', function(){
      * average記録のない時ボタンを無効にする
      */
     $('#event_ranking').change(function() {
-        if($(this).val() == '333bf'||$(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'){
+        if($(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'){
            $('.average').button('disable');
         } else {
            $('.average').button('enable');
@@ -35,7 +35,7 @@ $(document).delegate('#record_index', 'pageinit', function(){
      * average記録のない時ボタンを無効にする
      */
     $('#event_record').change(function() {
-        if($(this).val() == '333bf'||$(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'){
+        if($(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'){
            $('.average').button('disable');
         } else {
            $('.average').button('enable');
