@@ -5,11 +5,11 @@
 #all:
 all:
   wca_official_result_url: 'http://www.worldcubeassociation.org/results/'
-  wca_official_events_number: 19
+  wca_official_events_number: 20
 
   most_old_year: 1982
   recently_old_year: 2003
-  now_year: 2013
+  now_year: 2014
 
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }
@@ -76,7 +76,6 @@ all:
       333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded', format: 'Single',  cellname: '3x3 Multi Blind' }
 
     single:
-      - 333bf
       - 444bf
       - 555bf
       - 333mbf
