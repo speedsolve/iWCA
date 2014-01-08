@@ -119,6 +119,7 @@ all:
       'Georgia':                { id: 'Georgia',                continent: 'Europe',        record: 'ER' }
       'Germany':                { id: 'Germany',                continent: 'Europe',        record: 'ER' }
       'Greece':                 { id: 'Greece',                 continent: 'Europe',        record: 'ER' }
+      'Guatemala':              { id: 'Guatemala',              continent: 'North America', record: 'NAR'}
       'Hong Kong':              { id: 'Hong Kong',              continent: 'Asia',          record: 'AsR'}
       'Hungary':                { id: 'Hungary',                continent: 'Europe',        record: 'ER' }
       'Iceland':                { id: 'Iceland',                continent: 'Europe',        record: 'ER' }
@@ -132,6 +133,7 @@ all:
       'Jordan':                 { id: 'Jordan',                 continent: 'Asia',          record: 'AsR'}
       'Kazakhstan':             { id: 'Kazakhstan',             continent: 'Asia',          record: 'AsR'}
       'Korea':                  { id: 'Korea',                  continent: 'Asia',          record: 'AsR'}
+      'Kosovo':                 { id: 'Kosovo',                 continent: 'Europe',        record: 'ER' }
       'Latvia':                 { id: 'Latvia',                 continent: 'Europe',        record: 'ER' }
       'Lebanon':                { id: 'Lebanon',                continent: 'Asia',          record: 'AsR'}
       'Lithuania':              { id: 'Lithuania',              continent: 'Europe',        record: 'ER' }
