@@ -444,6 +444,13 @@ Countries:
       default: '0'
       notnull: true
       autoincrement: false
+    iso2:
+      type: string(2)
+      fixed: true
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
 Events:
   connection: doctrine
   tableName: Events

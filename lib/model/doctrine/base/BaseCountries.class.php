@@ -13,6 +13,7 @@ Doctrine_Manager::getInstance()->bindComponent('Countries', 'doctrine');
  * @property integer $latitude
  * @property integer $longitude
  * @property integer $zoom
+ * @property string $iso2
  * 
  * @method string    getId()          Returns the current record's "id" value
  * @method string    getName()        Returns the current record's "name" value
@@ -20,12 +21,14 @@ Doctrine_Manager::getInstance()->bindComponent('Countries', 'doctrine');
  * @method integer   getLatitude()    Returns the current record's "latitude" value
  * @method integer   getLongitude()   Returns the current record's "longitude" value
  * @method integer   getZoom()        Returns the current record's "zoom" value
+ * @method string    getIso2()        Returns the current record's "iso2" value
  * @method Countries setId()          Sets the current record's "id" value
  * @method Countries setName()        Sets the current record's "name" value
  * @method Countries setContinentid() Sets the current record's "continentid" value
  * @method Countries setLatitude()    Sets the current record's "latitude" value
  * @method Countries setLongitude()   Sets the current record's "longitude" value
  * @method Countries setZoom()        Sets the current record's "zoom" value
+ * @method Countries setIso2()        Sets the current record's "iso2" value
  * 
  * @package    iwca
  * @subpackage model
@@ -96,6 +99,15 @@ abstract class BaseCountries extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 1,
+             ));
+        $this->hasColumn('iso2', 'string', 2, array(
+             'type' => 'string',
+             'fixed' => 1,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 2,
              ));
     }
 
