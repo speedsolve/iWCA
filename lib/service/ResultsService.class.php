@@ -113,9 +113,11 @@ class ResultsService
       foreach ($results as $result) {
         if ((string)$event == (string)$result['eventid'] && ($result['regionalsinglerecord'] == 'WR' || $result['regionalaveragerecord'] == 'WR')) {
           $history['world'][$event][] = $result;
-        } elseif ((string)$event == (string)$result['eventid'] && ($result['regionalsinglerecord'] == 'NR' || $result['regionalaveragerecord'] == 'NR')) {
+        }
+        if ((string)$event == (string)$result['eventid'] && ($result['regionalsinglerecord'] == 'NR' || $result['regionalaveragerecord'] == 'NR')) {
           $history['national'][$event][] = $result;
-        } elseif ((string)$event == (string)$result['eventid'] && ($result['regionalsinglerecord'] != '' || $result['regionalaveragerecord'] != '')) {
+        }
+        if ((string)$event == (string)$result['eventid'] && (in_array($result['regionalsinglerecord'], sfConfig::get('app_record_id')) || in_array($result['regionalaveragerecord'], sfConfig::get('app_record_id')))) {
           $history['continent'][$event][] = $result;
         }
       }

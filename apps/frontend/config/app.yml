@@ -13,7 +13,7 @@ all:
 
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }
-    record:     { Africa: AfR, Asia: AsR, Oceania: OcR, Europe: ER, 'North America': NAR, 'South America': SAR }
+    record:     { Africa: AfR, Asia: AsR, Oceania: OcR, Europe: ER, North America: NAR, South America: SAR }
 
   record:
     id: ['AfR', 'AsR', 'OcR', 'ER', 'NAR', 'SAR']
@@ -58,9 +58,9 @@ all:
       444:    { name: '4x4 Cube',                            format: 'Average', cellname: '4x4 Cube' }
       555:    { name: '5x5 Cube',                            format: 'Average', cellname: '5x5 Cube' }
       222:    { name: '2x2 Cube',                            format: 'Average', cellname: '2x2 Cube' }
-      333bf:  { name: 'Rubik''s Cube: Blindfolded',          format: 'Single',  cellname: '3x3 Blindfolded' }
+      333bf:  { name: 'Rubik''s Cube: Blindfolded',          format: 'Average', cellname: '3x3 Blindfolded' }
       333oh:  { name: 'Rubik''s Cube: One-handed',           format: 'Average', cellname: '3x3 One-handed' }
-      333fm:  { name: 'Rubik''s Cube: Fewest moves',         format: 'Single',  cellname: '3x3 Fewest moves' }
+      333fm:  { name: 'Rubik''s Cube: Fewest moves',         format: 'Average', cellname: '3x3 Fewest moves' }
       333ft:  { name: 'Rubik''s Cube: With feet',            format: 'Average', cellname: '3x3 With feet' }
       minx:   { name: 'Megaminx',                            format: 'Average', cellname: 'Megaminx' }
       pyram:  { name: 'Pyraminx',                            format: 'Average', cellname: 'Pyraminx' }

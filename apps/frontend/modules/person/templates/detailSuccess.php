@@ -19,7 +19,7 @@
                    <div data-role="collapsible">
                        <h2>History World Record</h2>
                        <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('histories' => $histories['world'])) ?>
+                           <?php include_partial('global/history', array('target' => 'WR', 'histories' => $histories['world'])) ?>
                        </ul>
                    </div>
            <?php endif ?>
@@ -27,7 +27,7 @@
                    <div data-role="collapsible">
                        <h2>History Continent Record</h2>
                        <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('histories' => $histories['continent'])) ?>
+                           <?php include_partial('global/history', array('target' => sfConfig::get('app_record_id'), 'histories' => $histories['continent'])) ?>
                        </ul>
                    </div>
            <?php endif ?>
@@ -35,7 +35,7 @@
                    <div data-role="collapsible">
                        <h2>History National Record</h2>
                        <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('histories' => $histories['national'])) ?>
+                           <?php include_partial('global/history', array('target' => 'NR', 'histories' => $histories['national'])) ?>
                        </ul>
                    </div>
            <?php endif ?>
