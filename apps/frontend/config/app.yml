@@ -145,6 +145,7 @@ all:
       'Mexico':                 { id: 'Mexico',                 continent: 'North America', record: 'NAR'}
       'Moldova':                { id: 'Moldova',                continent: 'Europe',        record: 'ER' }
       'Mongolia':               { id: 'Mongolia',               continent: 'Asia',          record: 'AsR'}
+      'Montenegro':             { id: 'Montenegro',             continent: 'Europe',        record: 'ER' }
       'Morocco':                { id: 'Morocco',                continent: 'Africa',        record: 'AfR'}
       'Netherlands':            { id: 'Netherlands',            continent: 'Europe',        record: 'ER' }
       'New Zealand':            { id: 'New Zealand',            continent: 'Oceania',       record: 'OcR'}
