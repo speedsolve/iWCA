@@ -1,6 +1,6 @@
 <div id="page" data-role="page"  data-add-back-btn=”true” data-theme="a">
     <?php $events = sfConfig::get('app_event_id'); ?>
-    <?php include_partial('global/header', array('title' => $events[$eventId]['cellname'])) ?>
+    <?php include_partial('global/header', array('title' => $events[$eventId]['cellname'], 'isScramble' => $isScramble, 'competitionId' => $competitionId, 'eventId' => $eventId)) ?>
     <div data-role="content">
         <ul data-role="listview" data-theme="a" data-divider-theme="a">
             <?php foreach (sfConfig::get('app_round_reverse_id') as $roundid => $value): ?>

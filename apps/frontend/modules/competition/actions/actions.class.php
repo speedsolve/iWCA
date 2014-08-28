@@ -70,17 +70,23 @@ class competitionActions extends sfActions
 
   public function executeResults(sfWebRequest $request)
   {
-    $competitionId = $request->getParameter('competitionId');
+    $this->competitionId = $request->getParameter('competitionId');
     $this->eventId = $request->getParameter('eventId');
 
     $memchache = new sfMemcacheCache();
-    $results = $memchache->get($competitionId);
+    $results = $memchache->get($this->competitionId);
     if (!$results) {
-      $results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
+      $results = ResultsTable::getInstance()->getCompetitionResults($this->competitionId);
     }
 
     ResultsService::setData($results);
     $this->competition_results = ResultsService::getCompetitionResults($results, $this->eventId);
+
+    $this->isScramble = false;
+    $results = ScramblesTable::getInstance()->getScrambles($this->competitionId, $this->eventId);
+    if ($results) {
+      $this->isScramble = true;
+    }
   }
 
   public function executeMap(sfWebRequest $request)
@@ -89,5 +95,16 @@ class competitionActions extends sfActions
     $competition = CompetitionsTable::getInstance()->getCompetition($competitionId);
     $this->latitude  = CompetitionsService::getChangeCoordinates($competition['latitude']);
     $this->longitude = CompetitionsService::getChangeCoordinates($competition['longitude']);
+  }
+
+  public function executeScrambles(sfWebRequest $request)
+  {
+    $competitionId = $request->getParameter('competitionId');
+    $eventId = $request->getParameter('eventId');
+    $this->competition = CompetitionsTable::getInstance()->getCompetition($competitionId);
+
+    $results = ScramblesTable::getInstance()->getScrambles($competitionId, $eventId);
+    $this->event = CompetitionsService::getEventInfo($eventId);
+    $this->scrambles = CompetitionsService::getRoundScrambles($results);
   }
 }

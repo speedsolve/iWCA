@@ -2,6 +2,9 @@
     <?php if ($index): ?>
         <?php echo link_to('information', 'information/index', array('data-iconpos' => 'notext', 'data-icon' => 'info', 'class' => 'ui-btn-left')) ?>
     <?php endif; ?>
+    <?php if ($isScramble): ?>
+        <?php echo link_to('scramble', 'competition/scrambles?competitionId='.$competitionId.'&eventId='.$eventId, array('data-role' => 'button', 'class' => 'ui-btn-right')) ?>
+    <?php endif; ?>
     <h3>
         <?php echo $title ?>
     </h3>

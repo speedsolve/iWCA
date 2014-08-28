@@ -65,4 +65,32 @@ class CompetitionsService
     }
     return $events;
   }
+
+  /**
+   * ラウンドごとに置き換える
+   */
+  public static function getRoundScrambles($results)
+  {
+    $rounds = array();
+
+    foreach (sfConfig::get('app_round_reverse_id') as $roundId => $round) {
+      foreach ($results as $result) {
+        if (isset($result['roundid']) && $result['roundid'] == $roundId) {
+          $groupId = $result['groupid'];
+          $rounds[$round['name']][$groupId][] = array('scramblenum' => $result['scramblenum'], 'isextra' => $result['isextra'], 'scramble' => $result['scramble']);
+        }
+      }
+    }
+
+    return $rounds;
+  }
+
+  /**
+   * イベント情報を取得する
+   */
+  public static function getEventInfo($eventId)
+  {
+     $event = sfConfig::get('app_event_id');
+     return $event[$eventId];
+  }
 }
