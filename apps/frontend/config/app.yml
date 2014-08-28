@@ -152,6 +152,7 @@ all:
       'Nigeria':                { id: 'Nigeria',                continent: 'Africa',        record: 'AfR'}
       'Norway':                 { id: 'Norway',                 continent: 'Europe',        record: 'ER' }
       'Pakistan':               { id: 'Pakistan',               continent: 'Asia',          record: 'AsR'}
+      'Paraguay':               { id: 'Paraguay',               continent: 'South America', record: 'SAR'}
       'Peru':                   { id: 'Peru',                   continent: 'South America', record: 'SAR'}
       'Philippines':            { id: 'Philippines',            continent: 'Asia',          record: 'AsR'}
       'Poland':                 { id: 'Poland',                 continent: 'Europe',        record: 'ER' }
