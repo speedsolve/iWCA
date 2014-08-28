@@ -75,7 +75,8 @@ class CompetitionsService
 
     foreach (sfConfig::get('app_round_reverse_id') as $roundId => $round) {
       foreach ($results as $result) {
-        if (isset($result['roundid']) && $result['roundid'] == $roundId) {
+        if (isset($result['roundid']) && (string)$result['roundid'] == (string)$roundId) {
+          error_log($roundId);
           $groupId = $result['groupid'];
           $rounds[$round['name']][$groupId][] = array('scramblenum' => $result['scramblenum'], 'isextra' => $result['isextra'], 'scramble' => $result['scramble']);
         }
