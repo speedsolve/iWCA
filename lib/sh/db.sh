@@ -50,7 +50,7 @@ mysql -u root -D wcaTmp -e 'create table Result as select competitionId, eventId
 mysql -u root -D wcaTmp -e 'drop table if exists Results';
 mysql -u root -D wcaTmp -e 'alter table Result rename to Results';
 echo 'ResultsテーブルにCompetitionDataを追加しました。'
-mysql -u root -D wcaTmp -e 'alter table Results add column (id int auto_increment primary key)'
+mysql -u root -D wcaTmp -e 'alter table Results add column id int auto_increment primary key'
 echo 'ResultsテーブルにIDを追加しました。'
 
 #subidをもつものがいるとGenderを加える際レコードが2重になるので修正.
