@@ -64,6 +64,11 @@ class personActions extends sfActions
     ResultsService::setData(&$singles);
     ResultsService::setData(&$averages);
 
+    $prizes = ResultsService::getPrizeCount($results);
+    if (!empty($prizes)) {
+      ksort($prizes);
+      $this->prizes = $prizes;
+    }
     $this->person         = PersonsTable::getInstance()->getPerson($id);
     $this->person['name'] = Util::removeParenthesis($this->person['name']);
     $this->single_ranks   = Util::setEventKey($single_ranks);

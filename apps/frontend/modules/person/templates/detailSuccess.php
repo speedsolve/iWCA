@@ -15,6 +15,22 @@
                 </span><br />
             </li>
         </ul>
+        <?php if (isset($prizes)): ?>
+            <ul data-role="listview" data-inset="true" >
+                <li>
+                    <span class="person-prize-title">Sum of Prize</span><br />
+                    <?php foreach ($prizes as $pos => $count): ?>
+                        <?php if ($pos == 1): ?>
+                            <span class="person-1st">1st</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php elseif ($pos == 2): ?>
+                            <span class="person-2nd">2nd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php elseif ($pos == 3): ?>
+                            <span class="person-3rd">3rd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </li>
+            </ul>
+        <?php endif ?>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
            <?php if (isset($histories['world'])): ?>
                    <div data-role="collapsible">

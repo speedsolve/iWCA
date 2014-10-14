@@ -13,6 +13,7 @@
 
 /*Person*/
 .person-event-name{
+    font-size: small;
     color:     #aaaaaa;
 }
 
@@ -28,6 +29,25 @@
 .person-subrecord{
     font-size: x-small;
     color:     #aaaaaa;
+}
+
+.person-prize-title{
+    font-size: small;
+}
+
+.person-1st{
+    font-size: x-small;
+    color: #ffd700;
+}
+
+.person-2nd{
+    font-size: x-small;
+    color: #C0C0C0;
+}
+
+.person-3rd{
+    font-size: x-small;
+    color: #C47222;
 }
 
 /*Competition*/

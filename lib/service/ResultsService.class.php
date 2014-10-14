@@ -119,6 +119,21 @@ class ResultsService
   }
 
   /**
+   * 入賞回数計算
+   */
+  public static function getPrizeCount($results)
+  {
+      $prize = array();
+      foreach ($results as $result) {
+        if ($result['pos'] <= 3 && $result['best'] > -1 && ($result['roundid'] == 'f' || $result['roundid'] == 'c')) {
+          $prize[$result['pos']] += 1;
+        }
+      }
+
+      return $prize;
+  }
+
+  /**
    * 歴代記録取得
    */
   public static function getHistoryRecord($results)
