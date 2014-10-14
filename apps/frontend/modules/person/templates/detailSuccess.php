@@ -18,7 +18,7 @@
         <?php if (isset($prizes)): ?>
             <ul data-role="listview" data-inset="true" >
                 <li>
-                    <span class="person-prize-title">Sum of Prizes</span><br />
+                    <span class="person-prize-title">Number of Prizes</span><br />
                     <?php foreach ($prizes as $pos => $count): ?>
                         <?php if ($pos == 1): ?>
                             <span class="person-1st">1st</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
