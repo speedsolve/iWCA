@@ -104,6 +104,21 @@ class ResultsService
   }
 
   /**
+   * 大会数計算
+   */
+  public static function getCompetitionCount($results)
+  {
+      $competitions = array();
+      foreach ($results as $result) {
+        if (!in_array($result['competitionid'], $competitions)) {
+          $competitions[] = $result['competitionid'];
+        }
+      }
+
+      return count($competitions);
+  }
+
+  /**
    * 歴代記録取得
    */
   public static function getHistoryRecord($results)

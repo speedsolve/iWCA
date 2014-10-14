@@ -7,10 +7,11 @@
                 <span class="id-name">
                     <?php echo $person['id'] ?>,&nbsp;<?php echo $person['countryid'] ?>,&nbsp;
                     <?php if ($person['gender']): ?>
-                        <?php echo $person['gender'] ?>
+                        <?php echo $person['gender'] ?>,&nbsp;
                     <?php else: ?>
-                        Unknown
+                        Unknown,&nbsp;
                     <?php endif ?>
+                        Competitions&nbsp;<?php echo $competition_count ?>
                 </span><br />
             </li>
         </ul>
