@@ -15,22 +15,6 @@
                 </span><br />
             </li>
         </ul>
-        <?php if (isset($prizes)): ?>
-            <ul data-role="listview" data-inset="true" >
-                <li>
-                    <span class="person-prize-title">Number of Prizes</span><br />
-                    <?php foreach ($prizes as $pos => $count): ?>
-                        <?php if ($pos == 1): ?>
-                            <span class="person-1st">1st</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
-                        <?php elseif ($pos == 2): ?>
-                            <span class="person-2nd">2nd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
-                        <?php elseif ($pos == 3): ?>
-                            <span class="person-3rd">3rd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
-                        <?php endif ?>
-                    <?php endforeach ?>
-                </li>
-            </ul>
-        <?php endif ?>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
            <?php if (isset($histories['world'])): ?>
                    <div data-role="collapsible">
@@ -57,24 +41,44 @@
                    </div>
            <?php endif ?>
         </div>
+        <?php if (isset($prizes)): ?>
+            <ul data-role="listview" data-inset="true" >
+                <li>
+                    <span class="person-prize-title">Number of Prizes</span><br />
+                    <?php foreach ($prizes as $pos => $count): ?>
+                        <?php if ($pos == 1): ?>
+                            <span class="person-1st">1st</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php elseif ($pos == 2): ?>
+                            <span class="person-2nd">2nd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php elseif ($pos == 3): ?>
+                            <span class="person-3rd">3rd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </li>
+            </ul>
+        <?php endif ?>
         <ul data-role="listview" data-theme="a" data-inset="true" class="ui-listview">
             <?php foreach (sfConfig::get('app_event_id') as $event => $value): ?>
                 <?php if (isset($singles[$event])): ?>
                     <li>
                         <a href="<?php echo url_for('person/results?id='.$person['id'].'&eventId='.$event) ?>" class="ui-link-inherit">
                             <span class="person-event-name"><?php echo $value['cellname'] ?></span><br />
-                            <span style="margin-top:5px;">
-                                <span class="person-rank-title">Single</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $singles[$event]['best'] ?>&nbsp;
-                                <span class="person-rank-title">WR&nbsp;<?php echo $single_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                                <span class="person-rank-title">CR&nbsp;<?php echo $single_ranks[$event]['continentrank'] ?>&nbsp;</span>
-                                <span class="person-rank-title">NR&nbsp;<?php echo $single_ranks[$event]['countryrank'] ?>&nbsp;</span>
-                            </span><br />
+                                <span style="margin-top:5px;">
+                                    <span class="person-rank-title">Single</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $singles[$event]['best'] ?>&nbsp;
+                                    <?php if (!in_array($event,  sfConfig::get('app_event_abolition'))): ?>
+                                        <span class="person-rank-title">WR&nbsp;<?php echo $single_ranks[$event]['worldrank'] ?>&nbsp;</span>
+                                        <span class="person-rank-title">CR&nbsp;<?php echo $single_ranks[$event]['continentrank'] ?>&nbsp;</span>
+                                        <span class="person-rank-title">NR&nbsp;<?php echo $single_ranks[$event]['countryrank'] ?>&nbsp;</span>
+                                    <?php endif; ?>
+                                </span><br />
                             <?php if (isset($averages[$event])): ?>
                                 <span style="margin-top:5px;">
                                     <span class="person-rank-title">Average</span>&nbsp;&nbsp;<?php echo $averages[$event]['average'] ?>&nbsp;
-                                    <span class="person-rank-title">WR&nbsp;<?php echo $average_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                                    <span class="person-rank-title">CR&nbsp;<?php echo $average_ranks[$event]['continentrank'] ?>&nbsp;</span>
-                                    <span class="person-rank-title">NR&nbsp;<?php echo $average_ranks[$event]['countryrank'] ?>&nbsp;</span>
+                                    <?php if (!in_array($event,  sfConfig::get('app_event_abolition'))): ?>
+                                        <span class="person-rank-title">WR&nbsp;<?php echo $average_ranks[$event]['worldrank'] ?>&nbsp;</span>
+                                        <span class="person-rank-title">CR&nbsp;<?php echo $average_ranks[$event]['continentrank'] ?>&nbsp;</span>
+                                        <span class="person-rank-title">NR&nbsp;<?php echo $average_ranks[$event]['countryrank'] ?>&nbsp;</span>
+                                    <?php endif; ?>
                                 </span>
                             <?php endif ?>
                         </a>

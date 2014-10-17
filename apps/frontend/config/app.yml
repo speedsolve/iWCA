@@ -75,6 +75,10 @@ all:
       555bf:  { name: '5x5 Cube: Blindfolded',               format: 'Single',  cellname: '5x5 Blindfolded' }
       333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded', format: 'Single',  cellname: '3x3 Multi Blind' }
 
+    abolition:
+      - magic
+      - mmagic
+
     single:
       - 444bf
       - 555bf
