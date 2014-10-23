@@ -11,7 +11,8 @@
                     <?php else: ?>
                         Unknown,&nbsp;
                     <?php endif ?>
-                        Competitions&nbsp;<?php echo $competition_count ?>
+                        Competitions&nbsp;<?php echo $competition_count ?><br />
+                        Distance&nbsp;<?php echo floor($distance) ?>&nbsp;km
                 </span><br />
             </li>
         </ul>

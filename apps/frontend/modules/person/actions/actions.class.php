@@ -78,6 +78,7 @@ class personActions extends sfActions
     ResultsService::setData(&$results);
     $this->histories      = ResultsService::getHistoryRecord($results);
     $this->competition_count = ResultsService::getCompetitionCount($results);
+    $this->distance = CompetitionsService::getCompetitionDistance($results);
   }
 
   public function executeResults(sfWebRequest $request)

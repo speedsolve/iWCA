@@ -37,6 +37,25 @@ class CompetitionsTable extends Doctrine_Table
     }
 
     /**
+     * 大会を取得する
+     * @params CompetitionId
+     * @return 大会データ
+     */
+    public function getCompetitions($ids)
+    {
+      $query = $this->createQuery();
+      $query->whereIn('id', $ids);
+      $query->useResultCache(true);
+
+      $results = $query->fetchArray();
+
+      $query->free();
+      unset($query);
+
+      return $results;
+    }
+
+    /**
      * 大会リストを取得する
      * @params eventId イベントID
      * @params region 地域
