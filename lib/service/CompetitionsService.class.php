@@ -100,15 +100,14 @@ class CompetitionsService
         return 0;
       }
 
-      $competitions = CompetitionsTable::getInstance()->getCompetitions($competitionIds);
+      $competitions = CompetitionsTable::getInstance()->getCompetitions(array_unique($competitionIds));
 
       $distance = 0;
       $preKey = '';
       foreach ($competitions as $key => $competition) {
-        if ($preKey) {
-          $distance += self::calcDistance($competitions[$preKey]['latitude'], $competitions[$preKey]['longitude'], $competitions[$key]['latitude'], $competitions[$key]['longitude']);
+        if ($key >= 1) {
+          $distance += self::calcDistance($competitions[$key - 1]['latitude'] / 1000000, $competitions[$key - 1]['longitude']  / 1000000, $competitions[$key]['latitude'] / 1000000, $competitions[$key]['longitude'] / 1000000);
         }
-        $preKey = $key;
       }
 
       return $distance;
@@ -116,56 +115,27 @@ class CompetitionsService
 
   /**
    * 距離計算
-   * @see http://emiyou3-tools.appspot.com/geocoding/distance.html
+   * @see http://kudakurage.hatenadiary.com/entry/20100319/1268986000
    */
-  public static function calcDistance($latitude1, $longitude1, $latitude2, $longitude2)
+  public static function calcDistance($lat1, $lon1, $lat2, $lon2)
   {
-     // 桁数によって割る値が変わる。
-     // ラジアンに変換元の値が1000000倍されてるので割っておく
-     $lat1 = ($latitude1 / self::getChangeLength($latitude1)) * pi() / 180;
-     $lon1 = ($longitude1 / self::getChangeLength($latitude2)) * pi() / 180;
-     $lat2 = ($latitude2 / self::getChangeLength($longitude1)) * pi() / 180;
-     $lon2 = ($longitude2 / self::getChangeLength($longitude2)) * pi() / 180;
+      // 2点の緯度の平均
+      $lat_average = deg2rad($lat1 + (($lat2 - $lat1) / 2));
+      // 2点の緯度差
+      $lat_difference = deg2rad($lat1 - $lat2);
+      // 2点の経度差
+      $lon_difference = deg2rad($lon1 - $lon2);
+      $curvature_radius_tmp = 1 - 0.00669438 * pow(sin($lat_average), 2);
+      // 子午線曲率半径
+      $meridian_curvature_radius = 6335439.327 / sqrt(pow($curvature_radius_tmp, 3));
+      // 卯酉線曲率半径
+      $prime_vertical_circle_curvature_radius = 6378137 / sqrt($curvature_radius_tmp);
 
-     // 緯度の平均、緯度間の差、経度間の差
-     $latave = ($lat1 + $lat2) / 2;
-     $latidiff = $lat1 - $lat2;
-     $longdiff = $lon1 - $lon2;
+      // 2点間の距離
+      $distance = pow($meridian_curvature_radius * $lat_difference, 2) + pow($prime_vertical_circle_curvature_radius * cos($lat_average) * $lon_difference, 2);
+      $distance = sqrt($distance) / 1000;
 
-     //子午線曲率半径
-     //半径を6335439m、離心率を0.006694で設定してます
-     $meridian = 6335439 / sqrt(pow(1 - 0.006694 * sin($latave) * sin($latave),  3));
-
-     //卯酉線曲率半径
-     //半径を6378137m、離心率を0.006694で設定してます
-     $primevertical = 6378137 / sqrt(1 - 0.006694 * sin($latave) * sin($latave));
-
-     //Hubenyの簡易式
-     $x = $meridian * $latidiff;
-     $y = $primevertical * cos($latave) * $longdiff;
-
-     return sqrt(pow($x, 2) + pow($y, 2)) / 1000;
-  }
-
-  /**
-   *
-   */
-  public static function getChangeLength($point)
-  {
-     switch (strlen($point)) {
-       case 6:
-         return 100000;
-         break;
-       case 7:
-         return 1000000;
-         break;
-       case 8:
-         return 1000000;
-         break;
-       case 9:
-         return 1000000;
-         break;
-     }
+      return $distance;
   }
 
   /**
