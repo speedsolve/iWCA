@@ -114,28 +114,46 @@ class CompetitionsService
   }
 
   /**
-   * 距離計算
-   * @see http://kudakurage.hatenadiary.com/entry/20100319/1268986000
+   * ２点間の直線距離を求める（Lambert-Andoyer）
+   *
+   * @see http://www.gadgety.net/shin/web/php/distance.html
+   * @param   float   $lat1       始点緯度(十進度)
+   * @param   float   $lon1       始点経度(十進度)
+   * @param   float   $lat2       終点緯度(十進度)
+   * @param   float   $lon2       終点経度(十進度)
+   * @return  float               距離（Km）
    */
   public static function calcDistance($lat1, $lon1, $lat2, $lon2)
   {
-      // 2点の緯度の平均
-      $lat_average = deg2rad($lat1 + (($lat2 - $lat1) / 2));
-      // 2点の緯度差
-      $lat_difference = deg2rad($lat1 - $lat2);
-      // 2点の経度差
-      $lon_difference = deg2rad($lon1 - $lon2);
-      $curvature_radius_tmp = 1 - 0.00669438 * pow(sin($lat_average), 2);
-      // 子午線曲率半径
-      $meridian_curvature_radius = 6335439.327 / sqrt(pow($curvature_radius_tmp, 3));
-      // 卯酉線曲率半径
-      $prime_vertical_circle_curvature_radius = 6378137 / sqrt($curvature_radius_tmp);
+      // WGS84
+      $A = 6378137.0;             // 赤道半径
+      $F = 1 / 298.257222101;     // 扁平率
 
-      // 2点間の距離
-      $distance = pow($meridian_curvature_radius * $lat_difference, 2) + pow($prime_vertical_circle_curvature_radius * cos($lat_average) * $lon_difference, 2);
-      $distance = sqrt($distance) / 1000;
+      // 扁平率 F = (A - B) / A
+      $B = $A * (1.0 - $F);       // 極半径
 
-      return $distance;
+      $lat1 = deg2rad($lat1);
+      $lon1 = deg2rad($lon1);
+      $lat2 = deg2rad($lat2);
+      $lon2 = deg2rad($lon2);
+
+      $P1 = atan($B/$A) * tan($lat1);
+      $P2 = atan($B/$A) * tan($lat2);
+
+      // Spherical Distance
+      $sd = acos(sin($P1)*sin($P2) + cos($P1)*cos($P2)*cos($lon1-$lon2));
+
+      // Lambert-Andoyer Correction
+      $cos_sd = cos($sd/2);
+      $sin_sd = sin($sd/2);
+      $c = (sin($sd) - $sd) * pow(sin($P1)+sin($P2),2) / $cos_sd / $cos_sd;
+      $s = (sin($sd) + $sd) * pow(sin($P1)-sin($P2),2) / $sin_sd / $sin_sd;
+      $delta = $F / 8.0 * ($c - $s);
+
+      // Geodetic Distance
+      $distance = $A * ($sd + $delta);
+
+      return $distance / 1000.0;
   }
 
   /**
