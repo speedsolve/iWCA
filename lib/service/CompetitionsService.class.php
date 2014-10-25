@@ -92,7 +92,10 @@ class CompetitionsService
   {
       $competitionIds = array();
       foreach ($results as $result) {
-        $competitionIds[] = $result['competitionid'];
+        // 順番を保持しつつユニークに
+        if (!in_array($result['competitionid'], $competitionIds)) {
+          $competitionIds[] = $result['competitionid'];
+        }
       }
 
       // 2大会ないと距離が測れない
@@ -100,17 +103,30 @@ class CompetitionsService
         return 0;
       }
 
-      $competitions = CompetitionsTable::getInstance()->getCompetitions(array_unique($competitionIds));
+      $competitions = CompetitionsTable::getInstance()->getCompetitions($competitionIds);
 
       $distance = 0;
-      $preKey = '';
-      foreach ($competitions as $key => $competition) {
-        if ($key >= 1) {
-          $distance += self::calcDistance($competitions[$key - 1]['latitude'] / 1000000, $competitions[$key - 1]['longitude']  / 1000000, $competitions[$key]['latitude'] / 1000000, $competitions[$key]['longitude'] / 1000000);
+      foreach ($competitionIds as $key => $id) {
+        $compe1 = array();
+        $compe2 = array();
+        foreach ($competitions as $competition) {
+          if ($key >= 1) {
+            if ($competitionIds[$key - 1] == $competition['id']) {
+              $compe1 = $competition;
+            }
+            if ($competitionIds[$key] == $competition['id']) {
+              $compe2 = $competition;
+            }
+          }
         }
-      }
+        if ($compe1 && $compe2) {
+          $tmp_distance = self::calcDistance($compe1['latitude'] / 1000000, $compe1['longitude']  / 1000000, $compe2['latitude'] / 1000000, $compe2['longitude'] / 1000000);
+          // error_log($compe1['name'] . ' -> ' . $compe2['name'] . ' distance: ' . $tmp_distance . "km");
+          $distance += $tmp_distance;
+        }
+     }
 
-      return $distance;
+     return $distance;
   }
 
   /**
@@ -137,8 +153,8 @@ class CompetitionsService
       $lat2 = deg2rad($lat2);
       $lon2 = deg2rad($lon2);
 
-      $P1 = atan($B/$A) * tan($lat1);
-      $P2 = atan($B/$A) * tan($lat2);
+      $P1 = atan(($B/$A) * tan($lat1));
+      $P2 = atan(($B/$A) * tan($lat2));
 
       // Spherical Distance
       $sd = acos(sin($P1)*sin($P2) + cos($P1)*cos($P2)*cos($lon1-$lon2));
