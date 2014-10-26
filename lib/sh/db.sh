@@ -46,7 +46,7 @@ mysql -u root -D wcaTmp -e 'create table Result as select competitionId, eventId
 mysql -u root -D wcaTmp -e 'drop table if exists Results';
 mysql -u root -D wcaTmp -e 'alter table Result rename to Results';
 echo 'Resultsテーブルに大陸名を記載しました。';
-mysql -u root -D wcaTmp -e 'create table Result as select competitionId, eventId, roundId, pos, best, average, personName, personId, personCountryId, Results.continentId, formatId, value1, value2, value3, value4, value5, regionalSingleRecord, regionalAverageRecord, Competitions.name as competitionName, countryId, Competitions.year, month, day, endMonth, endDay from Results left join Competitions on Results.competitionId = Competitions.id'
+mysql -u root -D wcaTmp -e 'create table Result as select competitionId, eventId, roundId, pos, best, average, personName, personId, personCountryId, Results.continentId, formatId, value1, value2, value3, value4, value5, regionalSingleRecord, regionalAverageRecord, Competitions.name as competitionName, countryId, Competitions.year, month, day, endMonth, endDay, Competitions.latitude, Competitions.longitude from Results left join Competitions on Results.competitionId = Competitions.id'
 mysql -u root -D wcaTmp -e 'drop table if exists Results';
 mysql -u root -D wcaTmp -e 'alter table Result rename to Results';
 echo 'ResultsテーブルにCompetitionDataを追加しました。'
