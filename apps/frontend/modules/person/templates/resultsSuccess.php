@@ -21,15 +21,15 @@
                                 </div>
                             <?php endif ?>
                             <div class="mb">
-                                <span class="person-round-title"><?php echo $round['roundid'] ?></span>
+                                <span class="person-round-title"><?php echo $round['roundid'] ?></span><br />
                                 <?php if ($round['pos'] == 1): ?>
-                                    <span class="person-1st">1st</span><br />
+                                    <span class="person-1st">1st&nbsp;place</span><br />
                                 <?php elseif ($round['pos'] == 2): ?>
-                                    <span class="person-2nd">2nd</span><br />
+                                    <span class="person-2nd">2nd&nbsp;place</span><br />
                                 <?php elseif ($round['pos'] == 3): ?>
-                                    <span class="person-3rd">3rd</span><br />
+                                    <span class="person-3rd">3rd&nbsp;place</span><br />
                                 <?php else: ?>
-                                    <span class="person-xth"><?php echo $round['pos'] ?>th</span><br />
+                                    <span class="person-xth"><?php echo $round['pos'] ?>th&nbsp;place</span><br />
                                 <?php endif ?>
                                 <?php if ($round['average']): ?>
                                     <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<?php echo $round['average'] ?>&nbsp;
