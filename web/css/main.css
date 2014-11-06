@@ -17,8 +17,16 @@
     color:     #aaaaaa;
 }
 
-.person-rank-title, .person-round-title{
-    font-size: 9px;
+.person-rank-title{
+    font-size: 0.5em;
+}
+
+.person-round-title{
+    font-size: 0.7em;
+}
+
+.person-competition-title{
+    font-size: 1.1em;
 }
 
 .person-competition-date{
@@ -121,6 +129,9 @@
 .national_record{
     font-size: 9px;
     color:     #33cc33;
+}
+.mb{
+    margin-bottom:0.5em;
 }
 .ui-li .ui-btn-text a.ui-link-inherit {
     overflow: visible;

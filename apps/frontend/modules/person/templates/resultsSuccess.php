@@ -16,27 +16,31 @@
                                 <?php else: ?>
                                     <span class="person-competition-date"><?php echo $round['year'].'/'.$round['month'].'/'.$round['day'] ?>&nbsp;-&nbsp;<?php echo $round['endmonth'].'/'.$round['endday'] ?></span><br />
                                 <?php endif ?>
-                                <?php echo $round['competitionname'] ?><br />
+                                <div class="mb">
+                                    <span class="person-competition-title"><?php echo $round['competitionname'] ?></span><br />
+                                </div>
                             <?php endif ?>
-                            <span class="person-round-title"><?php echo $round['roundid'] ?></span>
-                            <?php if ($round['pos'] == 1): ?>
-                                <span class="person-1st">1st</span><br />
-                            <?php elseif ($round['pos'] == 2): ?>
-                                <span class="person-2nd">2nd</span><br />
-                            <?php elseif ($round['pos'] == 3): ?>
-                                <span class="person-3rd">3rd</span><br />
-                            <?php else: ?>
-                                <span class="person-xth"><?php echo $round['pos'] ?>th</span><br />
-                            <?php endif ?>
-                            <?php if ($round['average']): ?>
-                                <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<?php echo $round['average'] ?>&nbsp;
-                            <?php endif ?>
-                            <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<?php echo $round['best'] ?><br />
-                            <span class="person-subrecord">
-                                <?php foreach($round['subrecord'] as $subrecord):?>
-                                    <?php echo $subrecord ?>&nbsp;
-                                <?php endforeach; ?>
-                            </span><br />
+                            <div class="mb">
+                                <span class="person-round-title"><?php echo $round['roundid'] ?></span>
+                                <?php if ($round['pos'] == 1): ?>
+                                    <span class="person-1st">1st</span><br />
+                                <?php elseif ($round['pos'] == 2): ?>
+                                    <span class="person-2nd">2nd</span><br />
+                                <?php elseif ($round['pos'] == 3): ?>
+                                    <span class="person-3rd">3rd</span><br />
+                                <?php else: ?>
+                                    <span class="person-xth"><?php echo $round['pos'] ?>th</span><br />
+                                <?php endif ?>
+                                <?php if ($round['average']): ?>
+                                    <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<?php echo $round['average'] ?>&nbsp;
+                                <?php endif ?>
+                                <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<?php echo $round['best'] ?><br />
+                                <span class="person-subrecord">
+                                    <?php foreach($round['subrecord'] as $subrecord):?>
+                                        <?php echo $subrecord ?>&nbsp;
+                                    <?php endforeach; ?>
+                                </span><br />
+                            </div>
                          <?php endforeach ?>
                      </a>
                 </li>
