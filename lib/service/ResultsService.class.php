@@ -13,6 +13,12 @@ class ResultsService
    */
   public static function setData (&$results)
   {
+     $best = array();
+     $average = array();
+
+     // PB集計のため逆順に
+     krsort($results);
+
      foreach ($results as &$result) {
 
         foreach (sfConfig::get('app_event_id') as $event => $value) {
@@ -22,6 +28,13 @@ class ResultsService
         }
 
         if (isset($result['best'])) {
+
+          // PB計算
+          if (!$best[$result['eventid']] || $result['best'] <= $best[$result['eventid']]) {
+            $result['best_pb'] = 1;
+            $best[$result['eventid']] = (int)$result['best'];
+          }
+
           $result['best'] = Util::getChangeRecord($result['best'], $result['eventid'], 'single');
           for ($i = 1; $i <= 5; $i++) {
             if (isset($result['value'.$i]) && $result['value'.$i] != 0) {
@@ -31,6 +44,13 @@ class ResultsService
         }
 
         if (isset($result['average'])) {
+
+          // PB計算
+          if (!$average[$result['eventid']] || $result['average'] <= $average[$result['eventid']]) {
+            $result['average_pb'] = 1;
+            $average[$result['eventid']] = $result['average'];
+          }
+
           $result['average'] = Util::getChangeRecord($result['average'], $result['eventid'], 'average');
 
           for ($i = 1; $i <= 5; $i++) {
@@ -57,6 +77,9 @@ class ResultsService
         // ()除去
         $result['personname'] = Util::removeParenthesis($result['personname']);
      }
+
+     // 再度逆順に
+     ksort($results);
   }
 
   /**

@@ -31,10 +31,18 @@
                                 <?php else: ?>
                                     <span class="person-xth"><?php echo $round['pos'] ?>th&nbsp;place</span><br />
                                 <?php endif ?>
-                                <?php if ($round['average']): ?>
+
+                                <?php if ($round['average'] && $round['average_pb']): ?>
+                                    <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<span class="pb"><?php echo $round['average'] ?></span>&nbsp;
+                                <?php elseif ($round['average']): ?>
                                     <span class="person-rank-title">Average</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'average')) ?>&nbsp;<?php echo $round['average'] ?>&nbsp;
                                 <?php endif ?>
-                                <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<?php echo $round['best'] ?><br />
+
+                                <?php if ($round['best_pb']): ?>
+                                    <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<span class="pb"><?php echo $round['best'] ?></span><br />
+                                <?php else: ?>
+                                    <span class="person-rank-title">Best</span>&nbsp;<?php include_partial('global/title_record', array('result' => $round, 'type' => 'single')) ?>&nbsp;<?php echo $round['best'] ?><br />
+                                <?php endif ?>
                                 <span class="person-subrecord">
                                     <?php foreach($round['subrecord'] as $subrecord):?>
                                         <?php echo $subrecord ?>&nbsp;
