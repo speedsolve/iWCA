@@ -183,7 +183,7 @@ class ResultsService
     foreach (sfConfig::get('app_event_id') as $event => $value) {
       foreach ($results as $result) {
         if ($result['eventid'] === (string)$event && ($result['roundid'] == 'Combined Final' || $result['roundid'] === 'Final') && $result['pos'] <= 3) {
-          if (($result['best'] != 'DNF' && $result['best'] != 'DNS') || ($result['average'] != 'DNF' && $result['average'] != 'DNS')) {
+          if (($result['best'] != 'DNF' && $result['best'] != 'DNS') || ($result['average'] != 'DNF' && $result['average'] != 'DNS' && $result['average'] != '')) {
             $winners[$event][] = $result;
           }
         }
