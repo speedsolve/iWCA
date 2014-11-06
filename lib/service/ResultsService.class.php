@@ -30,7 +30,7 @@ class ResultsService
         if (isset($result['best'])) {
 
           // PB計算
-          if (!$best[$result['eventid']] || $result['best'] <= $best[$result['eventid']]) {
+          if ((!isset($best[$result['eventid']]) || $result['best'] <= $best[$result['eventid']]) && $result['best'] > 0) {
             $result['best_pb'] = 1;
             $best[$result['eventid']] = (int)$result['best'];
           }
@@ -46,7 +46,7 @@ class ResultsService
         if (isset($result['average'])) {
 
           // PB計算
-          if (!$average[$result['eventid']] || $result['average'] <= $average[$result['eventid']]) {
+          if ((!isset($average[$result['eventid']]) || $result['average'] <= $average[$result['eventid']]) && $result['average'] > 0) {
             $result['average_pb'] = 1;
             $average[$result['eventid']] = $result['average'];
           }
