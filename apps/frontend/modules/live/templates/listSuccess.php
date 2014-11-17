@@ -15,7 +15,7 @@
                 <?php if (count($some_list) > 0): ?>
                     <?php foreach($some_list as $list): ?>
                         <li>
-                            <a href="<?php echo url_for('live/event?competitionId='.$list['id']) ?>" class="ui-link-inherit">
+                            <a href="<?php echo url_for('live/event?competitionId='.$list['id'].'&name='.$list['name']) ?>" class="ui-link-inherit">
                                 <?php echo $list['name'] ?>
                             </a>
                         </li>

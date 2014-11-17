@@ -36,8 +36,21 @@ class liveActions extends sfActions
     if (!$this->live_list) {
       $json_list = file_get_contents(sfConfig::get('app_cubecomps_list_url'));
       $this->live_list = json_decode($json_list, true);
-      $memcache->set("cubecomps_list", $this->live_list, 86400);
+      $memcache->set("cubecomps_list", $this->live_list, 60);
     }
     unset($memchache);
+  }
+
+  public function executeEvent(sfWebRequest $request)
+  {
+    $competitionId = $request->getParameter('competitionId');
+    $this->name    = $request->getParameter('name');
+    $url = sprintf(sfConfig::get('app_cubecomps_event_url'), $competitionId);
+    $json_event = file_get_contents($url);
+    $this->event_list = json_decode($json_event, true);
+  }
+
+  public function executeDetail(sfWebRequest $request)
+  {
   }
 }

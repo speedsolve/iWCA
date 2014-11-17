@@ -13,7 +13,7 @@ all:
 
   cubecomps:
     list_url: 'http://m.cubecomps.com/competitions.json'
-    event_url: 'http://m.cubecomps.com/competitions/%s/events'
+    event_url: 'http://m.cubecomps.com/competitions/%s/events.json'
 
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }
