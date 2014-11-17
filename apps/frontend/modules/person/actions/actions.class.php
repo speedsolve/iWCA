@@ -54,9 +54,9 @@ class personActions extends sfActions
     $results        = ResultsTable::getInstance()->getPersonalResults($id);
 
     // 大会結果側のためにResultsをキャッシュする
-    $memchache = new sfMemcacheCache();
-    $memchache->set($id, $results, 86400);
-    unset($memchache);
+    $memcache = new sfMemcacheCache();
+    $memcache->set($id, $results, 86400);
+    unset($memcache);
 
     // 全記録にデータを付与する
     $singles        = ResultsService::getCurrentRecord($results, 'best');
@@ -86,8 +86,9 @@ class personActions extends sfActions
     $id = $request->getParameter('id');
     $this->eventId = $request->getParameter('eventId');
 
-    $memchache = new sfMemcacheCache();
-    $results = $memchache->get($id);
+    $memcache = new sfMemcacheCache();
+    $results = $memcache->get($id);
+    unset($memcache);
     if (!$results) {
       $results = ResultsTable::getInstance()->getPersonalResults($id);
     }

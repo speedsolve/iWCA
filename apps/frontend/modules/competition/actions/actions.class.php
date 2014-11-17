@@ -50,13 +50,13 @@ class competitionActions extends sfActions
     $this->website      = CompetitionsService::separateData($this->competition['website']);
     $this->wcadelegates = CompetitionsService::separateData($this->competition['wcadelegate']);
 
-    $memchache = new sfMemcacheCache();
-    $this->results = $memchache->get($competitionId);
+    $memcache = new sfMemcacheCache();
+    $this->results = $memcache->get($competitionId);
 
     if (!$this->results) {
       $this->results = ResultsTable::getInstance()->getCompetitionResults($competitionId);
-      $memchache->set($competitionId, $this->results, 86400);
-      unset($memchache);
+      $memcache->set($competitionId, $this->results, 86400);
+      unset($memcache);
     }
 
     if (!empty($this->results)) {
@@ -73,8 +73,8 @@ class competitionActions extends sfActions
     $this->competitionId = $request->getParameter('competitionId');
     $this->eventId = $request->getParameter('eventId');
 
-    $memchache = new sfMemcacheCache();
-    $results = $memchache->get($this->competitionId);
+    $memcache = new sfMemcacheCache();
+    $results = $memcache->get($this->competitionId);
     if (!$results) {
       $results = ResultsTable::getInstance()->getCompetitionResults($this->competitionId);
     }
