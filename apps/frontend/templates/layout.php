@@ -4,6 +4,7 @@
         <meta name="viewport" content="initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <meta name="format-detection" content="telephone=no">
         <link rel="apple-touch-icon" href="images/ios_icon.png"/>
         <link rel="apple-touch-startup-image" href="images/ios_startup.png" />
         <?php include_title() ?>
