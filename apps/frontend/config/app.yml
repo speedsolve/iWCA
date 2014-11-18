@@ -5,11 +5,17 @@
 #all:
 all:
   wca_official_result_url: 'http://www.worldcubeassociation.org/results/'
-  wca_official_events_number: 20
+  wca_official_events_number: 18
 
   most_old_year: 1982
   recently_old_year: 2003
   now_year: 2014
+
+  cubecomps:
+    list_url:   'http://m.cubecomps.com/competitions.json'
+    past_url:   'http://m.cubecomps.com/competitions/past.json'
+    event_url:  'http://m.cubecomps.com/competitions/%s/events.json'
+    detail_url: 'http://m.cubecomps.com/competitions/%s/events/%s/rounds/%s/results.json'
 
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }

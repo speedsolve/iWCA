@@ -121,6 +121,57 @@
     color:        #aaaaaa;
 }
 
+/*Live*/
+.live_table{
+    font-size: 0.8em;
+    width: 100%;
+    border: 0px;
+    border-spacing: 0px;
+}
+.live_position{
+    width : 10%;
+    text-align: right;
+}
+.live_top_position{
+    width : 10%;
+    text-align: right;
+    background-color: #b22222;
+}
+.live_div_position{
+    margin: 0.5em;
+}
+.live_image{
+    max-width: 25px;
+    max-height: 25px;
+}
+.live_tr_bg_1{
+    background-color: #393939;
+}
+.live_tr_bg_2{
+    background-color: #404040;
+}
+.live_flag{
+    width: 10%;
+}
+.live_name{
+    width: 40%;
+}
+.live_div_name{
+    margin: 0.3em;
+}
+.live_average{
+    width: 20%;
+}
+.live_div_average{
+    margin: 0.3em;
+}
+.live_best{
+    width: 20%;
+}
+.live_div_best{
+    margin: 0.3em;
+}
+
 /*Global*/
 .world_record{
     font-size: 9px;
