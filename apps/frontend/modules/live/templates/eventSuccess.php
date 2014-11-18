@@ -8,7 +8,7 @@
                     <ul data-role="listview" data-theme="a" data-divider-theme="a">
                         <?php foreach($lists['rounds'] as $list): ?>
                             <li>
-                                <a href="<?php echo url_for('live/detail?competitionId='.$list['competition_id'].'&eventId='.$list['event_id'].'&id='.$list['id'].'&name='.$list['name']) ?>" class="ui-link-inherit">
+                                <a href="<?php echo url_for('live/detail?competitionId='.$list['competition_id'].'&eventId='.$list['event_id'].'&id='.$list['id']) ?>" class="ui-link-inherit">
                                     <?php echo $list['name'] ?><br />
                                     <?php if ($list['live'] == true): ?>
                                         <span class="ui-li-count">Live!</span>

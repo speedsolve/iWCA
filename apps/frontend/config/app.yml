@@ -12,8 +12,10 @@ all:
   now_year: 2014
 
   cubecomps:
-    list_url: 'http://m.cubecomps.com/competitions.json'
-    event_url: 'http://m.cubecomps.com/competitions/%s/events.json'
+    list_url:   'http://m.cubecomps.com/competitions.json'
+    past_url:   'http://m.cubecomps.com/competitions/past.json'
+    event_url:  'http://m.cubecomps.com/competitions/%s/events.json'
+    detail_url: 'http://m.cubecomps.com/competitions/%s/events/%s/rounds/%s/results.json'
 
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }

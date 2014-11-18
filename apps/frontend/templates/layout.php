@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="iwca.appcache" xml:lang="en" lang="ja">
+<html xml:lang="en" lang="ja">
     <head>
         <meta name="viewport" content="initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
