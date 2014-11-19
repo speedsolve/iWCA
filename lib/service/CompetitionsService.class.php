@@ -42,7 +42,7 @@ class CompetitionsService
   {
     $events = array();
     foreach (sfConfig::get('app_event_id') as $event => $value) {
-      if (strpos($results['eventspecs'], (string)$event) !== false) {
+      if (preg_match("/\b" . $event. "\b/i", $results['eventspecs'])) {
         $events[$event] = $value['cellname'];
       }
     }
