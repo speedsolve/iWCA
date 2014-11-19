@@ -46,7 +46,7 @@
                         </div>
                     </td>
                 </tr>
-                <div data-role="popup" id="detail_<?php echo $key ?>" data-position-to="window" data-theme="a" style="max-width:400px;">
+                <div data-role="popup" id="detail_<?php echo $key ?>" data-position-to="window" data-theme="a" style="width:300px;">
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                     <div data-role="content">
                         <ul data-role="listview" data-theme="a" data-divider-theme="a">
