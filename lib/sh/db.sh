@@ -77,6 +77,12 @@ mysql -u root -D wcaTmp -e 'create table Singles as select * from SingleAll orde
 echo 'Singleテーブルを統合しました'
 mysql -u root -D wcaTmp -e 'alter table Singles add column id int auto_increment primary key'
 mysql -u root -D wcaTmp -e 'drop table if exists Single'
+mysql -u root -D wcaTmp -e 'drop table if exists Single1'
+mysql -u root -D wcaTmp -e 'drop table if exists Single2'
+mysql -u root -D wcaTmp -e 'drop table if exists Single3'
+mysql -u root -D wcaTmp -e 'drop table if exists Single4'
+mysql -u root -D wcaTmp -e 'drop table if exists Single5'
+mysql -u root -D wcaTmp -e 'drop table if exists SingleAll'
 echo 'Singlesテーブル作成しました。'
 
 # Average
