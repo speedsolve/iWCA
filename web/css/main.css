@@ -171,6 +171,16 @@
 .live_div_best{
     margin: 0.3em;
 }
+.live_popup_name, .live_popup_country, .live_popup_average, .live_popup_best, .live_popup_times{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.live_popup_image{
+    max-width: 25px;
+    max-height: 25px;
+}
 
 /*Global*/
 .world_record{
@@ -192,4 +202,8 @@
     overflow: visible;
     white-space: normal !important;
 }
+a{
+    color: #ffffff !important;
+}
+
 
