@@ -1,5 +1,5 @@
 <div id="index" data-role="page" data-theme="a">
-    <?php include_partial('global/header', array('title' => 'Competition', 'index' => true)) ?>
+    <?php include_partial('global/header', array('title' => 'Competition', 'index' => true, 'isLive' => true)) ?>
     <div data-role="content">
         <form action="<?php echo url_for('competition/list') ?>" method="GET">
             <select name="eventId" id="event" data-theme="a">

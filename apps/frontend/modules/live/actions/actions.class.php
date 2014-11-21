@@ -80,8 +80,10 @@ class liveActions extends sfActions
       $this->redirect('live/list');
     }
 
+    $this->rounds = array();
     foreach ($this->event_list as $lists) {
       foreach ($lists['rounds'] as $list) {
+        // キャッシュセット
         $memcache->set('name_' . $competitionId. '_' . $list['event_id'] . '_' . $list['id'], array('compName' => $this->name, 'eventName' => $lists['name'], 'roundName' => $list['name']), 60 * 60 * 6);
       }
     }
