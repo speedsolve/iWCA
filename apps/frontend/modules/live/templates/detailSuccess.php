@@ -1,7 +1,7 @@
 <div id="page" data-role="page" data-add-back-btn=”true” data-theme="a">
     <?php include_partial('global/header', array('title' => $names['compName'])) ?>
     <div data-role="content">
-        <h2><?php echo $names['eventName'] . '&nbsp;-&nbsp;' . $names['roundName'] ?></h2>
+        <h3><?php echo $names['eventName'] . '&nbsp;-&nbsp;' . $names['roundName'] ?></h3>
         <table class="live_table">
             <thead class="live_thead">
                 <tr>
