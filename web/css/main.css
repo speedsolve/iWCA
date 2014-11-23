@@ -180,6 +180,7 @@
 .live_popup_image{
     max-width: 25px;
     max-height: 25px;
+    vertical-align: bottom;
 }
 
 /*Global*/
