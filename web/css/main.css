@@ -21,8 +21,41 @@
     font-size: 0.5em;
 }
 
+.person-rank-table{
+    font-size: 0.8em;
+}
+
+.person-rank-table-title-time{
+    font-size: 0.8em;
+    text-align: right;
+    width: 6em;
+    color: #6c6c6c;
+}
+
+.person-rank-table-title-rank{
+    font-size: 0.8em;
+    text-align: right;
+    width: 4em;
+    color: #6c6c6c;
+}
+
+.person-rank-format-name{
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.person-rank-best, .person-rank-average{
+    font-size: 1em;
+    text-align: right;
+}
+
+.person-place{
+    font-size: 0.8em;
+    text-align: right;
+}
+
 .person-round-title{
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 .person-competition-title{

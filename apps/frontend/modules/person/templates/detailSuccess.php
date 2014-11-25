@@ -58,30 +58,70 @@
                 </li>
             </ul>
         <?php endif ?>
-        <ul data-role="listview" data-theme="a" data-inset="true" class="ui-listview">
+        <ul data-role="listview" data-inset="true" class="ui-listview">
             <?php foreach (sfConfig::get('app_event_id') as $event => $value): ?>
                 <?php if (isset($singles[$event])): ?>
                     <li>
                         <a href="<?php echo url_for('person/results?id='.$person['id'].'&eventId='.$event) ?>" class="ui-link-inherit">
                             <span class="person-event-name"><?php echo $value['cellname'] ?></span><br />
-                                <span style="margin-top:5px;">
-                                    <span class="person-rank-title">Single</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $singles[$event]['best'] ?>&nbsp;
+                            <table class="person-rank-table">
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td class="person-rank-table-title-time">
+                                        Time
+                                    </td>
+                                    <td class="person-rank-table-title-rank">
+                                        WR
+                                    </td>
+                                    <td class="person-rank-table-title-rank">
+                                        CR
+                                    </td>
+                                    <td class="person-rank-table-title-rank">
+                                        NR
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="person-rank-format-name">
+                                        Single
+                                    </td>
+                                    <td class="person-rank-best">
+                                        <?php echo $singles[$event]['best'] ?>
+                                    </td>
                                     <?php if (!in_array($event,  sfConfig::get('app_event_abolition'))): ?>
-                                        <span class="person-rank-title">WR&nbsp;<?php echo $single_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                                        <span class="person-rank-title">CR&nbsp;<?php echo $single_ranks[$event]['continentrank'] ?>&nbsp;</span>
-                                        <span class="person-rank-title">NR&nbsp;<?php echo $single_ranks[$event]['countryrank'] ?>&nbsp;</span>
+                                        <td class="person-place">
+                                            <?php echo $single_ranks[$event]['worldrank'] ?>
+                                        </td>
+                                        <td class="person-place">
+                                            <?php echo $single_ranks[$event]['continentrank'] ?>
+                                        </td>
+                                        <td class="person-place">
+                                            <?php echo $single_ranks[$event]['countryrank'] ?>
+                                        </td>
                                     <?php endif; ?>
-                                </span><br />
-                            <?php if (isset($averages[$event])): ?>
-                                <span style="margin-top:5px;">
-                                    <span class="person-rank-title">Average</span>&nbsp;&nbsp;<?php echo $averages[$event]['average'] ?>&nbsp;
-                                    <?php if (!in_array($event,  sfConfig::get('app_event_abolition'))): ?>
-                                        <span class="person-rank-title">WR&nbsp;<?php echo $average_ranks[$event]['worldrank'] ?>&nbsp;</span>
-                                        <span class="person-rank-title">CR&nbsp;<?php echo $average_ranks[$event]['continentrank'] ?>&nbsp;</span>
-                                        <span class="person-rank-title">NR&nbsp;<?php echo $average_ranks[$event]['countryrank'] ?>&nbsp;</span>
-                                    <?php endif; ?>
-                                </span>
-                            <?php endif ?>
+                                </tr>
+                                <?php if (isset($averages[$event])): ?>
+                                    <tr>
+                                        <td class="person-rank-format-name">
+                                            Average
+                                        </td>
+                                        <td class="person-rank-average">
+                                            <?php echo $averages[$event]['average'] ?>
+                                        </td>
+                                        <?php if (!in_array($event,  sfConfig::get('app_event_abolition'))): ?>
+                                            <td class="person-place">
+                                                <?php echo $average_ranks[$event]['worldrank'] ?>
+                                            </td>
+                                            <td class="person-place">
+                                                <?php echo $average_ranks[$event]['continentrank'] ?>
+                                            </td>
+                                            <td class="person-place">
+                                                <?php echo $average_ranks[$event]['countryrank'] ?>
+                                            </td>
+                                        <?php endif; ?>
+                                    </tr>
+                                <?php endif ?>
+                            </table>
                         </a>
                     </li>
                 <?php endif ?>
