@@ -8,7 +8,9 @@
                     <td></td>
                     <td></td>
                     <td class="live_name"><div class="live_div_name">Name</div></td>
-                    <td class="live_average"> <div class="live_div_average"><?php echo $type == 'average' ? 'Average' : 'Mean' ?></div></td>
+                    <?php if ($is_average): ?>
+                        <td class="live_average"> <div class="live_div_average"><?php echo $type == 'average' ? 'Average' : 'Mean' ?></div></td>
+                    <?php endif; ?>
                     <td class="live_best"><div class="live_div_best">Best</div></td>
                 </tr>
             </thead>
@@ -17,21 +19,23 @@
                     <td class="<?php echo $list['top_position'] ? 'live_top_position' : 'live_position' ?>"><div class="live_div_position"><?php echo $list['position'] ?></div></td>
                     <td class="live_flag"><?php echo image_tag('flag/' . $list['country'] . '.png', array('class' => 'live_image')) ?></td>
                     <td class="live_name"><div class="live_div_name"><a href="#detail_<?php echo $key ?>" data-rel="popup" data-inline="true"><?php echo $list['name'] ?></a></div></td>
-                    <td class="live_average">
-                        <div class="live_div_average">
-                            <?php $record_type = $type == 'average' ? 'average_record' : 'mean_record' ?>
-                            <?php $average = $list['average'] ? $list['average'] : $list['mean'] ?>
-                            <?php if ($list[$record_type] == 'WR'): ?>
-                                <span class="world_record">WR</span>&nbsp;<?php echo $average ?>
-                            <?php elseif ($list[$record_type] == 'CR'): ?>
-                                <span class="continent_record">CR</span>&nbsp;<?php echo $average ?>
-                            <?php elseif ($list[$record_type] == 'NR'): ?>
-                                <span class="national_record">NR</span>&nbsp;<?php echo $average ?>
-                            <?php else: ?>
-                                <?php echo $average ?>
-                            <?php endif; ?>
-                        </div>
-                    </td>
+                    <?php if ($is_average): ?>
+                        <td class="live_average">
+                            <div class="live_div_average">
+                                <?php $record_type = $type == 'average' ? 'average_record' : 'mean_record' ?>
+                                <?php $average = $list['average'] ? $list['average'] : $list['mean'] ?>
+                                <?php if ($list[$record_type] == 'WR'): ?>
+                                    <span class="world_record">WR</span>&nbsp;<?php echo $average ?>
+                                <?php elseif ($list[$record_type] == 'CR'): ?>
+                                    <span class="continent_record">CR</span>&nbsp;<?php echo $average ?>
+                                <?php elseif ($list[$record_type] == 'NR'): ?>
+                                    <span class="national_record">NR</span>&nbsp;<?php echo $average ?>
+                                <?php else: ?>
+                                    <?php echo $average ?>
+                                <?php endif; ?>
+                            </div>
+                        </td>
+                    <?php endif; ?>
                     <td class="live_best">
                         <div class="live_div_best">
                             <?php if ($list['best_record'] == 'WR'): ?>

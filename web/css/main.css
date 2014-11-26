@@ -191,6 +191,10 @@
 }
 .live_div_name{
     margin: 0.3em;
+    width: 9em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .live_average{
     width: 20%;
@@ -205,6 +209,7 @@
     margin: 0.3em;
 }
 .live_popup_name, .live_popup_country, .live_popup_average, .live_popup_best, .live_popup_times{
+    font-size: 0.8em;
     margin-left: 1em;
     margin-right: 1em;
     margin-top: 0.5em;

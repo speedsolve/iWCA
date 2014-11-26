@@ -92,13 +92,15 @@ class liveActions extends sfActions
 
   public function executeDetail(sfWebRequest $request)
   {
-    $competitionId    = $request->getParameter('competitionId');
-    $eventId          = $request->getParameter('eventId');
-    $roundId          = $request->getParameter('id');
+    $competitionId = $request->getParameter('competitionId');
+    $eventId = $request->getParameter('eventId');
+    $roundId = $request->getParameter('id');
     $url = sprintf(sfConfig::get('app_cubecomps_detail_url'), $competitionId, $eventId, $roundId);
     $json_detail = file_get_contents($url);
     $this->detail_list = json_decode($json_detail, true);
+
     foreach ($this->detail_list as $key => &$list) {
+      $this->is_average = $list['average'] || $list['mean'];
       $list['average'] ? $this->type = 'average' : 'mean';
       $list['name'] = Util::removeParenthesis($list['name']);
     }
