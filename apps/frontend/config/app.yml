@@ -95,6 +95,7 @@ all:
       'Afghanistan':            { id: 'Afghanistan',            continent: 'Asia',          record: 'AsR'}
       'Albania':                { id: 'Albania',                continent: 'Europe',        record: 'ER' }
       'Algeria':                { id: 'Algeria',                continent: 'Africa',        record: 'AfR'}
+      'Andorra':                { id: 'Andorra',                continent: 'Europe',        record: 'ER' }
       'Argentina':              { id: 'Argentina',              continent: 'South America', record: 'SAR'}
       'Armenia':                { id: 'Armenia',                continent: 'Asia',          record: 'AsR'}
       'Aruba':                  { id: 'Aruba',                  continent: 'South America', record: 'SAR'}
@@ -171,6 +172,7 @@ all:
       'Romania':                { id: 'Romania',                continent: 'Europe',        record: 'ER' }
       'Russia':                 { id: 'Russia',                 continent: 'Europe',        record: 'ER' }
       'Saudi Arabia':           { id: 'Saudi Arabia',           continent: 'Asia',          record: 'AsR'}
+      'Senegal':                { id: 'Senegal'                 continent: 'Africa',        record: 'AfR'}
       'Serbia':                 { id: 'Serbia',                 continent: 'Europe',        record: 'ER' }
       'Singapore':              { id: 'Singapore',              continent: 'Asia',          record: 'AsR'}
       'Slovakia':               { id: 'Slovakia',               continent: 'Europe',        record: 'ER' }
@@ -205,6 +207,7 @@ all:
         - 'Mauritius'
         - 'Morocco'
         - 'Nigeria'
+        - 'Senegal'
         - 'South Africa'
         - 'Tunisia'
         - 'Zambia'
@@ -240,6 +243,7 @@ all:
         - 'New Zealand'
       'Europe':
         - 'Albania'
+        - 'Andorra'
         - 'Aruba'
         - 'Austria'
         - 'Azerbaijan'
