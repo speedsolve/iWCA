@@ -193,6 +193,8 @@ all:
       'Venezuela':              { id: 'Venezuela',              continent: 'South America', record: 'SAR'}
       'Vietnam':                { id: 'Vietnam',                continent: 'Asia',          record: 'AsR'}
       'Yugoslavia':             { id: 'Yugoslavia',             continent: 'Europe',        record: 'ER' }
+      'Zambia':                 { id: 'Zambia',                 continent: 'Africa',        record: 'AfR'}
+      'Zimbabwe':               { id: 'Zimbabwe',               continent: 'Africa',        record: 'AfR'}
 
   continent:
     id:
@@ -205,6 +207,8 @@ all:
         - 'Nigeria'
         - 'South Africa'
         - 'Tunisia'
+        - 'Zambia'
+        - 'Zimbabwe'
       'Asia':
         - 'Afghanistan'
         - 'Armenia'
