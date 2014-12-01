@@ -106,5 +106,11 @@ class competitionActions extends sfActions
     $results = ScramblesTable::getInstance()->getScrambles($competitionId, $eventId);
     $this->event = CompetitionsService::getEventInfo($eventId);
     $this->scrambles = CompetitionsService::getRoundScrambles($results);
+
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      if ($event == $eventId && $value['shortid'] > 0) {
+        $this->shortId = $value['shortid'];
+      }
+    }
   }
 }

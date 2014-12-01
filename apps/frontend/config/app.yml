@@ -60,26 +60,26 @@ all:
 
   event:
     id:
-      333:    { name: 'Rubik''s Cube',                       format: 'Average', cellname: 'Rubik''s Cube' }
-      444:    { name: '4x4 Cube',                            format: 'Average', cellname: '4x4 Cube' }
-      555:    { name: '5x5 Cube',                            format: 'Average', cellname: '5x5 Cube' }
-      222:    { name: '2x2 Cube',                            format: 'Average', cellname: '2x2 Cube' }
-      333bf:  { name: 'Rubik''s Cube: Blindfolded',          format: 'Average', cellname: '3x3 Blindfolded' }
-      333oh:  { name: 'Rubik''s Cube: One-handed',           format: 'Average', cellname: '3x3 One-handed' }
-      333fm:  { name: 'Rubik''s Cube: Fewest moves',         format: 'Average', cellname: '3x3 Fewest moves' }
-      333ft:  { name: 'Rubik''s Cube: With feet',            format: 'Average', cellname: '3x3 With feet' }
-      minx:   { name: 'Megaminx',                            format: 'Average', cellname: 'Megaminx' }
-      pyram:  { name: 'Pyraminx',                            format: 'Average', cellname: 'Pyraminx' }
-      sq1:    { name: 'Square-1',                            format: 'Average', cellname: 'Square-1' }
-      clock:  { name: 'Rubik''s Clock',                      format: 'Average', cellname: 'Rubik''s Clock' }
-      skewb:  { name: 'Skewb',                               format: 'Average', cellname: 'Skewb' }
-      666:    { name: '6x6 Cube',                            format: 'Average', cellname: '6x6 Cube' }
-      777:    { name: '7x7 Cube',                            format: 'Average', cellname: '7x7 Cube' }
-      444bf:  { name: '4x4 Cube: Blindfolded',               format: 'Single',  cellname: '4x4 Blindfolded' }
-      555bf:  { name: '5x5 Cube: Blindfolded',               format: 'Single',  cellname: '5x5 Blindfolded' }
-      333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded', format: 'Single',  cellname: '3x3 Multi Blind' }
-      magic:  { name: 'Rubik''s Magic',                      format: 'Average', cellname: 'Rubik''s Magic' }
-      mmagic: { name: 'Master Magic',                        format: 'Average', cellname: 'Master Magic' }
+      333:    { name: 'Rubik''s Cube',                       format: 'Average', shortid: 3, cellname: 'Rubik''s Cube' }
+      444:    { name: '4x4 Cube',                            format: 'Average', shortid: 4, cellname: '4x4 Cube' }
+      555:    { name: '5x5 Cube',                            format: 'Average', shortid: 5, cellname: '5x5 Cube' }
+      222:    { name: '2x2 Cube',                            format: 'Average', shortid: 2, cellname: '2x2 Cube' }
+      333bf:  { name: 'Rubik''s Cube: Blindfolded',          format: 'Average', shortid: 3, cellname: '3x3 Blindfolded' }
+      333oh:  { name: 'Rubik''s Cube: One-handed',           format: 'Average', shortid: 3, cellname: '3x3 One-handed' }
+      333fm:  { name: 'Rubik''s Cube: Fewest moves',         format: 'Average', shortid: 3, cellname: '3x3 Fewest moves' }
+      333ft:  { name: 'Rubik''s Cube: With feet',            format: 'Average', shortid: 3, cellname: '3x3 With feet' }
+      minx:   { name: 'Megaminx',                            format: 'Average', shortid: 0, cellname: 'Megaminx' }
+      pyram:  { name: 'Pyraminx',                            format: 'Average', shortid: 0, cellname: 'Pyraminx' }
+      sq1:    { name: 'Square-1',                            format: 'Average', shortid: 0, cellname: 'Square-1' }
+      clock:  { name: 'Rubik''s Clock',                      format: 'Average', shortid: 0, cellname: 'Rubik''s Clock' }
+      skewb:  { name: 'Skewb',                               format: 'Average', shortid: 0, cellname: 'Skewb' }
+      666:    { name: '6x6 Cube',                            format: 'Average', shortid: 6, cellname: '6x6 Cube' }
+      777:    { name: '7x7 Cube',                            format: 'Average', shortid: 7, cellname: '7x7 Cube' }
+      444bf:  { name: '4x4 Cube: Blindfolded',               format: 'Single',  shortid: 4, cellname: '4x4 Blindfolded' }
+      555bf:  { name: '5x5 Cube: Blindfolded',               format: 'Single',  shortid: 5, cellname: '5x5 Blindfolded' }
+      333mbf: { name: 'Rubik''s Cube: Multiple Blindfolded', format: 'Single',  shortid: 3, cellname: '3x3 Multi Blind' }
+      magic:  { name: 'Rubik''s Magic',                      format: 'Average', shortid: 0, cellname: 'Rubik''s Magic' }
+      mmagic: { name: 'Master Magic',                        format: 'Average', shortid: 0, cellname: 'Master Magic' }
 
     abolition:
       - magic

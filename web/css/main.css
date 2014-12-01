@@ -142,6 +142,9 @@
 .scramble-number{
     font-size: small;
 }
+.scramble_image{
+    vertical-align: middle;
+}
 
 /*Information*/
 .information_subtitle{
