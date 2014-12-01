@@ -755,13 +755,13 @@
       }
 
       // Apply alg to mask if defined
-      if($mask && $st_rtn != ''){
+      if(isset($mask) && $st_rtn != ''){
         require_once "cube_lib.php";
         $mask = fcs_doperm($mask, fcs_format_alg($st_rtn), $dim);
       }
 
       // Apply mask to face def
-      if($mask){
+      if(isset($mask)){
         for($i = 0; $i < $dim * $dim * 6; $i++){
           $facelets[$i] = $mask[$i] == 0 ?
             ($view == 'trans' ? ($using_cols ? 't' : $T) :
@@ -775,10 +775,10 @@
     || array_key_exists('alg', $DEFAULTS) || array_key_exists('case', $DEFAULTS)){
       require_once "cube_lib.php";
       if(array_key_exists('alg', $_REQUEST) || array_key_exists('case', $_REQUEST)){
-        $alg = $_REQUEST['alg']; $case = $_REQUEST['case']; }
+        $alg = $_REQUEST['alg']; $case = @$_REQUEST['case']; }
       else{  $alg = $DEFAULTS['alg']; $case = $DEFAULTS['case']; }
       $alg = fcs_format_alg(urldecode($alg));
-      $case = invert_alg(fcs_format_alg(urldecode($case)));
+        @$case = invert_alg(fcs_format_alg(urldecode(@$case)));
 //      $facelets = facelet_cube(case_cube($alg), $dim, $facelets); // old 3x3 alg system
       $facelets = fcs_doperm($facelets, $case . ' ' . $alg, $dim); // new NxN facelet permute
     }
@@ -920,7 +920,7 @@
     }
 
     // Draw Arrows
-    if($arrows){
+    if(isset($arrows)){
       $awidth = 0.12 / $dim;
       $cube .= "\t<g opacity='100%' stroke-opacity='100%' stroke-width='$awidth' stroke-linecap='round'>\n";
       foreach($arrows as $i => $a){
