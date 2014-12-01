@@ -40,6 +40,6 @@ class informationActions extends sfActions
       $days[] = substr($file, 14, 8);
     }
 
-    $this->updated= max($days);
+    $this->updated = max($days);
   }
 }

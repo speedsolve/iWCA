@@ -3,7 +3,12 @@
     <div data-role="content">
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
-                <span class="information_subtitle">Last&nbsp;Updated</span><?php echo $updated ?>
+                <span class="information_subtitle">Version</span>1.2.0
+            </li>
+        </ul>
+        <ul data-role="listview" data-inset="true" class="ui-listview">
+            <li>
+                <span class="information_subtitle">Database&nbsp;Last&nbsp;Updated</span><?php echo $updated ?>
             </li>
         </ul>
         <ul data-role="listview" data-inset="true" class="ui-listview">
