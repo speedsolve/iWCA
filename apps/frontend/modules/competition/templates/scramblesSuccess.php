@@ -11,7 +11,7 @@
                         <li>
                              <?php if (isset($shortId)): ?>
                                  <?php $size = $shortId >= 6 ? 250 : $shortId >= 4 ? 150 : 100 ?>
-                                 <div class="scramble_image"><img src="http://iwca.jp/images/vcube/visualcube.php?size=<?php echo $size ?>&pzl=<?php echo $shortId ?>&alg=<?php echo $group['scramble'] ?>&sch=wgryob&bg=t&fmt=png"></div>
+                                 <div class="scramble_image"><img src="http://iwca.jp/images/vcube/visualcube.php?size=<?php echo $size ?>&pzl=<?php echo $shortId ?>&alg=<?php echo $group['scramble'] ?>&sch=wrgyob&bg=t&fmt=png"></div>
                              <?php endif; ?>
                              <?php if ($group['isextra']): ?>
                                  <span class="results-time"><?php echo 'Extra&nbsp;#'.$group['scramblenum'] ?></span><br />
