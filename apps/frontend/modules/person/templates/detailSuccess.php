@@ -5,7 +5,8 @@
             <li>
                 <?php echo image_tag('flag/' . $person['countryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $person['name'] ?><br />
                 <span class="id-name">
-                    <?php echo $person['id'] ?>,&nbsp;<?php echo $person['countryid'] ?>,&nbsp;
+                    <?php echo $person['id'] ?>,&nbsp;
+                    <?php echo $person['countryid'] ?>,&nbsp;
                     <?php if ($person['gender']): ?>
                         <?php echo $person['gender'] ?>,&nbsp;
                     <?php else: ?>
