@@ -66,7 +66,7 @@ class CompetitionsTable extends Doctrine_Table
     public function getCompetitionList($eventId, $region, $years, $keyword, $limit = NULL)
     {
       $query = $this->createQuery();
-      $query->select('cellname, cityname, countryid, year, month, day, endmonth, endday');
+      $query->select('cellname, cityname, countryid, continentid, year, month, day, endmonth, endday');
 
       if ($eventId) {
         Query::competitionEvent(&$query, $eventId);

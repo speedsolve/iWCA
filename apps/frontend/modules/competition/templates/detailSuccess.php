@@ -3,7 +3,7 @@
     <div data-role="content">
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
-                <?php echo image_tag('flag/' . $competition['countryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $competition['name'] ?><br />
+                <?php echo image_tag('flag/' . CompetitionsService::getChangeCountryId($competition['countryid'],  $competition['continentid']) . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:6px;')) ?><?php echo $competition['name'] ?><br />
                 <?php if ($competition['day'] == $competition['endday']): ?>
                     <span class="competition-detail-date"><?php echo $competition['year'].'/'.$competition['month'].'/'.$competition['day'] ?></span><br />
                 <?php else: ?>

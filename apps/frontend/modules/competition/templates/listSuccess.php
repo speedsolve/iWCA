@@ -10,7 +10,7 @@
                         <?php else: ?>
                             <?php echo $result['year'].'/'.$result['month'].'/'.$result['day'] ?>&nbsp;-&nbsp;<?php echo $result['endmonth'].'/'.$result['endday'] ?><br />
                         <?php endif ?>
-                        <?php echo $result['cellname'] ?><?php echo image_tag('flag/' . $result['countryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><br />
+                        <?php echo $result['cellname'] ?><?php echo image_tag('flag/' . CompetitionsService::getChangeCountryId($result['countryid'], $result['continentid']) . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?><br />
                         <span class="venue"><?php echo $result['cityname'].',&nbsp;'.$result['countryid'] ?></span><br />
                     </a>
                 </li>

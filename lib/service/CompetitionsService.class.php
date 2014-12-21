@@ -36,6 +36,17 @@ class CompetitionsService
   }
 
   /**
+   * 国を置換する
+   */
+  public static function getChangeCountryId($countryId, $continentId)
+  {
+    if ($countryId == 'Multiple Countries' && $continentId == 'Europe') {
+      $countryId = 'European Union';
+    }
+    return $countryId;
+  }
+
+  /**
    * 開催競技を取得する
    */
   public static function setEvents($results)
