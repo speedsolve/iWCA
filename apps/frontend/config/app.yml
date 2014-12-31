@@ -9,7 +9,7 @@ all:
 
   most_old_year: 1982
   recently_old_year: 2003
-  now_year: 2014
+  now_year: 2015
 
   cubecomps:
     list_url:   'http://m.cubecomps.com/competitions.json'
