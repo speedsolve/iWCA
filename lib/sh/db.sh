@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #sqlファイルのURL用の日付変数
-url="http://www.worldcubeassociation.org/results/misc/"$1
+url="https://www.worldcubeassociation.org/results/misc/"$1
 
 wget --spider -t 1 $url
 

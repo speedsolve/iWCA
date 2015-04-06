@@ -4,7 +4,7 @@
 # default values
 #all:
 all:
-  wca_official_result_url: 'http://www.worldcubeassociation.org/results/'
+  wca_official_result_url: 'https://www.worldcubeassociation.org/results/'
   wca_official_events_number: 18
 
   most_old_year: 1982

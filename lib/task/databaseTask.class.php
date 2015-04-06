@@ -35,7 +35,7 @@ EOF;
     // go to lib
     chdir(sfConfig::get('sf_data_dir').'/sql/wca');
 
-    $html = file_get_html('http://www.worldcubeassociation.org/results/misc/export.html');
+    $html = file_get_html('https://www.worldcubeassociation.org/results/misc/export.html');
     $url = array();
     foreach ($html->find('dt a') as $children) {
       $url[] = $children->innertext;
@@ -59,7 +59,7 @@ EOF;
 
       //今回のSQLファイルを取得する。//あとで一旦削除する。
       if (file_exists(sfConfig::get('sf_root_dir').'/data/sql/'.$url[0]) === false) {
-        shell_exec('wget http://www.worldcubeassociation.org/results/misc/'.$url[0]);
+        shell_exec('wget https://www.worldcubeassociation.org/results/misc/'.$url[0]);
       }
 
       $currentSQLSize = filesize($url[0]);
