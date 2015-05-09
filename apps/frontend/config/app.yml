@@ -196,6 +196,7 @@ all:
       'United Kingdom':         { id: 'United Kingdom',         continent: 'Europe',        record: 'ER' }
       'Uruguay':                { id: 'Uruguay',                continent: 'South America', record: 'SAR'}
       'USA':                    { id: 'USA',                    continent: 'North America', record: 'NAR'}
+      'Vanuatu':                { id: 'Vanuatu',                continent: 'Oceania',       record: 'OcR'}
       'Venezuela':              { id: 'Venezuela',              continent: 'South America', record: 'SAR'}
       'Vietnam':                { id: 'Vietnam',                continent: 'Asia',          record: 'AsR'}
       'Yugoslavia':             { id: 'Yugoslavia',             continent: 'Europe',        record: 'ER' }
@@ -248,6 +249,7 @@ all:
       'Oceania':
         - 'Australia'
         - 'New Zealand'
+        - 'Vanuatu'
       'Europe':
         - 'Albania'
         - 'Andorra'
