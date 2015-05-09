@@ -96,6 +96,7 @@ all:
       'Albania':                { id: 'Albania',                continent: 'Europe',        record: 'ER' }
       'Algeria':                { id: 'Algeria',                continent: 'Africa',        record: 'AfR'}
       'Andorra':                { id: 'Andorra',                continent: 'Europe',        record: 'ER' }
+      'Angola':                 { id: 'Angola',                 continent: 'Africa',        record: 'AfR'}
       'Argentina':              { id: 'Argentina',              continent: 'South America', record: 'SAR'}
       'Armenia':                { id: 'Armenia',                continent: 'Asia',          record: 'AsR'}
       'Aruba':                  { id: 'Aruba',                  continent: 'South America', record: 'SAR'}
@@ -123,6 +124,7 @@ all:
       'Denmark':                { id: 'Denmark',                continent: 'Europe',        record: 'ER' }
       'Dominican Republic':     { id: 'Dominican Republic',     continent: 'North America', record: 'NAR'}
       'Egypt':                  { id: 'Egypt',                  continent: 'Africa',        record: 'AfR'}
+      'Ecuador':                { id: 'Ecuador',                continent: 'South America', record: 'SAR'}
       'El Salvador':            { id: 'El Salvador',            continent: 'North America', record: 'NAR'}
       'Estonia':                { id: 'Estonia',                continent: 'Europe',        record: 'ER' }
       'Finland':                { id: 'Finland',                continent: 'Europe',        record: 'ER' }
@@ -151,6 +153,8 @@ all:
       'Luxembourg':             { id: 'Luxembourg',             continent: 'Europe',        record: 'ER' }
       'Macau':                  { id: 'Macau',                  continent: 'Asia',          record: 'AsR'}
       'Macedonia':              { id: 'Macedonia',              continent: 'Europe',        record: 'ER' }
+      'Madagascar':             { id: 'Madagascar',             continent: 'Africa',        record: 'AfR'}
+      'Malawi':                 { id: 'Malawi',                 continent: 'Africa',        record: 'AfR'}
       'Malaysia':               { id: 'Malaysia',               continent: 'Asia',          record: 'AsR'}
       'Mauritius':              { id: 'Mauritius',              continent: 'Africa',        record: 'AfR'}
       'Mexico':                 { id: 'Mexico',                 continent: 'North America', record: 'NAR'}
@@ -201,9 +205,12 @@ all:
   continent:
     id:
       'Africa':
+        - 'Angola'
         - 'Algeria'
         - "Cote d'Ivoire"
         - 'Egypt'
+        - 'Madagascar'
+        - 'Malawi'
         - 'Mauritius'
         - 'Morocco'
         - 'Nigeria'
@@ -307,6 +314,7 @@ all:
         - 'Brazil'
         - 'Chile'
         - 'Colombia'
+        - 'Ecuador'
         - 'Paraguay'
         - 'Peru'
         - 'Trinidad and Tobago'
