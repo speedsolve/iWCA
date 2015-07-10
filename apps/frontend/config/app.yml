@@ -142,6 +142,7 @@ all:
       'Ireland':                { id: 'Ireland',                continent: 'Europe',        record: 'ER' }
       'Israel':                 { id: 'Israel',                 continent: 'Europe',        record: 'ER' }
       'Italy':                  { id: 'Italy',                  continent: 'Europe',        record: 'ER' }
+      'Jamaica':                { id: 'Jamaica',                continent: 'North America', record: 'NAR'}
       'Japan':                  { id: 'Japan',                  continent: 'Asia',          record: 'AsR'}
       'Jordan':                 { id: 'Jordan',                 continent: 'Asia',          record: 'AsR'}
       'Kazakhstan':             { id: 'Kazakhstan',             continent: 'Asia',          record: 'AsR'}
@@ -159,6 +160,7 @@ all:
       'Mauritius':              { id: 'Mauritius',              continent: 'Africa',        record: 'AfR'}
       'Mexico':                 { id: 'Mexico',                 continent: 'North America', record: 'NAR'}
       'Moldova':                { id: 'Moldova',                continent: 'Europe',        record: 'ER' }
+      'Monaco':                 { id: 'Monaco',                 continent: 'Europe',        record: 'ER' }
       'Mongolia':               { id: 'Mongolia',               continent: 'Asia',          record: 'AsR'}
       'Montenegro':             { id: 'Montenegro',             continent: 'Europe',        record: 'ER' }
       'Morocco':                { id: 'Morocco',                continent: 'Africa',        record: 'AfR'}
@@ -167,6 +169,7 @@ all:
       'Nigeria':                { id: 'Nigeria',                continent: 'Africa',        record: 'AfR'}
       'Norway':                 { id: 'Norway',                 continent: 'Europe',        record: 'ER' }
       'Pakistan':               { id: 'Pakistan',               continent: 'Asia',          record: 'AsR'}
+      'Palestine':              { id: 'Palestine',              continent: 'Asia',          record: 'AsR'}
       'Paraguay':               { id: 'Paraguay',               continent: 'South America', record: 'SAR'}
       'Peru':                   { id: 'Peru',                   continent: 'South America', record: 'SAR'}
       'Philippines':            { id: 'Philippines',            continent: 'Asia',          record: 'AsR'}
@@ -184,6 +187,7 @@ all:
       'South Africa':           { id: 'South Africa',           continent: 'Africa',        record: 'AfR'}
       'Spain':                  { id: 'Spain',                  continent: 'Europe',        record: 'ER' }
       'Sri Lanka':              { id: 'Sri Lanka',              continent: 'Asia',          record: 'AsR'}
+      'Sudan':                  { id: 'Sudan',                  continent: 'Africa',        record: 'AfR'}
       'Sweden':                 { id: 'Sweden',                 continent: 'Europe',        record: 'ER' }
       'Switzerland':            { id: 'Switzerland',            continent: 'Europe',        record: 'ER' }
       'Taiwan':                 { id: 'Taiwan',                 continent: 'Asia',          record: 'AsR'}
@@ -217,6 +221,7 @@ all:
         - 'Nigeria'
         - 'Senegal'
         - 'South Africa'
+        - 'Sudan'
         - 'Tunisia'
         - 'Zambia'
         - 'Zimbabwe'
@@ -238,6 +243,7 @@ all:
         - 'Malaysia'
         - 'Mongolia'
         - 'Pakistan'
+        - 'Palestine'
         - 'Philippines'
         - 'Saudi Arabia'
         - 'Singapore'
@@ -281,6 +287,7 @@ all:
         - 'Luxembourg'
         - 'Macedonia'
         - 'Moldova'
+        - 'Monaco'
         - 'Montenegro'
         - 'Netherlands'
         - 'Norway'
@@ -306,6 +313,7 @@ all:
         - 'Dominican Republic'
         - 'El Salvador'
         - 'Guatemala'
+        - 'Jamaica'
         - 'Mexico'
         - 'Puerto Rico'
         - 'USA'
