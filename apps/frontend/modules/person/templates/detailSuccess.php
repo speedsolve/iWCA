@@ -18,29 +18,39 @@
             </li>
         </ul>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+           <?php if (count($podiums) > 0): ?>
+               <div data-role="collapsible">
+                   <h2>World Championship Podiums</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/podiums', array('podiums' => $podiums)) ?>
+                   </ul>
+               </div>
+           <?php endif ?>
+        </div>
+        <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
            <?php if (isset($histories['world'])): ?>
-                   <div data-role="collapsible">
-                       <h2>History World Record</h2>
-                       <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('target' => 'WR', 'histories' => $histories['world'])) ?>
-                       </ul>
-                   </div>
+               <div data-role="collapsible">
+                   <h2>History World Record</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/history', array('target' => 'WR', 'histories' => $histories['world'])) ?>
+                   </ul>
+               </div>
            <?php endif ?>
            <?php if (isset($histories['continent'])): ?>
-                   <div data-role="collapsible">
-                       <h2>History Continent Record</h2>
-                       <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('target' => sfConfig::get('app_record_id'), 'histories' => $histories['continent'])) ?>
-                       </ul>
-                   </div>
+               <div data-role="collapsible">
+                   <h2>History Continent Record</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/history', array('target' => sfConfig::get('app_record_id'), 'histories' => $histories['continent'])) ?>
+                   </ul>
+               </div>
            <?php endif ?>
            <?php if (isset($histories['national'])): ?>
-                   <div data-role="collapsible">
-                       <h2>History National Record</h2>
-                       <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                           <?php include_partial('global/history', array('target' => 'NR', 'histories' => $histories['national'])) ?>
-                       </ul>
-                   </div>
+               <div data-role="collapsible">
+                   <h2>History National Record</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/history', array('target' => 'NR', 'histories' => $histories['national'])) ?>
+                   </ul>
+               </div>
            <?php endif ?>
         </div>
         <?php if (isset($prizes)): ?>

@@ -20,7 +20,7 @@ class ResultsTable extends Doctrine_Table
     public function getCompetitionResults($competitionId)
     {
        $query = $this->createQuery();
-       $query->select('competitionid, eventId, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
+       $query->select('competitionid, eventid, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
        $query->where('competitionid = ?', $competitionId);
 
        $query->orderBy('id ASC');
@@ -37,7 +37,7 @@ class ResultsTable extends Doctrine_Table
     public function getPersonalResults($personId)
     {
        $query = $this->createQuery();
-       $query->select('competitionid, eventId, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
+       $query->select('competitionid, eventid, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
        $query->where('personid = ?', $personId);
 
        $query->orderBy('id DESC');

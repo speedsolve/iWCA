@@ -179,6 +179,41 @@ class ResultsService
     return $history;
   }
 
+  /**
+   * 世界大会入賞記録取得
+   */
+  public static function getWorldChampionshipPodiums($results)
+  {
+    $competitionIds = array();
+
+    $competitionIds[] = 'WC' . sfConfig::get('app_most_old_year');
+    $years = range((int)sfConfig::get('app_recently_old_year'), (int)sfConfig::get('app_now_year'));
+    foreach ($years as $year) {
+      if ($year % 2 == 1) {
+        $competitionIds[] = 'WC' . $year;
+      }
+    }
+
+    rsort($competitionIds);
+
+    $podiums = array();
+    foreach (sfConfig::get('app_event_id') as $event => $value) {
+      foreach ($results as $result) {
+        if (in_array($result['competitionid'], $competitionIds)) {
+          if ($result['eventid'] === (string)$event && ($result['roundid'] == 'Combined Final' || $result['roundid'] === 'Final') && $result['pos'] <= 3) {
+            if (($result['best'] != 'DNF' && $result['best'] != 'DNS') || ($result['average'] != 'DNF' && $result['average'] != 'DNS' && $result['average'] != '')) {
+               $podiums[$result['year']][] = $result;
+            }
+          }
+        }
+      }
+    }
+
+    krsort($podiums);
+
+    return $podiums;
+  }
+
   /*
    * 大会記録取得
    */
