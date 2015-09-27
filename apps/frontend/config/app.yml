@@ -160,6 +160,7 @@ all:
       'Morocco':                { id: 'Morocco',                continent: 'Africa',        record: 'AfR'}
       'Netherlands':            { id: 'Netherlands',            continent: 'Europe',        record: 'ER' }
       'New Zealand':            { id: 'New Zealand',            continent: 'Oceania',       record: 'OcR'}
+      'Nicaragua':              { id: 'Nicaragua',              continent: 'North America', record: 'NAR'}
       'Nigeria':                { id: 'Nigeria',                continent: 'Africa',        record: 'AfR'}
       'Norway':                 { id: 'Norway',                 continent: 'Europe',        record: 'ER' }
       'Pakistan':               { id: 'Pakistan',               continent: 'Asia',          record: 'AsR'}
@@ -309,6 +310,7 @@ all:
         - 'Guatemala'
         - 'Jamaica'
         - 'Mexico'
+        - 'Nicaragua'
         - 'Puerto Rico'
         - 'USA'
       'South America':

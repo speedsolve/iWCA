@@ -40,7 +40,10 @@ class CompetitionsService
    */
   public static function getChangeCountryId($countryId, $continentId)
   {
-    if ($countryId == 'Multiple Countries' && $continentId == 'Europe') {
+    if ($countryId == 'XA') {
+      $countryId = 'United Nations';
+    }
+    elseif ($countryId == 'XE') {
       $countryId = 'European Union';
     }
     return $countryId;
