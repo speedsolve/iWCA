@@ -32,7 +32,7 @@ mysql -u root -D wcaTmp -e 'UPDATE Persons SET gender=REPLACE (gender,"FeMale","
 mysql -u root -D wcaTmp -e 'UPDATE Countries SET continentId=REPLACE (continentId,"_","")'
 
 # Competition
-mysql -u root -D wcaTmp -e 'create table Competition as select Competitions.id,Competitions.name,cityName,countryId,continentId,information,year,month,day,endMonth,endDay,eventSpecs,wcaDelegate,organiser,venue,venueAddress,venueDetails,website,cellName,Competitions.latitude,Competitions.longitude from Competitions left join Countries on Competitions.countryId = Countries.id'
+mysql -u root -D wcaTmp -e 'create table Competition as select Competitions.id, Competitions.name, cityName, countryId, continentId, information, year, month, day, endMonth, endDay, eventSpecs, wcaDelegate, organiser, venue, venueAddress, venueDetails, website, cellName, Competitions.latitude, Competitions.longitude from Competitions left join Countries on Competitions.countryId = Countries.id'
 mysql -u root -D wcaTmp -e 'create table Competition2 as select * from Competition order by year,month,day ASC'
 mysql -u root -D wcaTmp -e 'drop table if exists Competitions'
 mysql -u root -D wcaTmp -e 'alter table Competition2 add column (number int auto_increment primary key)'
@@ -63,6 +63,11 @@ echo 'ResultsテーブルにPersonsを追加しました'
 mysql -u root -D wcaTmp -e 'create table Results as select * from Result group by id'
 mysql -u root -D wcaTmp -e 'drop table if exists Result'
 echo 'ResultsテーブルにGenderを追加しました'
+
+# Prize
+mysql -u root -D wcaTmp -e 'drop table if exists Prizes'
+mysql -u root -D wcaTmp -e 'create table Prizes as select competitionId, eventId, gender, roundId, pos, best, average, personId, personName, personCountryId, continentId, formatId, value1, value2, value3, value4, value5, regionalSingleRecord, regionalaverageRecord, id, competitionName, countryId, year, month, day, endMonth, endDay from Results where pos <= 3 and best > -1 and (roundId = "f" or roundId = "c")'
+echo 'Prizesテーブルを追加しました'
 
 # Single
 mysql -u root -D wcaTmp -e 'drop table if exists Single'
