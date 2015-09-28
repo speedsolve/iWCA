@@ -92,6 +92,11 @@ class rankingActions extends sfActions
     $gender  = $request->getParameter('gender');
     $type    = $request->getParameter('type');
 
+    // デフォルトを置換
+    if ($eventId == 'event') {
+      $eventId = 333;
+    }
+
     // regionは総レコード検索
     if ($type == 'region') {
       $limit = NULL;
