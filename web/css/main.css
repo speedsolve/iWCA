@@ -91,6 +91,29 @@
     color: #C47222;
 }
 
+.ranking-prize-point {
+    font-size: x-small;
+}
+
+.ranking-prize-count{
+    font-size: x-small;
+}
+
+.ranking-prize-1st{
+    font-size: 0.5em;
+    color: #ffd700;
+}
+
+.ranking-prize-2nd{
+    font-size: 0.5em;
+    color: #1e90ff;
+}
+
+.ranking-prize-3rd{
+    font-size: 0.5em;
+    color: #C47222;
+}
+
 .person-xth{
     font-size: x-small;
     color: #FFFFFF;

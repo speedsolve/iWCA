@@ -36,6 +36,7 @@ class rankingActions extends sfActions
     $years   = $request->getParameter('years');
     $gender  = $request->getParameter('gender');
     $type    = $request->getParameter('type');
+    $misc    = $request->getParameter('misc');
 
     // regionは総レコード検索
     if ($type == 'region') {
@@ -44,20 +45,40 @@ class rankingActions extends sfActions
       $limit = 100;
     }
 
-    // データ取得
-    $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
-
-    // 地域別
-    if ($type == 'region') {
-      $results = Util::getRegionalRecord($results, 'single');
+    // prize時はデフォルトをnullに
+    if ($misc == 'prize' && $eventId == 'event') {
+      $eventId = NULL;
+    } elseif ($eventId == 'event') {
+      $eventId = 333;
     }
 
-    // ランク追加
-    Util::adjustRank(&$results, 'single');
-    foreach ($results as $i => &$result) {
-      $result['personname'] = Util::removeParenthesis($result['personname']);
-      $result['record']     = Util::getChangeRecord($result['single'], $result['eventid'], 'single');
-      unset($result['single']);
+    if ($misc == 'prize') {
+
+      $this->type = 'prize';
+      $results = PrizesTable::getInstance()->getPrize($eventId, $region, $years, $gender);
+      $results = PrizesService::getChangePrize($results, $limit);
+      foreach ($results as $i => &$result) {
+        $result['personname'] = Util::removeParenthesis($result['personname']);
+      }
+      Util::adjustRank(&$results, 'record');
+
+    } else {
+
+      // データ取得
+      $results = SinglesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
+
+      // 地域別
+      if ($type == 'region') {
+        $results = Util::getRegionalRecord($results, 'single');
+      }
+
+      // ランク追加
+      Util::adjustRank(&$results, 'single');
+      foreach ($results as $i => &$result) {
+        $result['personname'] = Util::removeParenthesis($result['personname']);
+        $result['record']     = Util::getChangeRecord($result['single'], $result['eventid'], 'single');
+        unset($result['single']);
+      }
     }
 
     $this->results = $results;

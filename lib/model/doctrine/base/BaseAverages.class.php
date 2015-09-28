@@ -185,7 +185,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'default' => '',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -215,7 +215,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'default' => '',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -225,7 +225,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'default' => '',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -235,7 +235,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '0',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -245,7 +245,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '0',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -255,7 +255,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '0',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -265,7 +265,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '0',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -275,7 +275,7 @@ abstract class BaseAverages extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '0',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));

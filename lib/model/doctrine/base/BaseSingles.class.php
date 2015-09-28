@@ -120,7 +120,7 @@ abstract class BaseSingles extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'default' => '',
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -149,7 +149,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'default' => '',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -158,7 +159,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'default' => '',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 50,
              ));
@@ -167,7 +169,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -176,7 +179,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -185,7 +189,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -194,7 +199,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));
@@ -203,7 +209,8 @@ abstract class BaseSingles extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              'length' => 2,
              ));

@@ -85,7 +85,7 @@ Averages:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     competitionid:
       type: string(32)
@@ -109,7 +109,7 @@ Averages:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     countryid:
       type: string(50)
@@ -117,7 +117,7 @@ Averages:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     year:
       type: integer(2)
@@ -125,7 +125,7 @@ Averages:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     month:
       type: integer(2)
@@ -133,7 +133,7 @@ Averages:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     day:
       type: integer(2)
@@ -141,7 +141,7 @@ Averages:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     endmonth:
       type: integer(2)
@@ -149,7 +149,7 @@ Averages:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     endday:
       type: integer(2)
@@ -157,7 +157,7 @@ Averages:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     id:
       type: integer(4)
@@ -165,22 +165,6 @@ Averages:
       unsigned: false
       primary: true
       autoincrement: true
-CompetitionCountries:
-  connection: doctrine
-  tableName: CompetitionCountries
-  columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
-    countryid:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: false
-      autoincrement: false
 Competitions:
   connection: doctrine
   tableName: Competitions
@@ -280,20 +264,18 @@ Competitions:
       notnull: true
       autoincrement: false
     wcadelegate:
-      type: string(240)
+      type: string()
       fixed: false
       unsigned: false
       primary: false
-      default: ''
-      notnull: true
+      notnull: false
       autoincrement: false
     organiser:
-      type: string(200)
+      type: string()
       fixed: false
       unsigned: false
       primary: false
-      default: ''
-      notnull: true
+      notnull: false
       autoincrement: false
     venue:
       type: string(240)
@@ -531,21 +513,6 @@ Formats:
       default: ''
       notnull: true
       autoincrement: false
-PersonCountries:
-  connection: doctrine
-  tableName: PersonCountries
-  columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
-    personcountryid:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
 Persons:
   connection: doctrine
   tableName: Persons
@@ -587,6 +554,221 @@ Persons:
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+Prizes:
+  connection: doctrine
+  tableName: Prizes
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    competitionid:
+      type: string(32)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    eventid:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    gender:
+      type: string(6)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    roundid:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    pos:
+      type: integer(2)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    best:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    average:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    personid:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    personname:
+      type: string(80)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    personcountryid:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    continentid:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    formatid:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    value1:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    value2:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    value3:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    value4:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    value5:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    regionalsinglerecord:
+      type: string(3)
+      fixed: true
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    regionalaveragerecord:
+      type: string(3)
+      fixed: true
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    competitionname:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    countryid:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: ''
+      notnull: true
+      autoincrement: false
+    year:
+      type: integer(2)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    month:
+      type: integer(2)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    day:
+      type: integer(2)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    endmonth:
+      type: integer(2)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    endday:
+      type: integer(2)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: true
       autoincrement: false
 RanksAverage:
   connection: doctrine
@@ -704,210 +886,6 @@ RanksSingle:
       unsigned: false
       primary: true
       autoincrement: true
-Result:
-  connection: doctrine
-  tableName: Result
-  columns:
-    id:
-      type: integer(8)
-      autoincrement: true
-      primary: true
-    competitionid:
-      type: string(32)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: true
-      autoincrement: false
-    eventid:
-      type: string(6)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: true
-      autoincrement: false
-    roundid:
-      type: string(1)
-      fixed: true
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: true
-      autoincrement: false
-    pos:
-      type: integer(2)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    best:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    average:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    personname:
-      type: string(80)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    personid:
-      type: string(10)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: true
-      autoincrement: false
-    personcountryid:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    continentid:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: false
-      autoincrement: false
-    formatid:
-      type: string(1)
-      fixed: true
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: true
-      autoincrement: false
-    value1:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    value2:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    value3:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    value4:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    value5:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: '0'
-      notnull: true
-      autoincrement: false
-    regionalsinglerecord:
-      type: string(3)
-      fixed: true
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    regionalaveragerecord:
-      type: string(3)
-      fixed: true
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    competitionname:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: false
-      autoincrement: false
-    countryid:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      default: ''
-      notnull: false
-      autoincrement: false
-    year:
-      type: integer(2)
-      fixed: false
-      unsigned: true
-      primary: false
-      default: '0'
-      notnull: false
-      autoincrement: false
-    month:
-      type: integer(2)
-      fixed: false
-      unsigned: true
-      primary: false
-      default: '0'
-      notnull: false
-      autoincrement: false
-    day:
-      type: integer(2)
-      fixed: false
-      unsigned: true
-      primary: false
-      default: '0'
-      notnull: false
-      autoincrement: false
-    endmonth:
-      type: integer(2)
-      fixed: false
-      unsigned: true
-      primary: false
-      default: '0'
-      notnull: false
-      autoincrement: false
-    endday:
-      type: integer(2)
-      fixed: false
-      unsigned: true
-      primary: false
-      default: '0'
-      notnull: false
-      autoincrement: false
 Results:
   connection: doctrine
   tableName: Results
@@ -1003,7 +981,7 @@ Results:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     formatid:
       type: string(1)
@@ -1073,7 +1051,7 @@ Results:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     countryid:
       type: string(50)
@@ -1081,7 +1059,7 @@ Results:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     year:
       type: integer(2)
@@ -1089,7 +1067,7 @@ Results:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     month:
       type: integer(2)
@@ -1097,7 +1075,7 @@ Results:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     day:
       type: integer(2)
@@ -1105,7 +1083,7 @@ Results:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     endmonth:
       type: integer(2)
@@ -1113,7 +1091,7 @@ Results:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
     endday:
       type: integer(2)
@@ -1121,7 +1099,7 @@ Results:
       unsigned: true
       primary: false
       default: '0'
-      notnull: false
+      notnull: true
       autoincrement: false
 Rounds:
   connection: doctrine
@@ -1273,7 +1251,7 @@ Singles:
       unsigned: false
       primary: false
       default: ''
-      notnull: false
+      notnull: true
       autoincrement: false
     competitionid:
       type: string(32)
@@ -1296,49 +1274,56 @@ Singles:
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      default: ''
+      notnull: true
       autoincrement: false
     countryid:
       type: string(50)
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      default: ''
+      notnull: true
       autoincrement: false
     year:
       type: integer(2)
       fixed: false
       unsigned: true
       primary: false
-      notnull: false
+      default: '0'
+      notnull: true
       autoincrement: false
     month:
       type: integer(2)
       fixed: false
       unsigned: true
       primary: false
-      notnull: false
+      default: '0'
+      notnull: true
       autoincrement: false
     day:
       type: integer(2)
       fixed: false
       unsigned: true
       primary: false
-      notnull: false
+      default: '0'
+      notnull: true
       autoincrement: false
     endmonth:
       type: integer(2)
       fixed: false
       unsigned: true
       primary: false
-      notnull: false
+      default: '0'
+      notnull: true
       autoincrement: false
     endday:
       type: integer(2)
       fixed: false
       unsigned: true
       primary: false
-      notnull: false
+      default: '0'
+      notnull: true
       autoincrement: false
     id:
       type: integer(4)

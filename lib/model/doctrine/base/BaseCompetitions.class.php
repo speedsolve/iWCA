@@ -203,25 +203,23 @@ abstract class BaseCompetitions extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => '',
              ));
-        $this->hasColumn('wcadelegate', 'string', 240, array(
+        $this->hasColumn('wcadelegate', 'string', null, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 240,
+             'length' => '',
              ));
-        $this->hasColumn('organiser', 'string', 200, array(
+        $this->hasColumn('organiser', 'string', null, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
-             'length' => 200,
+             'length' => '',
              ));
         $this->hasColumn('venue', 'string', 240, array(
              'type' => 'string',

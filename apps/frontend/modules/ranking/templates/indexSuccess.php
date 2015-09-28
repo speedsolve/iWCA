@@ -3,7 +3,7 @@
     <div data-role="content">
         <form action="" method="GET">
             <select name="eventId" id="event_ranking" data-theme="a">
-                <option value="333">
+                <option value="event">
                     Event
                 </option>
                 <?php foreach(sfConfig::get('app_event_id') as $key => $event): ?>
@@ -44,16 +44,22 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <select name="misc" id="misc_ranking" data-theme="a">
+                <option value="0">
+                    Miscellaneous
+                </option>
+                <option value="prize">Prize</option>
+            </select>
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
                 <input id="radio1" name="type" value="1" type="radio" data-theme="a" checked>
                 <label for="radio1">
                     Person
                 </label>
-                <input id="radio2" name="type" value="0" type="radio" data-theme="a">
+                <input id="radio2" name="type" class="result" value="0" type="radio" data-theme="a">
                 <label for="radio2">
                     Result
                 </label>
-                <input id="radio3" name="type" value="region" type="radio" data-theme="a">
+                <input id="radio3" name="type" class="region" value="region" type="radio" data-theme="a">
                 <label for="radio3">
                     Region
                 </label>

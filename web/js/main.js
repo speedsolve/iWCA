@@ -13,10 +13,36 @@ $(document).delegate('#ranking_index', 'pageinit', function(){
      * average記録のない時ボタンを無効にする
      */
     $('#event_ranking').change(function() {
-        if($(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'){
+        if($(this).val() == '444bf'||$(this).val() == '555bf'||$(this).val() == '333mbf'||$('#misc_ranking').val() == 'prize'){
            $('.average').button('disable');
         } else {
            $('.average').button('enable');
+        }
+    });
+
+    /**
+     * フォームのactionをsubmitボタンで分ける
+     **/
+    $('[action]').click(function(){
+        if($(this).attr('action') != ""){
+            $('form').attr('action', $(this).attr('action'));
+        }
+    });
+});
+
+$(document).delegate('#ranking_index', 'pageinit', function(){
+    /**
+     * average記録のない時ボタンを無効にする
+     */
+    $('#misc_ranking').change(function() {
+        if($(this).val() == 'prize'){
+           $('.average').button('disable');
+           $('.result').checkboxradio('disable');
+           $('.region').checkboxradio('disable');
+        } else {
+           $('.average').button('enable');
+           $('.result').checkboxradio('enable');
+           $('.region').checkboxradio('enable');
         }
     });
 
