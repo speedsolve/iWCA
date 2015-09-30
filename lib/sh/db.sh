@@ -14,6 +14,9 @@ unzip $1
 
 sed -e s/latin1/utf8/ WCA_export.sql > wca.sql
 
+mysql -u root -e 'drop database wcaTmp'
+mysql -u root -e 'create database wcaTmp'
+
 mysql -u root wcaTmp < wca.sql
 
 echo 'DBのデータを更新しました。'
@@ -27,6 +30,7 @@ mysql -u root -D wcaTmp -e 'ALTER TABLE Persons MODIFY gender VARCHAR(6);'
 mysql -u root -D wcaTmp -e 'UPDATE Persons SET gender=REPLACE (gender,"m","Male")'
 mysql -u root -D wcaTmp -e 'UPDATE Persons SET gender=REPLACE (gender,"f","Female")'
 mysql -u root -D wcaTmp -e 'UPDATE Persons SET gender=REPLACE (gender,"FeMale","Female")'
+mysql -u root -D wcaTmp -e "create index Persons_index on Persons (id, name)"
 
 # Countries
 mysql -u root -D wcaTmp -e 'UPDATE Countries SET continentId=REPLACE (continentId,"_","")'
@@ -63,6 +67,8 @@ echo 'ResultsテーブルにPersonsを追加しました'
 mysql -u root -D wcaTmp -e 'create table Results as select * from Result group by id'
 mysql -u root -D wcaTmp -e 'drop table if exists Result'
 echo 'ResultsテーブルにGenderを追加しました'
+mysql -u root -D wcaTmp -e "create index Results_index on Results (personId, eventId, best, average, competitionId, roundId, pos)"
+echo 'ResultsテーブルにIndexを追加しました'
 
 # Prize
 mysql -u root -D wcaTmp -e 'drop table if exists Prizes'
@@ -89,6 +95,8 @@ mysql -u root -D wcaTmp -e 'drop table if exists Single4'
 mysql -u root -D wcaTmp -e 'drop table if exists Single5'
 mysql -u root -D wcaTmp -e 'drop table if exists SingleAll'
 echo 'Singlesテーブル作成しました。'
+mysql -u root -D wcaTmp -e "alter table Singles add index Singles_index (id, single, gender, personCountryId, continentId, eventId, competitionId, year)"
+echo 'SinglesテーブルにIndexを作成しました。'
 
 # Average
 mysql -u root -D wcaTmp -e 'drop table if exists Average'
@@ -98,22 +106,44 @@ echo 'Averageテーブルを統合しました'
 mysql -u root -D wcaTmp -e 'alter table Averages add column id int auto_increment primary key'
 mysql -u root -D wcaTmp -e 'drop table if exists Average'
 echo 'Averagesテーブル作成しました。'
+mysql -u root -D wcaTmp -e "alter table Averages add index Averages_index (id, average, gender, personCountryId, continentId, eventId, year)"
+echo 'AveragesテーブルにIndexを作成しました。'
 
 # Ranks
+mysql -u root -D wcaTmp -e "create index RanksSingle_index on RanksSingle (personId)"
+mysql -u root -D wcaTmp -e "create index PanksAverage_index on RanksAverage (personId)"
 mysql -u root -D wcaTmp -e 'alter table RanksSingle add column id int auto_increment primary key'
 mysql -u root -D wcaTmp -e 'alter table RanksAverage add column id int auto_increment primary key'
 
+mysql -u root -D wcaTmp -e 'create table RanksSingle1 as select RanksSingle.id, RanksSingle.personId, gender, eventId, best, name as personName, countryId as personCountryId, worldRank, continentRank, countryRank from RanksSingle, Persons where RanksSingle.personId = Persons.id COLLATE utf8_general_ci'
+
+mysql -u root -D wcaTmp -e 'create table RanksSingle2 as select RanksSingle1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksSingle1, Countries where RanksSingle1.personCountryId = Countries.id'
+mysql -u root -D wcaTmp -e 'alter table RanksSingle2 convert to character set utf8 collate utf8_unicode_ci'
+
+mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle'
+
+mysql -u root -D wcaTmp -e 'create table RanksSingle as select RanksSingle2.id, RanksSingle2.personId, RanksSingle2.gender, RanksSingle2.eventId, RanksSingle2.best, RanksSingle2.personName, RanksSingle2.personCountryId, RanksSingle2.continentId, worldRank, continentRank, countryRank, year from RanksSingle2, Results where RanksSingle2.eventId = Results.eventId and RanksSingle2.personId = Results.personId and RanksSingle2.best = Results.best'
+mysql -u root -D wcaTmp -e "create index RanksSingle_index on RanksSingle (personId)"
+
+mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle1'
+mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle2'
+
+mysql -u root -D wcaTmp -e 'create table RanksAverage1 as select RanksAverage.id, RanksAverage.personId, gender, eventId, best, name as personName, countryId as personCountryId, worldRank, continentRank, countryRank from RanksAverage, Persons where RanksAverage.personId = Persons.id COLLATE utf8_general_ci'
+
+mysql -u root -D wcaTmp -e 'create table RanksAverage2 as select RanksAverage1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksAverage1, Countries where RanksAverage1.personCountryId = Countries.id'
+mysql -u root -D wcaTmp -e 'alter table RanksAverage2 convert to character set utf8 collate utf8_unicode_ci'
+
+mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage'
+
+mysql -u root -D wcaTmp -e 'create table RanksAverage as select RanksAverage2.id, RanksAverage2.personId, RanksAverage2.gender, RanksAverage2.eventId, RanksAverage2.best, RanksAverage2.personName, RanksAverage2.personCountryId, RanksAverage2.continentId, worldRank, continentRank, countryRank, year from RanksAverage2, Results where RanksAverage2.eventId = Results.eventId and RanksAverage2.personId = Results.personId and RanksAverage2.best = Results.average'
+mysql -u root -D wcaTmp -e "create index PanksAverage_index on RanksAverage (personId)"
+
+mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage1'
+mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage2'
+
 # Scrambles
 mysql -u root -D wcaTmp -e 'alter table Scrambles add column id int auto_increment primary key'
-
-# Other
-mysql -u root -D wcaTmp -e "alter table Averages add index Averages_index (id,average,gender,personCountryId,continentId,eventId,year)"
-mysql -u root -D wcaTmp -e "alter table Singles add index Singles_index (id,single,gender,personCountryId,continentId,eventId,competitionId,year)"
-mysql -u root -D wcaTmp -e "create index Results_index on Results (personId, eventId, best, average, competitionId, roundId, pos)"
-mysql -u root -D wcaTmp -e "create index Persons_index on Persons (id, name)"
 mysql -u root -D wcaTmp -e "create index Scrambles_index on Scrambles (competitionId)"
-
-echo 'indexを貼りました。'
 
 mysqldump -u root wcaTmp > wca.dump
 mysql -u root -D wca < wca.dump
