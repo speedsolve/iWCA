@@ -56,11 +56,12 @@ class rankingActions extends sfActions
 
       $this->type = 'prize';
       $results = PrizesTable::getInstance()->getPrize($eventId, $region, $years, $gender);
-      $results = PrizesService::getChangePrize($results, $limit);
+      $results = PrizesService::getChangePrize($results);
       foreach ($results as $i => &$result) {
         $result['personname'] = Util::removeParenthesis($result['personname']);
       }
       Util::adjustRank(&$results, 'record');
+      $results = Util::getCutResults($results, $limit);
 
     } else {
 

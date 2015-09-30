@@ -209,4 +209,23 @@ class Util
 
     return $results;
   }
+
+  /**
+   * 結果を件数で絞る
+   */
+  public static function getCutResults($results, $limit)
+  {
+      // 指定レコード分以外は切り捨てる
+      $records = array();
+      foreach ($results as $result) {
+
+         if ($result['rank'] > $limit) {
+           break;
+         }
+
+         $records[] = $result;
+      }
+
+      return $records;
+  }
 }
