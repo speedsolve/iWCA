@@ -10,6 +10,17 @@
 .subrecord{
     font-size: x-small;
 }
+.rank-event-title {
+    font-size: small;
+    color:     #aaaaaa;
+}
+.rank-event-rank {
+    font-size: 0.5em;
+}
+.rank-event-dead-rank {
+    font-size: 0.5em;
+    color:     #ff0000;
+}
 
 /*Person*/
 .person-event-name{

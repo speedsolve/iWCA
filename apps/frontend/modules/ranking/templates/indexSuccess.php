@@ -22,7 +22,7 @@
                     <option value="<?php echo $country['id'] ?>"><?php echo $key ?></option>
                 <?php endforeach ?>
             </select>
-            <select name="years" data-theme="a">
+            <select name="years" id="year_ranking" data-theme="a">
                 <option value="0">
                     Years
                 </option>
@@ -49,6 +49,7 @@
                     Miscellaneous
                 </option>
                 <option value="prize">Prize</option>
+                <option value="rank">Sum of All Rank</option>
             </select>
             <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain" align="center">
                 <input id="radio1" name="type" value="1" type="radio" data-theme="a" checked>

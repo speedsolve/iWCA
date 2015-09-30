@@ -13,6 +13,7 @@ class PrizesService
    */
   public static function getChangePrize($results)
   {
+    $records = array();
     $points = sfConfig::get('app_prize_point');
     foreach ($results as &$result) {
       $records[$result['personid']]['personid'] = $result['personid'];

@@ -117,29 +117,21 @@ mysql -u root -D wcaTmp -e 'alter table RanksAverage add column id int auto_incr
 
 mysql -u root -D wcaTmp -e 'create table RanksSingle1 as select RanksSingle.id, RanksSingle.personId, gender, eventId, best, name as personName, countryId as personCountryId, worldRank, continentRank, countryRank from RanksSingle, Persons where RanksSingle.personId = Persons.id COLLATE utf8_general_ci'
 
-mysql -u root -D wcaTmp -e 'create table RanksSingle2 as select RanksSingle1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksSingle1, Countries where RanksSingle1.personCountryId = Countries.id'
-mysql -u root -D wcaTmp -e 'alter table RanksSingle2 convert to character set utf8 collate utf8_unicode_ci'
-
 mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle'
 
-mysql -u root -D wcaTmp -e 'create table RanksSingle as select RanksSingle2.id, RanksSingle2.personId, RanksSingle2.gender, RanksSingle2.eventId, RanksSingle2.best, RanksSingle2.personName, RanksSingle2.personCountryId, RanksSingle2.continentId, worldRank, continentRank, countryRank, year from RanksSingle2, Results where RanksSingle2.eventId = Results.eventId and RanksSingle2.personId = Results.personId and RanksSingle2.best = Results.best'
+mysql -u root -D wcaTmp -e 'create table RanksSingle as select RanksSingle1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksSingle1, Countries where RanksSingle1.personCountryId = Countries.id'
 mysql -u root -D wcaTmp -e "create index RanksSingle_index on RanksSingle (personId)"
 
 mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle1'
-mysql -u root -D wcaTmp -e 'drop table if exists RanksSingle2'
 
 mysql -u root -D wcaTmp -e 'create table RanksAverage1 as select RanksAverage.id, RanksAverage.personId, gender, eventId, best, name as personName, countryId as personCountryId, worldRank, continentRank, countryRank from RanksAverage, Persons where RanksAverage.personId = Persons.id COLLATE utf8_general_ci'
 
-mysql -u root -D wcaTmp -e 'create table RanksAverage2 as select RanksAverage1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksAverage1, Countries where RanksAverage1.personCountryId = Countries.id'
-mysql -u root -D wcaTmp -e 'alter table RanksAverage2 convert to character set utf8 collate utf8_unicode_ci'
-
 mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage'
 
-mysql -u root -D wcaTmp -e 'create table RanksAverage as select RanksAverage2.id, RanksAverage2.personId, RanksAverage2.gender, RanksAverage2.eventId, RanksAverage2.best, RanksAverage2.personName, RanksAverage2.personCountryId, RanksAverage2.continentId, worldRank, continentRank, countryRank, year from RanksAverage2, Results where RanksAverage2.eventId = Results.eventId and RanksAverage2.personId = Results.personId and RanksAverage2.best = Results.average'
+mysql -u root -D wcaTmp -e 'create table RanksAverage as select RanksAverage1.id, personId, gender, eventId, best, personName, personCountryId, continentId, worldRank, continentRank, countryRank from RanksAverage1, Countries where RanksAverage1.personCountryId = Countries.id'
 mysql -u root -D wcaTmp -e "create index PanksAverage_index on RanksAverage (personId)"
 
 mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage1'
-mysql -u root -D wcaTmp -e 'drop table if exists RanksAverage2'
 
 # Scrambles
 mysql -u root -D wcaTmp -e 'alter table Scrambles add column id int auto_increment primary key'

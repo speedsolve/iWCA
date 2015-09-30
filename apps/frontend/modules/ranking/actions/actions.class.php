@@ -38,30 +38,61 @@ class rankingActions extends sfActions
     $type    = $request->getParameter('type');
     $misc    = $request->getParameter('misc');
 
-    // regionは総レコード検索
+    // Regionは総レコード検索
     if ($type == 'region') {
       $limit = NULL;
     } else {
       $limit = 100;
     }
 
-    // prize時はデフォルトをnullに
-    if ($misc == 'prize' && $eventId == 'event') {
+    // Misc時はデフォルトをnullに
+    if (($misc == 'prize' || $misc == 'rank') && $eventId == 'event') {
       $eventId = NULL;
     } elseif ($eventId == 'event') {
       $eventId = 333;
     }
 
-    if ($misc == 'prize') {
+    if ($misc) {
 
-      $this->type = 'prize';
-      $results = PrizesTable::getInstance()->getPrize($eventId, $region, $years, $gender);
-      $results = PrizesService::getChangePrize($results);
-      foreach ($results as $i => &$result) {
-        $result['personname'] = Util::removeParenthesis($result['personname']);
+      $this->type = $misc;
+      $memcache = new sfMemcacheCache();
+      $key = 'single:' . $misc . ':' . $eventId . ':' . $region . ':' . $years . ':' . $gender;
+      $results = $memcache->get($key);
+
+      if (!$results) {
+        if ($misc == 'prize') {
+          $results = PrizesTable::getInstance()->getPrize($eventId, $region, $years, $gender);
+          $results = PrizesService::getChangePrize($results);
+        } else if ($misc == 'rank') {
+          $results = RanksSingleTable::getInstance()->getRank($region, $gender);
+          $counts  = RanksSingleTable::getInstance()->getRankCount($region);
+          $results = RanksService::getChangeRank($results, $counts, $region, 'Single');
+          $this->counts = array();
+          foreach ($counts as $count) {
+            $this->counts[$count['eventid']] = $count['count'];
+          }
+        }
+
+        foreach ($results as $i => &$result) {
+          $result['personname'] = Util::removeParenthesis($result['personname']);
+        }
+        Util::adjustRank(&$results, 'record');
+        $results = Util::getCutResults($results, $limit);
+
+        $memcache->set($key, $results, 86400);
+        unset($memcache);
+
+      } else {
+
+        if ($misc == 'rank') {
+          $counts  = RanksSingleTable::getInstance()->getRankCount($region);
+          $this->counts = array();
+          foreach ($counts as $count) {
+            $this->counts[$count['eventid']] = $count['count'];
+          }
+        }
+
       }
-      Util::adjustRank(&$results, 'record');
-      $results = Util::getCutResults($results, $limit);
 
     } else {
 
@@ -92,11 +123,7 @@ class rankingActions extends sfActions
     $years   = $request->getParameter('years');
     $gender  = $request->getParameter('gender');
     $type    = $request->getParameter('type');
-
-    // デフォルトを置換
-    if ($eventId == 'event') {
-      $eventId = 333;
-    }
+    $misc    = $request->getParameter('misc');
 
     // regionは総レコード検索
     if ($type == 'region') {
@@ -105,26 +132,72 @@ class rankingActions extends sfActions
       $limit = 100;
     }
 
-    // データ取得
-    $results = AveragesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
-
-    // 地域別
-    if ($type == 'region') {
-      $results = Util::getRegionalRecord($results, 'average');
+    // Misc時はデフォルトをnullに
+    if ($misc == 'rank' && $eventId == 'event') {
+      $eventId = NULL;
+    } elseif ($eventId == 'event') {
+      $eventId = 333;
     }
 
-    // ランク追加
-    Util::adjustRank(&$results, 'average');
-    foreach ($results as $i => &$result) {
-      $result['personname'] = Util::removeParenthesis($result['personname']);
-      $result['record']     = Util::getChangeRecord($result['average'], $result['eventid'], 'average');
-      unset($result['average']);
-      // 各々の記録もフォーマット変更
-      for ($j = 1; $j <= 5; $j++) {
-        $result['subrecord'][$j] = Util::getChangeRecord($result['value'.$j], $result['eventid'], 'single');
+    if ($misc) {
+
+      $this->type = $misc;
+      $memcache = new sfMemcacheCache();
+      $key = 'average:' . $misc . ':' . $eventId . ':' . $region . ':' . $years . ':' . $gender;
+      $results = $memcache->get($key);
+
+      if (!$results) {
+
+        if ($misc == 'rank') {
+          $results = RanksAverageTable::getInstance()->getRank($region, $gender);
+          $counts  = RanksAverageTable::getInstance()->getRankCount($region);
+          $results = RanksService::getChangeRank($results, $counts, $region, 'Average');
+          $this->counts = array();
+          foreach ($counts as $count) {
+            $this->counts[$count['eventid']] = $count['count'];
+          }
+        }
+
+        foreach ($results as $i => &$result) {
+          $result['personname'] = Util::removeParenthesis($result['personname']);
+        }
+        Util::adjustRank(&$results, 'record');
+        $results = Util::getCutResults($results, $limit);
+
+        $memcache->set($key, $results, 86400);
+        unset($memcache);
       }
-      // 最後に表示用に整形
-      Util::parenthesis(&$result);
+      else
+      {
+        $counts  = RanksAverageTable::getInstance()->getRankCount($region);
+        $this->counts = array();
+        foreach ($counts as $count) {
+          $this->counts[$count['eventid']] = $count['count'];
+        }
+      }
+
+    } else {
+
+      $results = AveragesTable::getInstance()->getRanking($type, $eventId, $region, $years, $gender, $limit, 0);
+
+      // 地域別
+      if ($type == 'region') {
+        $results = Util::getRegionalRecord($results, 'average');
+      }
+
+      // ランク追加
+      Util::adjustRank(&$results, 'average');
+      foreach ($results as $i => &$result) {
+        $result['personname'] = Util::removeParenthesis($result['personname']);
+        $result['record']     = Util::getChangeRecord($result['average'], $result['eventid'], 'average');
+        unset($result['average']);
+        // 各々の記録もフォーマット変更
+        for ($j = 1; $j <= 5; $j++) {
+          $result['subrecord'][$j] = Util::getChangeRecord($result['value'.$j], $result['eventid'], 'single');
+        }
+        // 最後に表示用に整形
+        Util::parenthesis(&$result);
+      }
     }
 
     $this->results = $results;

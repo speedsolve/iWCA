@@ -49,8 +49,8 @@ class personActions extends sfActions
   public function executeDetail(sfWebRequest $request)
   {
     $id             = $request->getParameter('id');
-    $single_ranks   = RanksSingleTable::getInstance()->getRanks($id);
-    $average_ranks  = RanksAverageTable::getInstance()->getRanks($id);
+    $single_ranks   = RanksSingleTable::getInstance()->getPersonalRanks($id);
+    $average_ranks  = RanksAverageTable::getInstance()->getPersonalRanks($id);
     $results        = ResultsTable::getInstance()->getPersonalResults($id);
 
     // 大会結果側のためにResultsをキャッシュする

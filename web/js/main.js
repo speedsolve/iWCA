@@ -39,8 +39,16 @@ $(document).delegate('#ranking_index', 'pageinit', function(){
            $('.average').button('disable');
            $('.result').checkboxradio('disable');
            $('.region').checkboxradio('disable');
+        } else if($(this).val() == 'rank'){
+           $('.average').button('enable');
+           $('#event_ranking').selectmenu('disable');
+           $('#year_ranking').selectmenu('disable');
+           $('.result').checkboxradio('disable');
+           $('.region').checkboxradio('disable');
         } else {
            $('.average').button('enable');
+           $('#event_ranking').selectmenu('enable');
+           $('#year_ranking').selectmenu('enable');
            $('.result').checkboxradio('enable');
            $('.region').checkboxradio('enable');
         }
