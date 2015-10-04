@@ -108,6 +108,7 @@ all:
       'Bosnia and Herzegovina': { id: 'Bosnia and Herzegovina', continent: 'Europe',        record: 'ER' }
       'Brazil':                 { id: 'Brazil',                 continent: 'South America', record: 'SAR'}
       'Bulgaria':               { id: 'Bulgaria',               continent: 'Europe',        record: 'ER' }
+      'Burkina Faso':           { id: 'Burkina Faso',           continent: 'Africa',        record: 'AfR'}
       'Canada':                 { id: 'Canada',                 continent: 'North America', record: 'NAR'}
       'Chile':                  { id: 'Chile',                  continent: 'South America', record: 'SAR'}
       'China':                  { id: 'China',                  continent: 'Asia',          record: 'AsR'}
@@ -210,6 +211,7 @@ all:
       'Africa':
         - 'Angola'
         - 'Algeria'
+        - 'Burkina Faso'
         - "Cote d'Ivoire"
         - 'Egypt'
         - 'Madagascar'
