@@ -148,7 +148,7 @@ class ResultsService
   {
       $prize = array();
       foreach ($results as $result) {
-        if ($result['pos'] <= 3 && $result['best'] > -1 && ($result['roundid'] == 'f' || $result['roundid'] == 'c')) {
+        if ($result['pos'] <= 3 && $result['best'] > -1 && $result['eventid'] != '333mbo' && ($result['roundid'] == 'f' || $result['roundid'] == 'c')) {
           $prize[$result['pos']] += 1;
         }
       }
