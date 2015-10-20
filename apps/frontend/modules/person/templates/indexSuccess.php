@@ -6,6 +6,7 @@
                 <option value="0">
                     Region
                 </option>
+                <optgroup label="Countries">
                 <?php foreach(sfConfig::get('app_country_id') as $key => $country): ?>
                     <option value="<?php echo $country['id'] ?>"><?php echo $key ?></option>
                 <?php endforeach ?>

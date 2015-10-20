@@ -16,9 +16,11 @@
                     Region
                 </option>
                 <option value="0">World</option>
+                <optgroup label="Continents">
                 <?php foreach(sfConfig::get('app_name_continents') as $key => $continent): ?>
                     <option value="<?php echo $continent ?>"><?php echo $continent ?></option>
                 <?php endforeach ?>
+                <optgroup label="Countries">
                 <?php foreach(sfConfig::get('app_country_id') as $key => $country): ?>
                     <option value="<?php echo $country['id'] ?>"><?php echo $key ?></option>
                 <?php endforeach ?>
