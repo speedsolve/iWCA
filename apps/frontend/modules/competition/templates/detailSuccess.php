@@ -105,16 +105,20 @@
 
         <?php if ($wcadelegates): ?>
             <ul data-role="listview" data-inset="true" class="ui-listview">
+                <?php $name = '' ?>
                 <?php foreach ($wcadelegates['string'] as $key => $string): ?>
-                <li>
-                    <?php if (isset($wcadelegates['path'][$key])): ?>
-                        <a href="<?php echo $wcadelegates['path'][$key] ?>">
-                            <?php echo $string ?>
-                        </a>
-                    <?php else: ?>
-                        <?php echo $string ?>
-                    <?php endif ?>
-                </li>
+                    <?php if ($name != $string): ?>
+                        <li>
+                            <?php if (isset($wcadelegates['path'][$key])): ?>
+                                <a href="<?php echo $wcadelegates['path'][$key] ?>">
+                                    <?php echo $string ?>
+                                </a>
+                            <?php else: ?>
+                                <?php echo $string ?>
+                            <?php endif ?>
+                        </li>
+                    <?php endif; ?>
+                    <?php $name = $string ?>
                 <?php endforeach ?>
             </ul>
 
