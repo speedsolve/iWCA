@@ -22,7 +22,11 @@
                     <?php if (is_object($website)): ?>
                        <a href="<?php echo $website['path'][0] ?>"><?php echo $website['string'][0] ?></a>
                     <?php else: ?>
-                       <?php echo $website ?>
+                       <?php if (preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$, %#]+)$/', $website)): ?>
+                           <a href="<?php echo $website ?>"><?php echo $website ?></a>
+                       <?php else: ?>
+                           <?php echo $website ?>
+                       <?php endif ?>
                     <?php endif ?>
                 </li>
             <?php endif ?>
