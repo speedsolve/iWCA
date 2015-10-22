@@ -13,7 +13,7 @@
                         Unknown,&nbsp;
                     <?php endif ?>
                         Competitions&nbsp;<?php echo $competition_count ?><br />
-                        Distance&nbsp;<?php echo floor($distance) ?>&nbsp;km
+                        <i class="fa fa-plane"></i>&nbsp;&nbsp;Distance&nbsp;<?php echo floor($distance) ?>&nbsp;km
                 </span><br />
             </li>
         </ul>
@@ -56,14 +56,14 @@
         <?php if (isset($prizes)): ?>
             <ul data-role="listview" data-inset="true" >
                 <li>
-                    <span class="person-prize-title">Number of Prizes</span><br />
+                    <span class="person-prize-title"><i class="fa fa-trophy"></i>&nbsp;&nbsp;Prizes</span><br />
                     <?php foreach ($prizes as $pos => $count): ?>
                         <?php if ($pos == 1): ?>
-                            <span class="person-1st">1st</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                            <span class="person-1st">Gold</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
                         <?php elseif ($pos == 2): ?>
-                            <span class="person-2nd">2nd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                            <span class="person-2nd">Silver</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
                         <?php elseif ($pos == 3): ?>
-                            <span class="person-3rd">3rd</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
+                            <span class="person-3rd">Bronze</span>&nbsp;&nbsp;<?php echo $count ?>&nbsp;
                         <?php endif ?>
                     <?php endforeach ?>
                 </li>

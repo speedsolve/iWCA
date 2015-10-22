@@ -12,6 +12,7 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <?php include_javascripts() ?>
         <?php use_stylesheet('http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css') ?>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <?php include_stylesheets() ?>
     </head>
     <body>

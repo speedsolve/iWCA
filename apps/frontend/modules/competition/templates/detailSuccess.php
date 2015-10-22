@@ -10,14 +10,14 @@
                     <span class="competition-detail-date"><?php echo $competition['year'].'/'.$competition['month'].'/'.$competition['day'] ?>&nbsp;-&nbsp;<?php echo $competition['endmonth'].'/'.$competition['endday'] ?></span><br />
                 <?php endif ?>
                 <?php if ($competitorNumber > 0): ?>
-                    <span class="competition-detail-number"><?php echo $competitorNumber ?>&nbsp;Competitors</span>
+                    <span class="competition-detail-number"><i class="fa fa-male"></i>&nbsp;&nbsp;<?php echo $competitorNumber ?>&nbsp;Competitors</span>
                 <?php endif ?>
             </li>
         </ul>
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
                 <a href="<?php echo url_for('competition/map?competitionId='.$competition['id']) ?>">
-                    <?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
+                    <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<?php echo $competition['cityname'].',&nbsp;'.$competition['countryid'] ?><br />
                 </a>
             </li>
             <?php if ($website): ?>
@@ -59,7 +59,7 @@
         <?php if ($end): ?>
             <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
                 <div data-role="collapsible">
-                    <h2>Winners</h2>
+                    <h2><i class="fa fa-trophy"></i>&nbsp;&nbsp;Winners</h2>
                     <ul data-role="listview" data-theme="a" data-divider-theme="a">
                         <?php foreach (sfConfig::get('app_event_id') as $event => $value): ?>
                             <?php if (isset($winners[$event])): ?>
@@ -114,7 +114,7 @@
                         <li>
                             <?php if (isset($wcadelegates['path'][$key])): ?>
                                 <a href="<?php echo $wcadelegates['path'][$key] ?>">
-                                    <?php echo $string ?>
+                                    <i class="fa fa-envelope"></i>&nbsp;&nbsp;<?php echo $string ?>
                                 </a>
                             <?php else: ?>
                                 <?php echo $string ?>
