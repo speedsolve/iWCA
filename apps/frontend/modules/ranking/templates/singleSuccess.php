@@ -9,13 +9,13 @@
                             <?php echo $result['rank'] ?>.&nbsp;<?php echo image_tag('flag/' . $result['personcountryid'] . '.png', array('class' => 'ui-li-icon', 'style' => 'max-width:28px;max-height:28px;top:5px;left:5px;')) ?>&nbsp;<?php echo $result['personname'] ?><br />
                             <?php echo $result['record'] ?>&nbsp;<span class="ranking-prize-point">pt</span><br />
                             <?php if (isset($result['first'])): ?>
-                                <span class="ranking-prize-1st">1st</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['first'] ?></span>&nbsp;
+                                <span class="ranking-prize-1st">Gold</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['first'] ?></span>&nbsp;
                             <?php endif ?>
                             <?php if (isset($result['second'])): ?>
-                                <span class="ranking-prize-2nd">2nd</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['second'] ?></span>&nbsp;
+                                <span class="ranking-prize-2nd">Silver</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['second'] ?></span>&nbsp;
                             <?php endif ?>
                             <?php if (isset($result['third'])): ?>
-                                <span class="ranking-prize-3rd">3rd</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['third'] ?></span>&nbsp;
+                                <span class="ranking-prize-3rd">Bronze</span>&nbsp;&nbsp;<span class="ranking-prize-count"><?php echo $result['third'] ?></span>&nbsp;
                             <?php endif ?>
                         </a>
                     <?php elseif ($type == 'rank'): ?>
