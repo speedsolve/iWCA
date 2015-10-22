@@ -32,6 +32,10 @@
         </ul>
         <div align="center" class="information_copyright">
             @2012 Sinpei Araki, iWCA<br />
+            <br />
+            Font Awesome 4.4.0 · Created by Dave Gandy<br />
+            Released under the MIT license<br />
+            <a href="http://opensource.org/licenses/mit-license.html">http://opensource.org/licenses/mit-license.html</a>
         </div>
     </div>
     <?php include_partial('global/footer', array('ranking_class' => 'ui-btn-active ui-state-persist')) ?>
