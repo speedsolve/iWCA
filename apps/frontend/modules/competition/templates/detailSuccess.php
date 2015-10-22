@@ -9,6 +9,9 @@
                 <?php else: ?>
                     <span class="competition-detail-date"><?php echo $competition['year'].'/'.$competition['month'].'/'.$competition['day'] ?>&nbsp;-&nbsp;<?php echo $competition['endmonth'].'/'.$competition['endday'] ?></span><br />
                 <?php endif ?>
+                <?php if ($competitorNumber > 0): ?>
+                    <span class="competition-detail-number"><?php echo $competitorNumber ?>&nbsp;Competitors</span>
+                <?php endif ?>
             </li>
         </ul>
         <ul data-role="listview" data-inset="true" class="ui-listview">

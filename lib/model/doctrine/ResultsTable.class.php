@@ -34,6 +34,24 @@ class ResultsTable extends Doctrine_Table
        return $results;
     }
 
+    public function getCompetitionResultsByPersonId($competitionId)
+    {
+       $query = $this->createQuery();
+       $query->select('competitionid');
+       $query->where('competitionid = ?', $competitionId);
+
+       Query::groupBy($query, 'personid');
+
+       $query->useResultCache(true);
+
+       $results = $query->fetchArray();
+
+       $query->free();
+       unset($query);
+
+       return $results;
+    }
+
     public function getPersonalResults($personId)
     {
        $query = $this->createQuery();

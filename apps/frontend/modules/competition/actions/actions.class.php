@@ -49,6 +49,7 @@ class competitionActions extends sfActions
     $this->venue        = CompetitionsService::separateData($this->competition['venue']);
     $this->website      = CompetitionsService::separateData($this->competition['website']);
     $this->wcadelegates = CompetitionsService::separateData($this->competition['wcadelegate']);
+    $this->competitorNumber = count(ResultsTable::getInstance()->getCompetitionResultsByPersonId($competitionId));
 
     $memcache = new sfMemcacheCache();
     $this->results = $memcache->get($competitionId);
