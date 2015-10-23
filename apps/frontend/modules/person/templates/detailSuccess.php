@@ -1,5 +1,5 @@
 <div id="page" data-role="page" data-add-back-btn=”true” data-theme="a">
-    <?php include_partial('global/header', array('title' => 'Person')) ?>
+    <?php include_partial('global/header', array('title' => 'Person', 'isWcaPerson' => true, 'personId' => $person['id'])) ?>
     <div data-role="content">
         <ul data-role="listview" data-inset="true" class="ui-listview">
             <li>
