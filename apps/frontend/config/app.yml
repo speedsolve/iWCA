@@ -131,6 +131,7 @@ all:
       'Germany':                { id: 'Germany',                continent: 'Europe',        record: 'ER' }
       'Greece':                 { id: 'Greece',                 continent: 'Europe',        record: 'ER' }
       'Guatemala':              { id: 'Guatemala',              continent: 'North America', record: 'NAR'}
+      'Haiti'                   { id: 'Haiti',                  continent: 'North America', record: 'NAR'}
       'Hong Kong':              { id: 'Hong Kong',              continent: 'Asia',          record: 'AsR'}
       'Hungary':                { id: 'Hungary',                continent: 'Europe',        record: 'ER' }
       'Iceland':                { id: 'Iceland',                continent: 'Europe',        record: 'ER' }
@@ -313,6 +314,7 @@ all:
         - 'Dominican Republic'
         - 'El Salvador'
         - 'Guatemala'
+        - 'Haiti'
         - 'Jamaica'
         - 'Mexico'
         - 'Nicaragua'
