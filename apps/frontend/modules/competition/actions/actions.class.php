@@ -49,7 +49,11 @@ class competitionActions extends sfActions
     $this->venue        = CompetitionsService::separateData($this->competition['venue']);
     $this->website      = CompetitionsService::separateData($this->competition['website']);
     $this->wcadelegates = CompetitionsService::separateData($this->competition['wcadelegate']);
-    $this->competitorNumber = count(ResultsTable::getInstance()->getCompetitionResultsByPersonId($competitionId));
+    $this->competitors = ResultsTable::getInstance()->getCompetitorByPersonId($competitionId);
+    $this->competitorNumber = count($this->competitors);
+    foreach ($this->competitors as &$competitor) {
+      $competitor['personname'] = Util::removeParenthesis($competitor['personname']);
+    }
 
     $memcache = new sfMemcacheCache();
     $this->results = $memcache->get($competitionId);
@@ -88,6 +92,18 @@ class competitionActions extends sfActions
     if ($results) {
       $this->isScramble = true;
     }
+  }
+
+  public function executePersonal(sfWebRequest $request)
+  {
+    $this->competitionId = $request->getParameter('competitionId');
+    $this->personId = $request->getParameter('personId');
+    $this->name = $request->getParameter('personName');
+
+    $results = ResultsTable::getInstance()->getPersonalCompetitionResults($this->competitionId, $this->personId);
+
+    ResultsService::setData($results);
+    $this->results = ResultsService::getCompetitionResults($results);
   }
 
   public function executeMap(sfWebRequest $request)

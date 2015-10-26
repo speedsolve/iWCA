@@ -87,23 +87,47 @@
                     </ul>
                 </div>
             </div>
-            <ul data-role="listview" data-theme="a" data-inset="true" class="ui-listview">
-               <?php foreach ($events as $key => $event): ?>
-                    <li>
-                        <a href="<?php echo url_for('competition/results?competitionId='.$competition['id'].'&eventId='.$key) ?>" class="ui-link-inherit">
-                            <?php echo $event ?><br />
-                        </a>
-                    </li>
-                <?php endforeach ?>
-            </ul>
+            <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+                <div data-role="collapsible">
+                    <h2><i class="fa fa-user"></i>&nbsp;&nbsp;Competitors</h2>
+                    <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                        <?php foreach($competitors as $competitor): ?>
+                            <li>
+                                <a href="<?php echo url_for('competition/personal?competitionId='.$competition['id'].'&personId='.$competitor['personid'].'&personName='.$competitor['personname']) ?>" class="ui-link-inherit">
+                                    <?php echo $competitor['personname'] ?>
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+                <div data-role="collapsible">
+                    <h2><i class="fa fa-cube"></i>&nbsp;&nbsp;Events</h2>
+                    <ul data-role="listview" data-theme="a" class="ui-listview">
+                       <?php foreach ($events as $key => $event): ?>
+                            <li>
+                                <a href="<?php echo url_for('competition/results?competitionId='.$competition['id'].'&eventId='.$key) ?>" class="ui-link-inherit">
+                                    <?php echo $event ?>
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
         <?php else: ?>
-            <ul data-role="listview" data-inset="true" class="ui-listview">
-                <?php foreach ($events as $key => $event): ?>
-                    <li>
-                        <?php echo $event ?><br />
-                    </li>
-                <?php endforeach ?>
-            </ul>
+            <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+                <div data-role="collapsible">
+                    <h2><i class="fa fa-cube"></i>&nbsp;&nbsp;Events</h2>
+                    <ul data-role="listview" class="ui-listview">
+                        <?php foreach ($events as $key => $event): ?>
+                            <li>
+                                <?php echo $event ?><br />
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
         <?php endif ?>
 
         <?php if ($wcadelegates): ?>

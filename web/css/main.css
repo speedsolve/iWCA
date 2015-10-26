@@ -164,6 +164,11 @@
 .winner-time{
     font-size: small;
 }
+.personal-round{
+    font-size: small;
+    color:     #aaaaaa;
+    margin-bottom: 0.5em;
+}
 .results-title{
     color:     #aaaaaa;
 }

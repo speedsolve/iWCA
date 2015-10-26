@@ -34,11 +34,12 @@ class ResultsTable extends Doctrine_Table
        return $results;
     }
 
-    public function getCompetitionResultsByPersonId($competitionId)
+    public function getCompetitorByPersonId($competitionId)
     {
        $query = $this->createQuery();
-       $query->select('competitionid');
+       $query->select('personid, personname');
        $query->where('competitionid = ?', $competitionId);
+       $query->orderBy('personname ASC');
 
        Query::groupBy($query, 'personid');
 
@@ -57,6 +58,24 @@ class ResultsTable extends Doctrine_Table
        $query = $this->createQuery();
        $query->select('competitionid, eventid, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
        $query->where('personid = ?', $personId);
+
+       $query->orderBy('id DESC');
+       $query->useResultCache(true);
+
+       $results = $query->fetchArray();
+
+       $query->free();
+       unset($query);
+
+       return $results;
+    }
+
+    public function getPersonalCompetitionResults($competitionId, $personId)
+    {
+       $query = $this->createQuery();
+       $query->select('competitionid, eventid, gender, roundid, pos, best, average, personid, personname, personcountryid, continentid, formatid, value1, value2, value3, value4, value5, regionalsinglerecord, regionalaveragerecord, competitionname, countryid, year, month, day, endmonth, endday');
+       $query->where('competitionid = ?', $competitionId);
+       $query->andWhere('personid = ?', $personId);
 
        $query->orderBy('id DESC');
        $query->useResultCache(true);
