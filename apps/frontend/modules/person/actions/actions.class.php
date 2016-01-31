@@ -77,7 +77,10 @@ class personActions extends sfActions
     $this->average_ranks  = Util::setEventKey($average_ranks);
     ResultsService::setData(&$results);
     $this->histories      = ResultsService::getHistoryRecord($results);
-    $this->podiums        = ResultsService::getWorldChampionshipPodiums($results);
+    $podiums              = ResultsService::getPodiums($results);
+    $this->world_podiums  = $podiums['world'];
+    $this->asian_podiums  = $podiums['asian'];
+    $this->euro_podiums   = $podiums['euro'];
     $this->competition_count = ResultsService::getCompetitionCount($results);
     $this->distance = CompetitionsService::getCompetitionDistance($results);
   }

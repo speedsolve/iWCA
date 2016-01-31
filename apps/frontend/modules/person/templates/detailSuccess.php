@@ -18,11 +18,31 @@
             </li>
         </ul>
         <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
-           <?php if (count($podiums) > 0): ?>
+           <?php if (count($world_podiums) > 0): ?>
                <div data-role="collapsible">
                    <h2>World Championship Podiums</h2>
                    <ul data-role="listview" data-theme="a" data-divider-theme="a">
-                       <?php include_partial('global/podiums', array('podiums' => $podiums)) ?>
+                       <?php include_partial('global/podiums', array('podiums' => $world_podiums)) ?>
+                   </ul>
+               </div>
+           <?php endif ?>
+        </div>
+        <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+           <?php if (count($euro_podiums) > 0): ?>
+               <div data-role="collapsible">
+                   <h2>European Championship Podiums</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/podiums', array('podiums' => $euro_podiums)) ?>
+                   </ul>
+               </div>
+           <?php endif ?>
+        </div>
+        <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set" data-inset="true">
+           <?php if (count($asian_podiums) > 0): ?>
+               <div data-role="collapsible">
+                   <h2>Asian Championship Podiums</h2>
+                   <ul data-role="listview" data-theme="a" data-divider-theme="a">
+                       <?php include_partial('global/podiums', array('podiums' => $asian_podiums)) ?>
                    </ul>
                </div>
            <?php endif ?>

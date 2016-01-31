@@ -180,9 +180,47 @@ class ResultsService
   }
 
   /**
+   * アジア大会入賞記録取得
+   */
+  public static function getAsianChampionshipCompetitionIds($results)
+  {
+    $competitionIds = array();
+
+    $years = range((int)sfConfig::get('app_asian_start_year'), (int)sfConfig::get('app_now_year'));
+    foreach ($years as $year) {
+      if ($year % 2 == 0) {
+        $competitionIds[] = 'AsianChampionship' . $year;
+      }
+    }
+
+    rsort($competitionIds);
+
+    return $competitionIds;
+  }
+
+  /**
+   * ユーロ大会入賞記録取得
+   */
+  public static function getEuropeanChampionshipCompetitionIds($results)
+  {
+    $competitionIds = array();
+
+    $years = range((int)sfConfig::get('app_euro_start_year'), (int)sfConfig::get('app_now_year'));
+    foreach ($years as $year) {
+      if ($year % 2 == 0) {
+        $competitionIds[] = 'Euro' . $year;
+      }
+    }
+
+    rsort($competitionIds);
+
+    return $competitionIds;
+  }
+
+  /**
    * 世界大会入賞記録取得
    */
-  public static function getWorldChampionshipPodiums($results)
+  public static function getWorldChampionshipCompetitionIds($results)
   {
     $competitionIds = array();
 
@@ -196,20 +234,41 @@ class ResultsService
 
     rsort($competitionIds);
 
+    return $competitionIds;
+  }
+
+  /**
+   * Podium取得
+   */
+  public static function getPodiums($results, $competitionIds)
+  {
+    $competitionIds = array();
+    $competitionIds = array_merge($competitionIds, self::getAsianChampionshipCompetitionIds($results));
+    $competitionIds = array_merge($competitionIds, self::getEuropeanChampionshipCompetitionIds($results));
+    $competitionIds = array_merge($competitionIds, self::getWorldChampionshipCompetitionIds($results));
+
     $podiums = array();
     foreach (sfConfig::get('app_event_id') as $event => $value) {
       foreach ($results as $result) {
         if (in_array($result['competitionid'], $competitionIds)) {
           if ($result['eventid'] === (string)$event && ($result['roundid'] == 'Combined Final' || $result['roundid'] === 'Final') && $result['pos'] <= 3) {
             if (($result['best'] != 'DNF' && $result['best'] != 'DNS') || ($result['average'] != 'DNF' && $result['average'] != 'DNS' && $result['average'] != '')) {
-               $podiums[$result['year']][] = $result;
+              if (strpos((string)$result['competitionid'], 'WC') === 0) {
+                $podiums['world'][$result['year']][] = $result;
+              } else if (strpos((string)$result['competitionid'], 'Euro') === 0) {
+                $podiums['euro'][$result['year']][] = $result;
+              } else if (strpos((string)$result['competitionid'], 'Asian') === 0) {
+                $podiums['asian'][$result['year']][] = $result;
+              }
             }
           }
         }
       }
     }
 
-    krsort($podiums);
+    krsort($podiums['world']);
+    krsort($podiums['euro']);
+    krsort($podiums['asian']);
 
     return $podiums;
   }
