@@ -11,6 +11,9 @@ all:
   recently_old_year: 2003
   now_year: 2015
 
+  asian_start_year: 2010
+  euro_start_year: 2004
+
   name:
     continents: { 0: Africa, 1: Asia, 2: Europe, 3: North America, 4: Oceania, 5: South America }
     record:     { Africa: AfR, Asia: AsR, Oceania: OcR, Europe: ER, North America: NAR, South America: SAR }
@@ -188,6 +191,7 @@ all:
       'Spain':                  { id: 'Spain',                  continent: 'Europe',        record: 'ER' }
       'Sri Lanka':              { id: 'Sri Lanka',              continent: 'Asia',          record: 'AsR'}
       'Sudan':                  { id: 'Sudan',                  continent: 'Africa',        record: 'AfR'}
+      'Suriname':               { id: 'Suriname'                continent: 'South America', record: 'SAR'}
       'Sweden':                 { id: 'Sweden',                 continent: 'Europe',        record: 'ER' }
       'Switzerland':            { id: 'Switzerland',            continent: 'Europe',        record: 'ER' }
       'Taiwan':                 { id: 'Taiwan',                 continent: 'Asia',          record: 'AsR'}
@@ -330,6 +334,7 @@ all:
         - 'Ecuador'
         - 'Paraguay'
         - 'Peru'
+        - 'Suriname'
         - 'Trinidad and Tobago'
         - 'Uruguay'
         - 'Venezuela'
